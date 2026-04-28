@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Broadsheet — Alasdair Gray Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="src/tokens.css"/>
+<link rel="stylesheet" href="src/components.css"/>
+<style>
+  body { margin: 0; }
+  .index-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--v6-ink-faint);
+  }
+  .index-list > li {
+    border-bottom: 1px solid var(--v6-ink-faint);
+    padding: var(--v6-space-6) 0;
+  }
+  .index-list a {
+    text-decoration: none;
+    color: var(--v6-ink);
+    display: block;
+  }
+  .index-list a:hover .ix-title { color: var(--v6-accent); }
+  .ix-label {
+    font-family: var(--v6-font-display-sc);
+    font-size: var(--v6-type-label);
+    letter-spacing: 0.18em;
+    color: var(--v6-ink-mute);
+    display: block;
+    margin-bottom: var(--v6-space-2);
+  }
+  .ix-title {
+    font-family: var(--v6-font-display);
+    font-size: var(--v6-type-h2);
+    line-height: 1.15;
+    margin: 0 0 var(--v6-space-2) 0;
+    transition: color 120ms var(--v6-ease, ease);
+  }
+  .ix-dek {
+    font-family: var(--v6-font-body);
+    font-style: italic;
+    color: var(--v6-ink-soft);
+    margin: 0;
+  }
+  .preview-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--v6-space-5) var(--v6-space-6);
+  }
+  .preview-grid a {
+    text-decoration: none;
+    color: var(--v6-ink);
+    display: block;
+    padding: var(--v6-space-4) 0;
+    border-bottom: 1px solid var(--v6-ink-thread);
+  }
+  .preview-grid a:hover .pg-title { color: var(--v6-accent); }
+  .pg-title {
+    font-family: var(--v6-font-display-sc);
+    font-size: var(--v6-type-label);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin: 0 0 var(--v6-space-1) 0;
+    transition: color 120ms var(--v6-ease, ease);
+  }
+  .pg-sub {
+    font-family: var(--v6-font-body);
+    font-style: italic;
+    color: var(--v6-ink-soft);
+    font-size: 15px;
+    margin: 0;
+  }
+  @media (max-width: 720px) {
+    .preview-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="v6">
+  <div class="v6-frame">
+    <div class="v6-frame__inner">
+      <span class="v6-frame__corner-bl">❦</span>
+      <span class="v6-frame__corner-br">❦</span>
+
+      <header class="v6-masthead">
+        <div class="v6-masthead__line">THINGSITHINKITHINK · A BLOG IN BROADSHEET FORM</div>
+        <h1 class="v6-title" style="margin-top: var(--v6-space-3); margin-bottom: var(--v6-space-2);">
+          ❦ Broadsheet ❦
+        </h1>
+        <p class="v6-dek"><em>— in which the visitor is shown the parts that make the whole —</em></p>
+        <div class="v6-byline">THE ALASDAIR GRAY DESIGN SYSTEM · DAVID GÉROUVILLE-FARRELL</div>
+      </header>
+
+      <div class="v6-body">
+        <div class="v6-motto">❦ A QUESTION OF MOMENT ❦</div>
+
+        <p style="text-indent: 0;">
+          A self-contained design system modelled on the Glaswegian broadsheets and book-jackets of Alasdair Gray. Engraved double frames, sepia plates, fell-letter display, and a single oxblood accent for mottos. Posts are always single-column chapters; the three-column layout is reserved for the index. There are no icons, no shadows, no rounded corners, no gradients - the vocabulary is six Unicode glyphs and one frame.
+        </p>
+
+        <h2 class="v6-h2"><span class="v6-h2__inner">❧ The Three Acts ❧</span></h2>
+
+        <ul class="index-list">
+          <li>
+            <a href="reference/original_styleguide.html">
+              <span class="ix-label">ACT THE FIRST · CANONICAL REFERENCE</span>
+              <h3 class="ix-title">The Hand-Set Styleguide</h3>
+              <p class="ix-dek">— in which every token, type stop, and component is set down as a single sheet —</p>
+            </a>
+          </li>
+          <li>
+            <a href="ui_kits/blog/index.html">
+              <span class="ix-label">ACT THE SECOND · LIVE UI KIT</span>
+              <h3 class="ix-title">The Broadsheet Blog</h3>
+              <p class="ix-dek">— a working three-screen prototype: index, post, and frontispiece, set in the system's own voice —</p>
+            </a>
+          </li>
+          <li>
+            <a href="ui_kits/blog/index-print.html">
+              <span class="ix-label">ACT THE THIRD · PRINT EDITION</span>
+              <h3 class="ix-title">The Three Screens, Set for Print</h3>
+              <p class="ix-dek">— the same kit, paginated for A4 and ready for the press —</p>
+            </a>
+          </li>
+        </ul>
+
+        <h2 class="v6-h2"><span class="v6-h2__inner">❧ Preview Cards ❧</span></h2>
+
+        <p style="text-indent: 0; margin-bottom: var(--v6-space-6);">
+          Twenty-four small studies, one concept apiece. Each is a self-contained HTML file demonstrating a single rule of the system - colour, type, spacing, ornament, component, brand.
+        </p>
+
+        <ul class="preview-grid">
+          <li><a href="preview/colors-core.html"><h4 class="pg-title">Colours · Core</h4><p class="pg-sub">paper, ink, oxblood</p></a></li>
+          <li><a href="preview/colors-paper-tooth.html"><h4 class="pg-title">Colours · Paper Tooth</h4><p class="pg-sub">the rotogravure dot</p></a></li>
+          <li><a href="preview/colors-ink-scale.html"><h4 class="pg-title">Colours · Ink Scale</h4><p class="pg-sub">soft / mute / faint / thread</p></a></li>
+          <li><a href="preview/colors-accent-rules.html"><h4 class="pg-title">Colours · Accent Rules</h4><p class="pg-sub">where oxblood may and may not appear</p></a></li>
+          <li><a href="preview/type-families.html"><h4 class="pg-title">Type · Families</h4><p class="pg-sub">three serifs and a mono</p></a></li>
+          <li><a href="preview/type-prose.html"><h4 class="pg-title">Type · Prose</h4><p class="pg-sub">19px Cormorant, justified, hyphenated</p></a></li>
+          <li><a href="preview/type-labels.html"><h4 class="pg-title">Type · Labels</h4><p class="pg-sub">small caps with letterspacing</p></a></li>
+          <li><a href="preview/type-dropcap.html"><h4 class="pg-title">Type · Drop Cap</h4><p class="pg-sub">78px oxblood IM Fell</p></a></li>
+          <li><a href="preview/type-code.html"><h4 class="pg-title">Type · Code</h4><p class="pg-sub">JetBrains Mono on ink</p></a></li>
+          <li><a href="preview/spacing-scale.html"><h4 class="pg-title">Spacing · Scale</h4><p class="pg-sub">4-8-12-18-24-36-48-64-96</p></a></li>
+          <li><a href="preview/spacing-frame-radius.html"><h4 class="pg-title">Spacing · Frame &amp; Radius</h4><p class="pg-sub">always zero radius</p></a></li>
+          <li><a href="preview/spacing-layouts.html"><h4 class="pg-title">Spacing · Layouts</h4><p class="pg-sub">post and broadsheet</p></a></li>
+          <li><a href="preview/spacing-ornaments.html"><h4 class="pg-title">Spacing · Ornaments</h4><p class="pg-sub">the six glyphs in situ</p></a></li>
+          <li><a href="preview/comp-frame.html"><h4 class="pg-title">Component · Frame</h4><p class="pg-sub">the engraved double border</p></a></li>
+          <li><a href="preview/comp-masthead.html"><h4 class="pg-title">Component · Masthead</h4><p class="pg-sub">title, dek, byline</p></a></li>
+          <li><a href="preview/comp-title-byline.html"><h4 class="pg-title">Component · Title &amp; Byline</h4><p class="pg-sub">the chapter opens</p></a></li>
+          <li><a href="preview/comp-plate.html"><h4 class="pg-title">Component · Plate</h4><p class="pg-sub">framed sepia image</p></a></li>
+          <li><a href="preview/comp-motto-headings.html"><h4 class="pg-title">Component · Motto &amp; Headings</h4><p class="pg-sub">h1 / h2 / h3 / motto</p></a></li>
+          <li><a href="preview/comp-body-prose.html"><h4 class="pg-title">Component · Body Prose</h4><p class="pg-sub">indent, drop cap, hyphenation</p></a></li>
+          <li><a href="preview/comp-quote-end.html"><h4 class="pg-title">Component · Quote &amp; End</h4><p class="pg-sub">the wash and the closer</p></a></li>
+          <li><a href="preview/comp-code-frame.html"><h4 class="pg-title">Component · Code Frame</h4><p class="pg-sub">label, plate, language</p></a></li>
+          <li><a href="preview/brand-wordmark.html"><h4 class="pg-title">Brand · Wordmark</h4><p class="pg-sub">type-set, no graphic</p></a></li>
+          <li><a href="preview/brand-iconography.html"><h4 class="pg-title">Brand · Iconography</h4><p class="pg-sub">six glyphs, one frame</p></a></li>
+          <li><a href="preview/brand-principles.html"><h4 class="pg-title">Brand · Principles</h4><p class="pg-sub">the three acts</p></a></li>
+          <li><a href="preview/brand-voice.html"><h4 class="pg-title">Brand · Voice</h4><p class="pg-sub">a worked example</p></a></li>
+        </ul>
+
+        <h2 class="v6-h2"><span class="v6-h2__inner">❧ How to Use ❧</span></h2>
+
+        <p style="text-indent: 0;">
+          Load the three CSS files in this order, then write semantic markup with <code style="font-family: var(--v6-font-mono); font-size: 0.92em;">.v6-*</code> classes:
+        </p>
+
+        <div class="v6-code-frame">
+          <div class="v6-code-frame__label">❦ THE LOADING ORDER ❦</div>
+          <pre class="v6-code"><code>&lt;link rel="stylesheet" href="fonts.css"/&gt;
+&lt;link rel="stylesheet" href="src/tokens.css"/&gt;
+&lt;link rel="stylesheet" href="src/components.css"/&gt;
+&lt;body class="v6"&gt;
+  &lt;div class="v6-frame"&gt;
+    &lt;div class="v6-frame__inner"&gt;
+      &lt;span class="v6-frame__corner-bl"&gt;❦&lt;/span&gt;
+      &lt;span class="v6-frame__corner-br"&gt;❦&lt;/span&gt;
+      &lt;!-- masthead, body, end --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+
+        <p style="margin-top: var(--v6-space-7);">
+          The full rules are in <a href="README.md" style="color: var(--v6-ink); border-bottom: 1px dotted var(--v6-ink-mute);">README.md</a>; the agent-skill manifest is in <a href="SKILL.md" style="color: var(--v6-ink); border-bottom: 1px dotted var(--v6-ink-mute);">SKILL.md</a>; the original handoff bundle's notes are in <a href="HANDOFF.md" style="color: var(--v6-ink); border-bottom: 1px dotted var(--v6-ink-mute);">HANDOFF.md</a>.
+        </p>
+
+        <div class="v6-end">
+          <div class="v6-end__ornament">❦ ❦ ❦</div>
+          <div class="v6-end__line">HERE ENDS THE INTRODUCTION</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

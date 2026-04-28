@@ -1,0 +1,38 @@
+/* Shared chrome for design-system preview cards.
+   Each card is rendered into a 700×<varies>px viewport. The asset name
+   shows OUTSIDE the card, so the cards themselves are minimal — no titles. */
+
+@import url("../fonts.css");
+@import url("../tokens.css");
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: var(--v2-paper);
+  color: var(--v2-ink);
+  font-family: var(--v2-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  padding: 28px 32px;
+  min-height: 100vh;
+}
+
+.card-mono   { font-family: var(--v2-font-mono); }
+.card-serif  { font-family: var(--v2-font-serif); }
+.card-sans   { font-family: var(--v2-font-sans); }
+.card-eyebrow {
+  font-family: var(--v2-font-mono);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--v2-ink-mute);
+}
+.card-token {
+  font-family: var(--v2-font-mono);
+  font-size: 11px;
+  color: var(--v2-ink-mute);
+  letter-spacing: 0.2px;
+}
+.card-token b { color: var(--v2-ink); font-weight: 500; }
+.card-rule { height: 1px; background: var(--v2-ink); }

@@ -1,0 +1,145 @@
+/* ============================================================================
+   Alasdair Gray Design System — colors_and_type.css
+
+   Semantic CSS variables for both color and type. Re-exports the V6 tokens
+   under generic names (fg1, fg2, h1, body, etc.) so designs can pull either
+   from the brand-specific --v6-* tokens or these generic aliases.
+
+   Load order:  fonts.css → src/tokens.css → colors_and_type.css → src/components.css
+   ============================================================================ */
+
+@import url("./fonts.css");
+@import url("./src/tokens.css");
+
+:root {
+
+  /* ── COLOR — semantic aliases ───────────────────────────────────────── */
+  --bg:           var(--v6-paper);            /* cream paper */
+  --bg-tooth:     var(--v6-paper-tooth);      /* speckle dot color */
+
+  --fg1:          var(--v6-ink);              /* primary text, frames */
+  --fg2:          var(--v6-ink-soft);         /* secondary text */
+  --fg3:          var(--v6-ink-mute);         /* labels, monospace meta */
+  --fg-faint:     var(--v6-ink-faint);        /* hairlines, dividers */
+  --fg-thread:    var(--v6-ink-thread);       /* finest rules */
+
+  --accent:       var(--v6-accent);           /* oxblood — mottos, drop caps */
+  --accent-soft:  var(--v6-accent-soft);
+
+  --plate-bg:     var(--v6-plate-bg);
+  --plate-tint:   var(--v6-plate-tint);
+
+  --code-bg:      var(--v6-code-bg);
+  --code-fg:      var(--v6-code-fg);
+
+  /* ── TYPE — family aliases ──────────────────────────────────────────── */
+  --serif-display:    var(--v6-font-display);     /* IM Fell English */
+  --serif-display-sc: var(--v6-font-display-sc);  /* IM Fell English SC */
+  --serif-body:       var(--v6-font-body);        /* Cormorant Garamond */
+  --mono:             var(--v6-font-mono);        /* JetBrains Mono — code only */
+}
+
+/* ── Element-level type defaults ─────────────────────────────────────────
+   These are SEMANTIC selectors (h1, h2, p, code, etc.) so plain HTML can
+   render with the broadsheet voice without remembering class names.
+   For component-level styling, prefer .v6-* classes from components.css.
+   ───────────────────────────────────────────────────────────────────── */
+
+body {
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--serif-body);
+  font-size: var(--v6-type-body);
+  line-height: var(--v6-type-body-lh);
+  background-image: radial-gradient(var(--bg-tooth) 1px, transparent 1px);
+  background-size: var(--v6-paper-tooth-size) var(--v6-paper-tooth-size);
+  margin: 0;
+}
+
+h1 {
+  font-family: var(--serif-display);
+  font-weight: 400;
+  font-size: var(--v6-type-h1);
+  line-height: var(--v6-type-h1-lh);
+  letter-spacing: var(--v6-type-h1-tracking);
+  margin: 0 0 .25em;
+}
+
+h2 {
+  font-family: var(--serif-display-sc);
+  font-weight: 400;
+  font-size: var(--v6-type-section);
+  letter-spacing: var(--v6-type-section-tracking);
+  text-transform: uppercase;
+  color: var(--fg1);
+  margin: 1.5em 0 .75em;
+}
+
+h3 {
+  font-family: var(--serif-display-sc);
+  font-weight: 400;
+  font-size: var(--v6-type-subhead);
+  letter-spacing: var(--v6-type-subhead-tracking);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 1.25em 0 .5em;
+}
+
+p {
+  font-family: var(--serif-body);
+  font-size: var(--v6-type-body);
+  line-height: var(--v6-type-body-lh);
+  margin: 0 0 16px;
+}
+
+em, i, .dek {
+  font-style: italic;
+}
+
+small, .caption {
+  font-family: var(--serif-body);
+  font-style: italic;
+  font-size: var(--v6-type-caption);
+  color: var(--fg2);
+}
+
+code, kbd, samp, pre {
+  font-family: var(--mono);
+  font-size: var(--v6-type-code);
+  line-height: var(--v6-type-code-lh);
+}
+
+pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: 16px 22px;
+  border: 1px solid var(--fg1);
+}
+
+a {
+  color: var(--fg1);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--fg1);
+  transition: color var(--v6-dur-fast) var(--v6-ease),
+              border-color var(--v6-dur-fast) var(--v6-ease);
+}
+a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--fg-faint);
+  margin: var(--v6-space-6) 0;
+}
+
+blockquote {
+  margin: 24px 32px;
+  padding: 12px 18px;
+  border-left: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  font-style: italic;
+  font-size: 20px;
+  text-align: center;
+}

@@ -1,0 +1,193 @@
+/* ============================================================================
+   V6 Alasdair Gray — components.css
+   Class-based components built on tokens.css. Load tokens.css FIRST.
+   ============================================================================ */
+
+/* ── BASE ─────────────────────────────────────────────────────────────────── */
+.v6 {
+  background: var(--v6-paper);
+  color: var(--v6-ink);
+  font-family: var(--v6-font-body);
+  font-size: var(--v6-type-body);
+  line-height: var(--v6-type-body-lh);
+  background-image: radial-gradient(var(--v6-paper-tooth) 1px, transparent 1px);
+  background-size: var(--v6-paper-tooth-size) var(--v6-paper-tooth-size);
+}
+.v6 *, .v6 *::before, .v6 *::after { box-sizing: border-box; }
+
+/* ── ENGRAVED FRAME ───────────────────────────────────────────────────────── */
+/* The signature double-line page frame with corner ornaments. */
+.v6-frame {
+  margin: var(--v6-frame-margin);
+  border: var(--v6-frame-outer);
+  padding: var(--v6-frame-gap);
+}
+.v6-frame__inner {
+  border: var(--v6-frame-inner);
+  padding: var(--v6-frame-pad-y) var(--v6-frame-pad-x);
+  position: relative;
+}
+.v6-frame__inner::before,
+.v6-frame__inner::after,
+.v6-frame__inner > .v6-frame__corner-bl,
+.v6-frame__inner > .v6-frame__corner-br {
+  content: var(--v6-glyph-corner);
+  position: absolute;
+  font-family: var(--v6-font-display);
+  font-size: 18px;
+  color: var(--v6-ink);
+  opacity: 0.7;
+}
+.v6-frame__inner::before { top: 8px; left: 8px; }
+.v6-frame__inner::after  { top: 8px; right: 8px; }
+.v6-frame__corner-bl { bottom: 8px; left: 8px; }
+.v6-frame__corner-br { bottom: 8px; right: 8px; }
+
+/* ── MASTHEAD ─────────────────────────────────────────────────────────────── */
+.v6-masthead { text-align:center; margin-bottom: var(--v6-space-4); }
+.v6-masthead__sub {
+  font-family: var(--v6-font-display-sc);
+  letter-spacing: var(--v6-type-masthead-tracking);
+  font-size: var(--v6-type-masthead);
+  color: var(--v6-ink-soft);
+}
+.v6-masthead__rule { height:1px; background: var(--v6-ink-faint); margin: 10px auto; }
+.v6-masthead__chapter {
+  font-family: var(--v6-font-display-sc);
+  font-size: var(--v6-type-chapter-label);
+  letter-spacing: var(--v6-type-chapter-tracking);
+  color: var(--v6-accent);
+  display:flex; justify-content:space-between;
+  max-width: 680px; margin: 0 auto;
+}
+
+/* ── TITLE + DEK ─────────────────────────────────────────────────────────── */
+.v6-title {
+  font-family: var(--v6-font-display);
+  font-weight: var(--v6-weight-regular);
+  font-size: var(--v6-type-h1);
+  line-height: var(--v6-type-h1-lh);
+  letter-spacing: var(--v6-type-h1-tracking);
+  margin: 30px auto 8px; text-align:center; max-width: 780px;
+}
+.v6-dek {
+  font-family: var(--v6-font-body); font-style: italic;
+  font-size: var(--v6-type-dek); line-height: var(--v6-type-dek-lh);
+  text-align:center; max-width: 620px; margin: 14px auto 8px;
+}
+
+/* ── BYLINE RULE ─────────────────────────────────────────────────────────── */
+.v6-byline { display:flex; align-items:center; justify-content:center; gap:14px; margin: 22px auto var(--v6-space-6); max-width: 520px; }
+.v6-byline__rule { flex:1; height:1px; background: var(--v6-ink-faint); }
+.v6-byline__text { font-family: var(--v6-font-display-sc); letter-spacing: var(--v6-type-byline-tracking); font-size: var(--v6-type-byline); color: var(--v6-ink); }
+
+/* ── PLATE (image) ────────────────────────────────────────────────────────── */
+.v6-plate { margin: 0 auto var(--v6-space-7); max-width: var(--v6-figure-max); border: var(--v6-frame-inner); padding: 6px; }
+.v6-plate--hero { max-width: 760px; }
+.v6-plate__image {
+  border: var(--v6-frame-inner);
+  width:100%; aspect-ratio: var(--v6-plate-ratio);
+  background: var(--v6-plate-bg) center/cover;
+  filter: var(--v6-plate-tint);
+}
+.v6-figcaption { text-align:center; font-family: var(--v6-font-body); font-style: italic; font-size: var(--v6-type-caption); line-height: var(--v6-type-caption-lh); color: var(--v6-ink-soft); margin-top: 8px; }
+.v6-figcaption::before { content: var(--v6-glyph-leaf-l) " "; }
+.v6-figcaption::after  { content: " " var(--v6-glyph-leaf-r); }
+
+/* ── MOTTO BAR ───────────────────────────────────────────────────────────── */
+.v6-motto {
+  text-align:center; margin: 0 auto var(--v6-space-6); max-width: 560px;
+  font-family: var(--v6-font-display-sc);
+  font-size: var(--v6-type-motto); letter-spacing: var(--v6-type-motto-tracking);
+  color: var(--v6-accent);
+}
+.v6-motto::before { content: var(--v6-glyph-motto) "  "; }
+.v6-motto::after  { content: "  " var(--v6-glyph-motto); }
+
+/* ── BODY (POST MODE — single column) ─────────────────────────────────────── */
+.v6-body {
+  max-width: var(--v6-reading-max);
+  margin: 0 auto;
+  font-family: var(--v6-font-body); font-size: var(--v6-type-body); line-height: var(--v6-type-body-lh);
+  color: var(--v6-ink); text-align: justify; hyphens: auto;
+}
+.v6-body p { margin: 0 0 16px; text-indent: 1.6em; }
+.v6-body p:first-of-type { text-indent: 0; }
+.v6-body p:first-of-type::first-letter {
+  float:left; font-family: var(--v6-font-display); font-size: var(--v6-type-dropcap);
+  line-height: var(--v6-type-dropcap-lh); color: var(--v6-accent);
+  padding: 6px 10px 0 0;
+}
+
+.v6-h2 { text-align:center; margin: 36px 0 18px; }
+.v6-h2 > span {
+  display:inline-block; border-top: var(--v6-hairline); border-bottom: var(--v6-hairline);
+  padding: 4px 24px;
+  font-family: var(--v6-font-display-sc);
+  letter-spacing: var(--v6-type-section-tracking); font-size: var(--v6-type-section);
+  color: var(--v6-ink); text-transform: uppercase;
+}
+.v6-h2 > span::before { content: var(--v6-glyph-section-l) "  "; }
+.v6-h2 > span::after  { content: "  " var(--v6-glyph-section-r); }
+
+.v6-h3 {
+  font-family: var(--v6-font-display-sc);
+  font-size: var(--v6-type-subhead);
+  letter-spacing: var(--v6-type-subhead-tracking);
+  color: var(--v6-accent);
+  margin: 24px 0 8px; text-align:center; text-transform: uppercase;
+}
+.v6-h3::before, .v6-h3::after { content: "—"; margin: 0 0.5em; }
+
+/* links */
+.v6-body a { color: var(--v6-ink); border-bottom: 1px dotted var(--v6-ink); text-decoration: none; }
+.v6-body a:hover { color: var(--v6-accent); border-bottom-color: var(--v6-accent); }
+
+/* blockquote */
+.v6-quote {
+  margin: 24px 32px; padding: 12px 18px;
+  border-left: 2px solid var(--v6-accent);
+  border-right: 2px solid var(--v6-accent);
+  background: rgba(0,0,0,0.04);
+  font-style: italic; font-size: 20px; line-height: 1.45; text-align:center;
+  text-indent: 0;
+}
+
+/* code — framed as a "sample of the X language" */
+.v6-code-frame { margin: 24px 0; text-align:center; }
+.v6-code-frame__label {
+  font-family: var(--v6-font-display-sc);
+  letter-spacing: 3px; font-size: 11px; color: var(--v6-ink-soft); margin-bottom: 6px;
+}
+.v6-code-frame__label::before { content: var(--v6-glyph-motto) " A SAMPLE OF THE "; }
+.v6-code-frame__label::after  { content: " LANGUAGE " var(--v6-glyph-motto); }
+.v6-code-frame pre {
+  display:inline-block; text-align:left;
+  background: var(--v6-code-bg); color: var(--v6-code-fg);
+  font-family: var(--v6-font-mono); font-size: var(--v6-type-code); line-height: var(--v6-type-code-lh);
+  padding: 16px 22px; margin: 0;
+  border: var(--v6-hairline); max-width: 100%;
+}
+
+/* end ornament */
+.v6-end { text-align:center; margin-top: var(--v6-space-7); color: var(--v6-ink-soft); }
+.v6-end__rule { font-family: var(--v6-font-display); font-size: 24px; opacity: 0.7; }
+.v6-end__rule::before { content: var(--v6-glyph-end); }
+.v6-end__label { font-family: var(--v6-font-display-sc); letter-spacing: 4px; font-size: var(--v6-type-end-mark); margin-top: 10px; text-transform: uppercase; }
+
+/* ── HOMEPAGE MODE — broadsheet 3-column ──────────────────────────────────── */
+.v6-broadsheet {
+  column-count: var(--v6-broadsheet-cols);
+  column-gap: var(--v6-broadsheet-col-gap);
+  column-rule: var(--v6-broadsheet-rule);
+  text-align: justify; hyphens: auto;
+}
+.v6-broadsheet > * { break-inside: avoid; }
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .v6-frame { margin: 12px; }
+  .v6-frame__inner { padding: 24px 18px; }
+  .v6-title { font-size: 36px; }
+  .v6-broadsheet { column-count: 1; }
+}

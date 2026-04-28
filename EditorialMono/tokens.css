@@ -1,0 +1,139 @@
+/* ============================================================================
+   thingsithinkithink — V2 Editorial Mono
+   Design tokens. Every value used in the system is declared here.
+
+   Voice: A working notebook from a software-and-design studio that respects
+   the reader. Swiss grid. One accent. Mono carries structure; serif carries
+   prose; sans is reserved for UI chrome.
+
+   Load order: this file FIRST, then components.css, then page-specific css.
+   ============================================================================ */
+
+:root {
+
+  /* ── COLOR ────────────────────────────────────────────────────────────── */
+
+  /* Surfaces */
+  --v2-paper:        #f5f3ed;   /* page background — warm off-white */
+  --v2-paper-2:      #ece9e0;   /* subtle inset (blockquote bg, etc.) */
+  --v2-ink:          #0f0f0e;   /* primary type & rules — near-black, warm */
+  --v2-ink-soft:     #1d1d1b;   /* body text */
+  --v2-ink-mute:     #6b6b66;   /* meta, captions, secondary */
+  --v2-rule:         #1c1c1a;   /* hairline rules on dark surfaces */
+
+  /* The single accent. Use sparingly — section markers, drop cap, link
+     underline, the one published-state dot. Never as a fill on large areas. */
+  --v2-accent:       #d8543d;   /* vermilion */
+  --v2-accent-ink:   #ffffff;   /* legible text on accent */
+
+  /* Sidebar (the persistent dark rail) */
+  --v2-rail-bg:      #0f0f0e;
+  --v2-rail-fg:      #f5f3ed;
+  --v2-rail-mute:    #888884;
+  --v2-rail-soft:    #cfcfca;
+  --v2-rail-rule:    #2c2c29;
+
+  /* Code block */
+  --v2-code-bg:      #0f0f0e;
+  --v2-code-fg:      #e6e3d8;
+  --v2-code-label:   #777771;
+
+
+  /* ── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+
+  /* Three families. No more.
+     - Serif: long-form prose, the title.
+     - Sans:  UI chrome, navigation, default UI fallback.
+     - Mono:  metadata, structural labels, captions, code, the one accent voice. */
+  --v2-font-serif:   "Source Serif 4", Georgia, "Times New Roman", serif;
+  --v2-font-sans:    Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --v2-font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale (px, with line-height multipliers).
+     Base reading size is 18 — generous. Mobile reduces via media query. */
+  --v2-type-h1:           60px;   --v2-type-h1-lh:   1.02;   --v2-type-h1-tracking: -1.4px;
+  --v2-type-h2-section:   13px;   --v2-type-h2-lh:   1.2;    --v2-type-h2-tracking:  2px;   /* mono, all caps */
+  --v2-type-h3:           24px;   --v2-type-h3-lh:   1.2;    --v2-type-h3-tracking:  0;
+  --v2-type-dek:          22px;   --v2-type-dek-lh:  1.4;
+  --v2-type-body:         18px;   --v2-type-body-lh: 1.65;
+  --v2-type-meta:         13px;   --v2-type-meta-lh: 1.45;
+  --v2-type-caption:      11px;   --v2-type-caption-lh: 1.45;   --v2-type-caption-tracking: 0.2px;
+  --v2-type-eyebrow:      10px;   --v2-type-eyebrow-tracking: 1.4px;     /* mono, all caps */
+  --v2-type-rail-title:   18px;   --v2-type-rail-title-lh: 1.25;
+  --v2-type-rail:         11px;   --v2-type-rail-lh: 1.55;   --v2-type-rail-tracking: 0.2px;
+  --v2-type-code:         13px;   --v2-type-code-lh: 1.55;
+
+  /* Weights */
+  --v2-weight-regular:    400;
+  --v2-weight-medium:     500;
+  --v2-weight-semibold:   600;
+
+
+  /* ── SPACING & LAYOUT ─────────────────────────────────────────────────── */
+
+  /* 4px base; no half-steps. */
+  --v2-space-1:   4px;
+  --v2-space-2:   8px;
+  --v2-space-3:   12px;
+  --v2-space-4:   16px;
+  --v2-space-5:   24px;
+  --v2-space-6:   32px;
+  --v2-space-7:   44px;
+  --v2-space-8:   64px;
+  --v2-space-9:   96px;
+
+  /* Page grid */
+  --v2-rail-w:           260px;
+  --v2-reading-max:      760px;
+  --v2-content-pad-x:    88px;
+  --v2-content-pad-y:    56px;
+  --v2-rail-pad:         32px 24px;
+
+  /* Hero plate */
+  --v2-hero-ratio:       16 / 9;
+  --v2-figure-max:       760px;
+
+
+  /* ── BORDERS & RULES ──────────────────────────────────────────────────── */
+
+  --v2-hairline:         1px solid var(--v2-ink);
+  --v2-hairline-rail:    1px solid var(--v2-rail-rule);
+  --v2-rule-soft:        1px solid rgba(15,15,14, 0.15);
+  --v2-radius:           0;       /* no rounding, ever. */
+
+
+  /* ── MOTION ───────────────────────────────────────────────────────────── */
+
+  --v2-ease:             cubic-bezier(0.2, 0.7, 0.2, 1);
+  --v2-dur-fast:         120ms;
+  --v2-dur-norm:         220ms;
+
+
+  /* ── ICONS / GLYPHS ───────────────────────────────────────────────────── */
+
+  /* The system has ONE iconographic glyph: §. It marks H2 sections, prefixed
+     by a thin rule. No emoji. No icon set. */
+  --v2-glyph-section:    "§";
+}
+
+
+/* ── DARK MODE (optional) ───────────────────────────────────────────────────
+   Inverts surfaces but keeps vermilion. Body becomes paper-on-ink. */
+@media (prefers-color-scheme: dark) {
+  :root.v2-auto-dark {
+    --v2-paper:      #0f0f0e;
+    --v2-paper-2:    #1a1a18;
+    --v2-ink:        #f5f3ed;
+    --v2-ink-soft:   #ece9e0;
+    --v2-ink-mute:   #94948e;
+    --v2-rule:       #2c2c29;
+  }
+}
+
+/* ── REDUCED MOTION ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --v2-dur-fast: 0ms;
+    --v2-dur-norm: 0ms;
+  }
+}

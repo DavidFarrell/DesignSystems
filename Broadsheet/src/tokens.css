@@ -1,0 +1,141 @@
+/* ============================================================================
+   thingsithinkithink — V6 Alasdair Gray
+   Design tokens. Every value used in the system is declared here.
+
+   Voice: A blog set as a Scottish broadsheet of the imagination. Engraved
+   frame, sepia plates, fell-letter display, ornaments. The HOMEPAGE permits
+   3-column broadsheet layout. POSTS are always single-column "chapters" —
+   this is a system rule, not a recommendation.
+
+   Load order: this file FIRST, then components.css, then page-specific css.
+   ============================================================================ */
+
+:root {
+
+  /* ── COLOR ────────────────────────────────────────────────────────────── */
+
+  /* Paper — a warm, slightly speckled cream. The radial-dot background
+     pattern in components.css gives it the rotogravure tooth. */
+  --v6-paper:         #efe7d3;
+  --v6-paper-tooth:   rgba(60, 40, 20, 0.05);   /* dot pattern color */
+  --v6-paper-tooth-size: 3px;
+
+  /* Ink — warm near-black. Used for type, frames, ornament strokes. */
+  --v6-ink:           #1a1612;
+  --v6-ink-soft:      rgba(26, 22, 18, 0.85);
+  --v6-ink-mute:      rgba(26, 22, 18, 0.70);
+  --v6-ink-faint:     rgba(26, 22, 18, 0.40);
+  --v6-ink-thread:    rgba(26, 22, 18, 0.30);   /* hairline rules */
+
+  /* The single accent. Oxblood / bookbinder's red. Mottos, drop caps,
+     chapter labels, marginalia. Never on broad fills. */
+  --v6-accent:        #7a1f1a;
+  --v6-accent-soft:   #a13a30;
+
+  /* Plates — sepia tone applied to all images via filter. */
+  --v6-plate-bg:      #d8cfb8;
+  --v6-plate-tint:    sepia(0.18) contrast(1.05);
+
+  /* Code (rare in this system; framed as "a sample of the X language") */
+  --v6-code-bg:       #1a1612;
+  --v6-code-fg:       #e8dfc6;
+
+
+  /* ── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+
+  /* Three families. The ornamentation comes from glyphs and frames, not
+     a fourth font. */
+  --v6-font-display:     "IM Fell English", "Cormorant Garamond", Georgia, serif;
+  --v6-font-display-sc:  "IM Fell English SC", "Cormorant SC", Georgia, serif;   /* small caps */
+  --v6-font-body:        "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --v6-font-mono:        "JetBrains Mono", ui-monospace, monospace;              /* code only */
+
+  /* Type scale (px). Slightly larger than V2 because the broadsheet voice
+     wants weight on the page. */
+  --v6-type-h1:               56px;  --v6-type-h1-lh:   1.04;   --v6-type-h1-tracking: -0.4px;
+  --v6-type-section:          13px;  --v6-type-section-lh: 1.4; --v6-type-section-tracking: 5px;  /* small-caps rule */
+  --v6-type-subhead:          14px;  --v6-type-subhead-tracking: 3px;                              /* small-caps centre */
+  --v6-type-chapter-label:    13px;  --v6-type-chapter-tracking: 6px;                              /* CHAPTER THE … */
+  --v6-type-masthead:         13px;  --v6-type-masthead-tracking: 8px;
+  --v6-type-motto:            11px;  --v6-type-motto-tracking: 6px;
+  --v6-type-dek:              20px;  --v6-type-dek-lh:  1.4;       /* italic, "in which …" */
+  --v6-type-body:             19px;  --v6-type-body-lh: 1.55;       /* justified, hyphens */
+  --v6-type-byline:           12px;  --v6-type-byline-tracking: 3px;
+  --v6-type-caption:          14px;  --v6-type-caption-lh: 1.4;     /* italic */
+  --v6-type-end-mark:         11px;  --v6-type-end-tracking: 4px;
+  --v6-type-dropcap:          78px;  --v6-type-dropcap-lh: 0.78;
+  --v6-type-code:             12.5px; --v6-type-code-lh: 1.55;
+
+  /* Weights */
+  --v6-weight-regular:    400;
+  --v6-weight-medium:     500;
+  --v6-weight-semibold:   600;
+
+
+  /* ── SPACING & LAYOUT ─────────────────────────────────────────────────── */
+
+  /* 4px base. Posts are CENTRED, narrow, and breathe more than V2. */
+  --v6-space-1:    4px;
+  --v6-space-2:    8px;
+  --v6-space-3:    12px;
+  --v6-space-4:    18px;
+  --v6-space-5:    24px;
+  --v6-space-6:    36px;
+  --v6-space-7:    48px;
+  --v6-space-8:    64px;
+  --v6-space-9:    96px;
+
+  /* Page grid — POST MODE (single column, the system rule for posts). */
+  --v6-frame-margin:    32px;     /* outer page margin around the engraved frame */
+  --v6-frame-pad-x:     64px;
+  --v6-frame-pad-y:     40px;
+  --v6-reading-max:     680px;    /* the post column. NARROWER than V2. */
+  --v6-figure-max:      600px;
+  --v6-plate-ratio:     16 / 9;
+
+  /* Page grid — HOMEPAGE MODE (broadsheet only).
+     Use the 3-column layout ONLY for the index. Never for post bodies. */
+  --v6-broadsheet-cols:        3;
+  --v6-broadsheet-col-gap:     32px;
+  --v6-broadsheet-rule:        1px solid var(--v6-ink);
+
+
+  /* ── BORDERS & RULES ──────────────────────────────────────────────────── */
+
+  /* The double frame is the system signature. Use --v6-frame on any "panel"
+     that wants to feel set into the page. */
+  --v6-frame-outer:     2px solid var(--v6-ink);
+  --v6-frame-inner:     1px solid var(--v6-ink);
+  --v6-frame-gap:       3px;        /* the space between outer and inner */
+  --v6-hairline:        1px solid var(--v6-ink);
+  --v6-rule-soft:       1px solid var(--v6-ink-thread);
+  --v6-radius:          0;          /* never rounded. */
+
+
+  /* ── ORNAMENTS ────────────────────────────────────────────────────────── */
+
+  /* The vocabulary. These are GLYPHS, not images. */
+  --v6-glyph-corner:        "❦";   /* corner ornament inside frames */
+  --v6-glyph-leaf-l:        "☙";   /* opens a caption */
+  --v6-glyph-leaf-r:        "❧";   /* closes a caption */
+  --v6-glyph-end:           "❦ ❦ ❦";
+  --v6-glyph-section-l:     "❧";
+  --v6-glyph-section-r:     "❧";
+  --v6-glyph-motto:         "❦";
+
+
+  /* ── MOTION ───────────────────────────────────────────────────────────── */
+
+  --v6-ease:             cubic-bezier(0.2, 0.7, 0.2, 1);
+  --v6-dur-fast:         120ms;
+  --v6-dur-norm:         260ms;
+}
+
+
+/* ── REDUCED MOTION ───────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --v6-dur-fast: 0ms;
+    --v6-dur-norm: 0ms;
+  }
+}

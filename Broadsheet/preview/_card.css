@@ -1,0 +1,32 @@
+/* preview/_card.css — base styling for all design-system preview cards */
+@import url("../fonts.css");
+@import url("../src/tokens.css");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--v6-paper);
+  color: var(--v6-ink);
+  font-family: var(--v6-font-body);
+  background-image: radial-gradient(var(--v6-paper-tooth) 1px, transparent 1px);
+  background-size: var(--v6-paper-tooth-size) var(--v6-paper-tooth-size);
+}
+.card {
+  width: 700px;
+  box-sizing: border-box;
+  padding: 18px 22px;
+}
+.mono { font-family: var(--v6-font-mono); font-size: 10.5px; color: var(--v6-ink-mute); letter-spacing: 0; }
+.mono b { color: var(--v6-ink); font-weight: 500; }
+.label-sc { font-family: var(--v6-font-display-sc); font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--v6-ink-mute); }
+.glyph { font-family: var(--v6-font-display); }
+.row { display:flex; align-items:baseline; gap: 16px; padding: 6px 0; border-bottom: 1px solid var(--v6-ink-thread); }
+.row:last-child { border-bottom: none; }
+.row__label { font-family: var(--v6-font-mono); font-size: 10px; color: var(--v6-ink-mute); width: 180px; flex: none; }
+.swatch { aspect-ratio: 1.6/1; border: 1px solid var(--v6-ink); }
+.grid { display:grid; gap: 10px; }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+.grid--5 { grid-template-columns: repeat(5, 1fr); }
+.grid--6 { grid-template-columns: repeat(6, 1fr); }
+.tile { border: 1px solid var(--v6-ink); padding: 10px; background: rgba(255,255,255,0.4); }

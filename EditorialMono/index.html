@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Editorial Mono — Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="fonts.css"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="components.css"/>
+<style>
+  body { margin: 0; background: var(--v2-bg, #f5f3ed); color: var(--v2-ink, #0f0f0e); font-family: var(--v2-font-sans, "Inter", system-ui, sans-serif); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 88px; }
+  @media (max-width: 720px) { .wrap { padding: 32px 24px; } }
+  .meta {
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--v2-ink-mute, #6b6b66);
+    border-top: 1px solid var(--v2-ink, #0f0f0e);
+    border-bottom: 1px solid var(--v2-ink, #0f0f0e);
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  h1 {
+    font-family: var(--v2-font-serif, "Source Serif 4", Georgia, serif);
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 32px 0 16px 0;
+  }
+  .dek {
+    font-family: var(--v2-font-serif, "Source Serif 4", Georgia, serif);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--v2-ink-soft, #1d1d1b);
+    max-width: 720px;
+    margin: 0 0 12px 0;
+  }
+  .author {
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--v2-ink-mute, #6b6b66);
+    margin-top: 24px;
+  }
+  h2 {
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 64px 0 24px 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--v2-ink, #0f0f0e);
+  }
+  h2::before { content: "§ "; color: var(--v2-accent, #d8543d); }
+  p { font-family: var(--v2-font-serif, "Source Serif 4", Georgia, serif); font-size: 18px; line-height: 1.65; max-width: 720px; }
+  a { color: inherit; }
+  ul.acts {
+    list-style: none; padding: 0; margin: 0;
+    border-top: 1px solid var(--v2-ink, #0f0f0e);
+  }
+  ul.acts > li {
+    border-bottom: 1px solid var(--v2-ink, #0f0f0e);
+    padding: 24px 0;
+  }
+  ul.acts a { display: block; text-decoration: none; }
+  ul.acts a:hover .act-title { color: var(--v2-accent, #d8543d); }
+  .act-eyebrow {
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 11px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--v2-ink-mute, #6b6b66);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .act-title {
+    font-family: var(--v2-font-serif, "Source Serif 4", Georgia, serif);
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 6px 0;
+    transition: color 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .act-dek {
+    font-family: var(--v2-font-serif, "Source Serif 4", Georgia, serif);
+    font-style: italic;
+    color: var(--v2-ink-soft, #1d1d1b);
+    margin: 0;
+    font-size: 16px;
+  }
+  ul.cards {
+    list-style: none; padding: 0; margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  ul.cards a {
+    text-decoration: none;
+    display: block;
+    padding: 16px 16px 16px 0;
+    border-top: 1px solid var(--v2-ink-faint, #d6d2c5);
+    border-right: 1px solid var(--v2-ink-faint, #d6d2c5);
+  }
+  ul.cards li:nth-child(3n) a { border-right: none; }
+  ul.cards a:hover .card-title { color: var(--v2-accent, #d8543d); }
+  .card-eyebrow {
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--v2-ink-mute, #6b6b66);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .card-title {
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 13px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin: 0;
+    transition: color 120ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  @media (max-width: 720px) { ul.cards { grid-template-columns: 1fr; } ul.cards a { border-right: none; } }
+  pre {
+    background: #0f0f0e;
+    color: #f5f3ed;
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 24px;
+    overflow-x: auto;
+    margin: 24px 0;
+  }
+  .end {
+    margin-top: 96px;
+    padding-top: 24px;
+    border-top: 1px solid var(--v2-ink, #0f0f0e);
+    font-family: var(--v2-font-mono, "JetBrains Mono", monospace);
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--v2-ink-mute, #6b6b66);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+</style>
+</head>
+<body class="v2">
+  <div class="wrap">
+    <div class="meta">
+      <span>SYSTEM · 2026-04-28</span>
+      <span>● PUBLISHED</span>
+      <span>EDITORIAL MONO</span>
+    </div>
+
+    <h1>Editorial Mono</h1>
+    <p class="dek"><em>A Swiss editorial system for thingsithinkithink — a working notebook from a software-and-design studio. Three families. One accent. Sharp corners.</em></p>
+    <div class="author">SET BY DAVID GÉROUVILLE-FARRELL</div>
+
+    <h2>What this is</h2>
+    <p>
+      Reads like a working notebook: hierarchy through space and weight, not boxes and color. Mono carries structure - labels, captions, indices. Serif carries prose. Sans carries UI chrome. Vermilion is the only voice raised above the page, and it appears in exactly five places: the section glyph <code>§</code>, the drop cap on the first paragraph, link underlines, the published-state dot, and prev/next chevrons. Nowhere else.
+    </p>
+
+    <h2>The three acts</h2>
+    <ul class="acts">
+      <li>
+        <a href="reference/original-style-guide.html">
+          <span class="act-eyebrow">ACT THE FIRST · CANONICAL REFERENCE</span>
+          <h3 class="act-title">The Original Style Guide</h3>
+          <p class="act-dek">Every token, type stop, and component, set as a single living sheet.</p>
+        </a>
+      </li>
+      <li>
+        <a href="ui_kits/blog/index.html">
+          <span class="act-eyebrow">ACT THE SECOND · LIVE UI KIT</span>
+          <h3 class="act-title">The Blog — Index, Post, Archive</h3>
+          <p class="act-dek">A clickable recreation of the three core blog templates.</p>
+        </a>
+      </li>
+      <li>
+        <a href="ui_kits/blog/index-print.html">
+          <span class="act-eyebrow">ACT THE THIRD · PRINT EDITION</span>
+          <h3 class="act-title">The UI Kit, Set for Print</h3>
+          <p class="act-dek">All three screens paginated for A4.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h2>Preview cards</h2>
+    <p>Eighteen one-concept studies covering colour, type, spacing, layout, components, ornaments, do/don't, and the wordmark.</p>
+    <ul class="cards">
+      <li><a href="preview/colors-surfaces.html"><span class="card-eyebrow">COLOUR</span><h4 class="card-title">Surfaces</h4></a></li>
+      <li><a href="preview/colors-ink.html"><span class="card-eyebrow">COLOUR</span><h4 class="card-title">Ink</h4></a></li>
+      <li><a href="preview/colors-accent.html"><span class="card-eyebrow">COLOUR</span><h4 class="card-title">Accent · Vermilion</h4></a></li>
+      <li><a href="preview/type-stack.html"><span class="card-eyebrow">TYPE</span><h4 class="card-title">The Three Stacks</h4></a></li>
+      <li><a href="preview/type-prose-scale.html"><span class="card-eyebrow">TYPE</span><h4 class="card-title">Prose Scale</h4></a></li>
+      <li><a href="preview/type-mono-scale.html"><span class="card-eyebrow">TYPE</span><h4 class="card-title">Mono Scale</h4></a></li>
+      <li><a href="preview/spacing-scale.html"><span class="card-eyebrow">SPACING</span><h4 class="card-title">Nine Steps</h4></a></li>
+      <li><a href="preview/layout-grid.html"><span class="card-eyebrow">LAYOUT</span><h4 class="card-title">Rail &amp; Reading Column</h4></a></li>
+      <li><a href="preview/components-rail.html"><span class="card-eyebrow">COMPONENT</span><h4 class="card-title">Rail Navigation</h4></a></li>
+      <li><a href="preview/components-hero.html"><span class="card-eyebrow">COMPONENT</span><h4 class="card-title">Hero Plate</h4></a></li>
+      <li><a href="preview/components-buttons.html"><span class="card-eyebrow">COMPONENT</span><h4 class="card-title">Buttons</h4></a></li>
+      <li><a href="preview/components-tags-meta.html"><span class="card-eyebrow">COMPONENT</span><h4 class="card-title">Tags &amp; Meta</h4></a></li>
+      <li><a href="preview/components-quote.html"><span class="card-eyebrow">COMPONENT</span><h4 class="card-title">Quote Block</h4></a></li>
+      <li><a href="preview/components-code.html"><span class="card-eyebrow">COMPONENT</span><h4 class="card-title">Code Block</h4></a></li>
+      <li><a href="preview/iconography.html"><span class="card-eyebrow">BRAND</span><h4 class="card-title">Iconography (none)</h4></a></li>
+      <li><a href="preview/ornaments.html"><span class="card-eyebrow">BRAND</span><h4 class="card-title">Ornaments</h4></a></li>
+      <li><a href="preview/brand-wordmark.html"><span class="card-eyebrow">BRAND</span><h4 class="card-title">Wordmark</h4></a></li>
+      <li><a href="preview/dodont.html"><span class="card-eyebrow">RULES</span><h4 class="card-title">Do / Don't</h4></a></li>
+    </ul>
+
+    <h2>Loading order</h2>
+    <pre><code>&lt;link rel="stylesheet" href="fonts.css"/&gt;
+&lt;link rel="stylesheet" href="tokens.css"/&gt;
+&lt;link rel="stylesheet" href="components.css"/&gt;
+&lt;body class="v2"&gt;…&lt;/body&gt;</code></pre>
+
+    <p>The full rules are in <a href="README.md">README.md</a>; the agent-skill manifest is in <a href="SKILL.md">SKILL.md</a>; the original handoff bundle's notes are in <a href="HANDOFF.md">HANDOFF.md</a>.</p>
+
+    <div class="end">
+      <span>END · 2026-04-28</span>
+      <span>thingsithinkithink / v2</span>
+    </div>
+  </div>
+</body>
+</html>

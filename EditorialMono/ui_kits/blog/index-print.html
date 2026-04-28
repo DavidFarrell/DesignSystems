@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>thingsithinkithink — UI kit (print)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="../../fonts.css" />
+<link rel="stylesheet" href="../../tokens.css" />
+<link rel="stylesheet" href="../../components.css" />
+<style>
+  body { margin: 0; background: var(--v2-paper); }
+  /* Force Inter to load. */
+  body::after { content: "Inter"; font-family: "Inter"; font-weight: 500; position: absolute; left: -9999px; top: -9999px; visibility: hidden; }
+
+  /* Each "page" is a paged section. The persistent rail repeats per page so
+     each printed sheet looks like the live page. */
+  .print-page {
+    display: grid;
+    grid-template-columns: var(--v2-rail-w) 1fr;
+    min-height: 100vh;
+    break-after: page;
+    page-break-after: always;
+  }
+  .print-page:last-child { break-after: auto; page-break-after: auto; }
+
+  @page { size: A4; margin: 0; }
+
+  @media print {
+    html, body { background: var(--v2-paper); }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; color-adjust: exact; }
+    .print-page { min-height: auto; break-inside: avoid-page; }
+    .v2-h2, .v2-h3 { break-after: avoid-page; page-break-after: avoid; }
+    .v2-figure, .v2-quote, .v2-code, .v2-hero { break-inside: avoid-page; page-break-inside: avoid; }
+    a { color: inherit; }
+  }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="posts.js"></script>
+<script type="text/babel" src="Bits.jsx"></script>
+<script type="text/babel" src="Rail.jsx"></script>
+<script type="text/babel" src="Article.jsx"></script>
+<script type="text/babel" src="IndexList.jsx"></script>
+<script type="text/babel" src="Archive.jsx"></script>
+</head>
+<body class="v2">
+<div id="root"></div>
+
+<script type="text/babel">
+function PrintApp() {
+  const featured = POSTS[0]; // "Like a Ragged Prayer" — the full sample post
+  const noop = () => {};
+  return (
+    <>
+      <section className="print-page" data-screen-label="01 Index">
+        <Rail view="index" post={null} navigate={noop} />
+        <IndexList openPost={noop} />
+      </section>
+      <section className="print-page" data-screen-label="02 Post">
+        <Rail view="post" post={featured} navigate={noop} />
+        <Article post={featured} openPost={noop} />
+      </section>
+      <section className="print-page" data-screen-label="03 Archive">
+        <Rail view="archive" post={null} navigate={noop} />
+        <Archive openPost={noop} />
+      </section>
+      <section className="print-page" data-screen-label="04 About">
+        <Rail view="about" post={null} navigate={noop} />
+        <article className="v2-article">
+          <div className="v2-meta-strip"><span>ABOUT</span><span>EST · 2024</span></div>
+          <h1 className="v2-h1">A working notebook.</h1>
+          <p className="v2-dek">A studio blog from David Gérouville-Farrell — essays on AI, design, and the craft of software.</p>
+          <div className="v2-prose">
+            <p>This site is built on the V2 Editorial Mono system. Three families, one accent, sharp corners. The mono carries structure; the serif carries prose. Vermilion is the only voice raised above the page.</p>
+            <h2 className="v2-h2"><span>Subscribe</span></h2>
+            <p>Lo-fi monthly digest. No tracking, no markdown soup, no AI summaries.</p>
+            <div style={{ display: "flex", gap: 12 }}>
+              <Button>SUBSCRIBE →</Button>
+              <Button ghost>RSS</Button>
+            </div>
+          </div>
+          <EndRule date="2026-02-15" />
+        </article>
+      </section>
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<PrintApp />);
+
+// Auto-print after fonts + JSX + delay
+(async () => {
+  if (document.fonts && document.fonts.ready) await document.fonts.ready;
+  await new Promise(r => setTimeout(r, 800));
+  window.print();
+})();
+</script>
+</body>
+</html>

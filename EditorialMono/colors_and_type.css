@@ -1,0 +1,159 @@
+/* ============================================================================
+   Editorial Mono — colors_and_type.css
+
+   Semantic CSS variables + element defaults. Loads on top of tokens.css and
+   re-exposes the design language in friendlier names (fg1/fg2, bg1, etc.)
+   and as ready-to-use element styles (h1, h2, code, p).
+
+   Load order: fonts.css → tokens.css → colors_and_type.css
+   ============================================================================ */
+
+@import url("./fonts.css");
+@import url("./tokens.css");
+
+:root {
+  /* ── SEMANTIC COLOR ──────────────────────────────────────────────────── */
+  /* Foreground */
+  --fg1:        var(--v2-ink);          /* primary type, rules            #0f0f0e */
+  --fg2:        var(--v2-ink-soft);     /* body prose                     #1d1d1b */
+  --fg3:        var(--v2-ink-mute);     /* meta, captions                 #6b6b66 */
+  --fg-on-dark: var(--v2-rail-fg);      /* type on dark surfaces          #f5f3ed */
+
+  /* Background */
+  --bg1:        var(--v2-paper);        /* page                           #f5f3ed */
+  --bg2:        var(--v2-paper-2);      /* inset, blockquote              #ece9e0 */
+  --bg-dark:    var(--v2-rail-bg);      /* sidebar, code                  #0f0f0e */
+
+  /* Accent (single voice) */
+  --accent:     var(--v2-accent);       /* vermilion                      #d8543d */
+  --accent-fg:  var(--v2-accent-ink);   /* type on accent                 #ffffff */
+
+  /* Lines */
+  --line:       var(--v2-ink);          /* hairline on light              #0f0f0e */
+  --line-dark:  var(--v2-rail-rule);    /* hairline on dark               #2c2c29 */
+  --line-soft:  rgba(15,15,14, 0.15);   /* faint divider                          */
+
+  /* ── SEMANTIC TYPE ───────────────────────────────────────────────────── */
+  --serif-display: var(--v2-font-serif);
+  --serif-prose:   var(--v2-font-serif);
+  --sans-ui:       var(--v2-font-sans);
+  --mono-struct:   var(--v2-font-mono);
+
+  /* Element-level recipes (used by .em-* helpers below) */
+  --em-h1-size:    60px; --em-h1-lh: 1.02; --em-h1-track: -1.4px;
+  --em-h2-size:    13px; --em-h2-lh: 1.2;  --em-h2-track:  2px;
+  --em-h3-size:    24px; --em-h3-lh: 1.2;  --em-h3-track:  0;
+  --em-dek-size:   22px; --em-dek-lh: 1.4;
+  --em-body-size:  18px; --em-body-lh: 1.65;
+  --em-meta-size:  13px; --em-meta-lh: 1.45;
+  --em-cap-size:   11px; --em-cap-lh:  1.45; --em-cap-track: 0.2px;
+  --em-eyebrow:    10px; --em-eyebrow-track: 1.4px;
+  --em-code-size:  13px; --em-code-lh: 1.55;
+}
+
+
+/* ── ELEMENT DEFAULTS (use under .editorial scope) ────────────────────────── */
+.editorial {
+  background: var(--bg1);
+  color: var(--fg1);
+  font-family: var(--sans-ui);
+  font-size: var(--em-body-size);
+  line-height: var(--em-body-lh);
+}
+
+/* HEADINGS — the three voices the system uses */
+.editorial h1, .em-h1 {
+  font-family: var(--serif-display);
+  font-size: var(--em-h1-size);
+  line-height: var(--em-h1-lh);
+  letter-spacing: var(--em-h1-track);
+  font-weight: 500;
+  color: var(--fg1);
+  margin: 0 0 22px;
+}
+.editorial h2, .em-h2 {
+  font-family: var(--mono-struct);
+  font-size: var(--em-h2-size);
+  line-height: var(--em-h2-lh);
+  letter-spacing: var(--em-h2-track);
+  text-transform: uppercase;
+  color: var(--fg1);
+  font-weight: 500;
+  margin: 42px 0 16px;
+}
+.editorial h3, .em-h3 {
+  font-family: var(--serif-prose);
+  font-size: var(--em-h3-size);
+  line-height: var(--em-h3-lh);
+  font-weight: 600;
+  color: var(--fg1);
+  margin: 28px 0 10px;
+}
+
+.em-dek {
+  font-family: var(--serif-display);
+  font-style: italic;
+  font-size: var(--em-dek-size);
+  line-height: var(--em-dek-lh);
+  color: #3a3a37;
+}
+
+.editorial p, .em-p {
+  font-family: var(--serif-prose);
+  font-size: var(--em-body-size);
+  line-height: var(--em-body-lh);
+  color: var(--fg2);
+  margin: 0 0 18px;
+  text-wrap: pretty;
+}
+
+.editorial a, .em-link {
+  color: var(--fg1);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
+.editorial a:hover, .em-link:hover { background: rgba(216,84,61,0.08); }
+
+.em-eyebrow, .em-meta {
+  font-family: var(--mono-struct);
+  font-size: var(--em-eyebrow);
+  letter-spacing: var(--em-eyebrow-track);
+  text-transform: uppercase;
+  color: var(--fg3);
+}
+
+.em-caption {
+  font-family: var(--mono-struct);
+  font-size: var(--em-cap-size);
+  letter-spacing: var(--em-cap-track);
+  color: var(--fg3);
+}
+.em-caption::before { content: "FIG · "; }
+
+.editorial code, .em-code-inline {
+  font-family: var(--mono-struct);
+  font-size: var(--em-code-size);
+  color: var(--accent);
+}
+.editorial pre, .em-code {
+  font-family: var(--mono-struct);
+  font-size: var(--em-code-size);
+  line-height: var(--em-code-lh);
+  background: var(--bg-dark);
+  color: var(--v2-code-fg);
+  padding: 18px 20px;
+  margin: 22px 0;
+  border: 1px solid var(--line);
+}
+
+.editorial blockquote, .em-quote {
+  font-family: var(--serif-prose);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--fg1);
+  margin: 24px 0;
+  padding: 18px 22px;
+  border-left: 3px solid var(--accent);
+  background: var(--bg2);
+}

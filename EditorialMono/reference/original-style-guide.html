@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>V2 Editorial Mono — Design System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="tokens.css"/>
+<link rel="stylesheet" href="components.css"/>
+<style>
+  /* style-guide chrome only */
+  body { margin:0; background: var(--v2-paper); color: var(--v2-ink); font-family: var(--v2-font-sans); }
+  .sg-shell { max-width: 1100px; margin: 0 auto; padding: 56px 64px 120px; }
+  .sg-eyebrow { font-family: var(--v2-font-mono); font-size: 11px; letter-spacing: 2px; text-transform:uppercase; color: var(--v2-accent); margin-bottom: 8px; }
+  .sg-title { font-family: var(--v2-font-serif); font-size: 64px; line-height: 1.02; letter-spacing: -1.4px; font-weight: 500; margin: 0 0 14px; }
+  .sg-lede { font-family: var(--v2-font-serif); font-style: italic; font-size: 22px; line-height: 1.4; max-width: 720px; color: #3a3a37; margin: 0 0 40px; }
+  .sg-section { border-top: 1px solid var(--v2-ink); padding-top: 22px; margin-top: 64px; }
+  .sg-section__head { display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 28px; font-family: var(--v2-font-mono); font-size: 11px; letter-spacing: 1.6px; color: var(--v2-ink); text-transform: uppercase; }
+  .sg-section__num { color: var(--v2-accent); }
+  .sg-h2 { font-family: var(--v2-font-serif); font-size: 36px; line-height: 1.1; font-weight: 500; margin: 0 0 8px; letter-spacing: -0.6px; }
+  .sg-h3 { font-family: var(--v2-font-mono); font-size: 11px; letter-spacing: 2px; text-transform:uppercase; margin: 24px 0 10px; color: var(--v2-ink-mute); }
+  .sg-note { font-family: var(--v2-font-serif); font-size: 17px; line-height: 1.55; max-width: 680px; color: var(--v2-ink-soft); margin: 0 0 22px; }
+  .sg-grid { display:grid; gap: 14px; }
+  .sg-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .sg-grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .sg-grid--6 { grid-template-columns: repeat(6, 1fr); }
+  .sg-card { border: 1px solid var(--v2-ink); padding: 14px; background: #fff; }
+  .sg-swatch { aspect-ratio: 1.4/1; margin: -14px -14px 12px; }
+  .sg-mono { font-family: var(--v2-font-mono); font-size: 11px; color: var(--v2-ink-mute); letter-spacing: 0.2px; }
+  .sg-mono b { color: var(--v2-ink); font-weight: 500; }
+  .sg-row { display:flex; align-items:baseline; gap: 18px; padding: 14px 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .sg-row__label { font-family: var(--v2-font-mono); font-size: 11px; letter-spacing: 1.4px; text-transform:uppercase; color: var(--v2-ink-mute); width: 200px; flex: none; }
+  .sg-demo { padding: 24px; background: #fff; border: 1px solid var(--v2-ink); margin-bottom: 12px; }
+  .sg-toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 24px; font-family: var(--v2-font-mono); font-size: 12px; margin: 24px 0 0; }
+  .sg-toc a { color: var(--v2-ink); text-decoration: none; border-bottom: 1px solid var(--v2-accent); }
+  .sg-spacer { width: 100%; background: var(--v2-accent); height: 14px; }
+  .sg-token { font-family: var(--v2-font-mono); font-size: 11px; color: var(--v2-ink-mute); }
+  .sg-do, .sg-dont { padding: 18px; border: 1px solid var(--v2-ink); }
+  .sg-do { background: #fff; }
+  .sg-dont { background: #fff5f3; border-color: var(--v2-accent); }
+  .sg-tag-do { display:inline-block; font-family: var(--v2-font-mono); font-size: 10px; letter-spacing: 1.5px; text-transform:uppercase; padding: 2px 8px; background: var(--v2-ink); color: var(--v2-paper); margin-bottom: 10px; }
+  .sg-tag-dont { display:inline-block; font-family: var(--v2-font-mono); font-size: 10px; letter-spacing: 1.5px; text-transform:uppercase; padding: 2px 8px; background: var(--v2-accent); color: #fff; margin-bottom: 10px; }
+</style>
+</head>
+<body class="v2">
+<main class="sg-shell">
+
+  <!-- ── HEADER ────────────────────────────────────────────────── -->
+  <header>
+    <div class="sg-eyebrow">DESIGN SYSTEM · V2 · v1.0</div>
+    <h1 class="sg-title">Editorial Mono</h1>
+    <p class="sg-lede">A Swiss editorial system for thingsithinkithink. Three families, one accent, sharp corners. Mono carries structure — labels, captions, indices. Serif carries prose. Sans carries UI chrome. Vermilion is the only voice raised above the page.</p>
+
+    <nav class="sg-toc">
+      <a href="#principles">01 Principles</a>
+      <a href="#color">02 Color</a>
+      <a href="#type">03 Typography</a>
+      <a href="#space">04 Spacing &amp; layout</a>
+      <a href="#ornaments">05 Ornaments</a>
+      <a href="#components">06 Components</a>
+      <a href="#patterns">07 Patterns</a>
+      <a href="#dodont">08 Do / Don't</a>
+      <a href="#use">09 Using the system</a>
+    </nav>
+  </header>
+
+  <!-- ── 01 PRINCIPLES ─────────────────────────────────────────── -->
+  <section class="sg-section" id="principles">
+    <div class="sg-section__head"><span><span class="sg-section__num">01</span> &nbsp;·&nbsp; Principles</span><span>foundations</span></div>
+    <h2 class="sg-h2">Why this system exists</h2>
+    <p class="sg-note">Personal blogs default to one of two failure modes: too generic to remember, or too ornamented to read. V2 picks a third path — read like a working notebook. Hierarchy through space and weight, not boxes and color. The accent is a voice, not decoration.</p>
+    <div class="sg-grid sg-grid--3">
+      <div class="sg-card"><div class="sg-mono"><b>Structure first.</b><br/>Mono labels everything before prose begins.</div></div>
+      <div class="sg-card"><div class="sg-mono"><b>One accent.</b><br/>Vermilion is the only color that raises its voice.</div></div>
+      <div class="sg-card"><div class="sg-mono"><b>No rounding.</b><br/>Every corner is square. Every rule is hairline.</div></div>
+    </div>
+  </section>
+
+  <!-- ── 02 COLOR ──────────────────────────────────────────────── -->
+  <section class="sg-section" id="color">
+    <div class="sg-section__head"><span><span class="sg-section__num">02</span> &nbsp;·&nbsp; Color</span><span>9 tokens</span></div>
+    <h2 class="sg-h2">Palette</h2>
+    <p class="sg-note">Two surfaces (paper, paper-2). One ink (with three softnesses). One accent. Two roles for the rail. That's the entire kit. Don't add a sixth.</p>
+
+    <div class="sg-grid sg-grid--4">
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-paper)"></div><div class="sg-mono"><b>--v2-paper</b><br/>#f5f3ed</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-paper-2)"></div><div class="sg-mono"><b>--v2-paper-2</b><br/>#ece9e0</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-ink)"></div><div class="sg-mono" style="color:#aaa"><b style="color:#fff">--v2-ink</b><br/>#0f0f0e</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-ink-soft)"></div><div class="sg-mono"><b>--v2-ink-soft</b><br/>#1d1d1b</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-ink-mute)"></div><div class="sg-mono"><b>--v2-ink-mute</b><br/>#6b6b66</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-accent)"></div><div class="sg-mono"><b>--v2-accent</b><br/>#d8543d &nbsp;vermilion</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-rail-bg)"></div><div class="sg-mono" style="color:#aaa"><b style="color:#fff">--v2-rail-bg</b><br/>#0f0f0e</div></div>
+      <div class="sg-card"><div class="sg-swatch" style="background:var(--v2-code-bg);position:relative"><span style="position:absolute;left:10px;bottom:6px;font-family:var(--v2-font-mono);font-size:11px;color:var(--v2-code-fg)">$ post --new</span></div><div class="sg-mono"><b>--v2-code-bg</b><br/>#0f0f0e</div></div>
+    </div>
+
+    <h3 class="sg-h3">Accent rules</h3>
+    <p class="sg-note">Vermilion appears in: section glyph (§), drop cap on first paragraph, link underline, the published-state dot in the meta strip, and prev/next chevrons. Nowhere else. <span class="sg-token">--v2-accent: #d8543d;</span></p>
+  </section>
+
+  <!-- ── 03 TYPE ───────────────────────────────────────────────── -->
+  <section class="sg-section" id="type">
+    <div class="sg-section__head"><span><span class="sg-section__num">03</span> &nbsp;·&nbsp; Typography</span><span>3 families · 11 scales</span></div>
+    <h2 class="sg-h2">Type stack</h2>
+    <p class="sg-note">Source Serif 4 for prose. Inter for UI chrome. JetBrains Mono for everything structural. The mono is doing more work than usual — it isn't decoration, it's wayfinding.</p>
+
+    <div class="sg-grid sg-grid--3">
+      <div class="sg-card"><div class="sg-mono">SERIF · prose, titles</div><div style="font-family:var(--v2-font-serif); font-size:42px; line-height:1.05; margin-top:8px;">Source Serif 4</div><div class="sg-mono" style="margin-top:8px">400 / 500 / 600 · italic available</div></div>
+      <div class="sg-card"><div class="sg-mono">SANS · UI chrome</div><div style="font-family:var(--v2-font-sans); font-size:42px; line-height:1.05; margin-top:8px; font-weight:500;">Inter</div><div class="sg-mono" style="margin-top:8px">400 / 500 / 600</div></div>
+      <div class="sg-card"><div class="sg-mono">MONO · structure</div><div style="font-family:var(--v2-font-mono); font-size:32px; line-height:1.05; margin-top:8px; font-weight:500;">JetBrains Mono</div><div class="sg-mono" style="margin-top:8px">400 / 500 / 600</div></div>
+    </div>
+
+    <h3 class="sg-h3">Scale</h3>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-h1 / 60·1.02</div><div style="font-family:var(--v2-font-serif); font-size:60px; line-height:1.02; letter-spacing:-1.4px; font-weight:500;">A working notebook</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-dek / 22·1.4 italic</div><div style="font-family:var(--v2-font-serif); font-style:italic; font-size:22px; line-height:1.4;">A subtitle in italic that gives the post its premise.</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-h2 / 13·1.2 mono caps</div><div style="font-family:var(--v2-font-mono); font-size:13px; letter-spacing:2px; text-transform:uppercase;"><span style="color:var(--v2-accent)">§</span> &nbsp; A SECTION HEADING</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-h3 / 24·1.2</div><div style="font-family:var(--v2-font-serif); font-size:24px; line-height:1.2; font-weight:600;">A subsection heading</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-body / 18·1.65</div><div style="font-family:var(--v2-font-serif); font-size:18px; line-height:1.65; max-width:540px;">Body prose runs in Source Serif 4 at eighteen pixels. Long line-height (1.65) is deliberate — it lets the reader breathe inside dense argument.</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-meta / 13·1.45</div><div style="font-family:var(--v2-font-mono); font-size:13px;">FEB 15, 2026 · 6 MIN READ</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-caption / 11·1.45 mono</div><div style="font-family:var(--v2-font-mono); font-size:11px; color:var(--v2-ink-mute); letter-spacing:0.2px;">FIG · We want more giraffes and fewer snakes</div></div>
+    <div class="sg-row"><div class="sg-row__label">--v2-type-eyebrow / 10·1.4 mono caps</div><div style="font-family:var(--v2-font-mono); font-size:10px; letter-spacing:1.4px; text-transform:uppercase;">POST · 2026-02-15 &nbsp;·&nbsp; <span style="color:var(--v2-accent)">● PUBLISHED</span> &nbsp;·&nbsp; 6 MIN READ</div></div>
+  </section>
+
+  <!-- ── 04 SPACE ──────────────────────────────────────────────── -->
+  <section class="sg-section" id="space">
+    <div class="sg-section__head"><span><span class="sg-section__num">04</span> &nbsp;·&nbsp; Spacing &amp; layout</span><span>4px base</span></div>
+    <h2 class="sg-h2">Rhythm</h2>
+    <p class="sg-note">All spacing snaps to 4px. No half steps. No 5px, no 10px. The vertical rhythm of a page should feel like a poem you can scan from across the room.</p>
+
+    <div style="display:grid; grid-template-columns: repeat(9, 1fr); gap: 12px; align-items:end; margin-bottom: 24px;">
+      <div><div class="sg-spacer" style="height:4px"></div><div class="sg-mono" style="margin-top:6px">--space-1<br/>4</div></div>
+      <div><div class="sg-spacer" style="height:8px"></div><div class="sg-mono" style="margin-top:6px">--space-2<br/>8</div></div>
+      <div><div class="sg-spacer" style="height:12px"></div><div class="sg-mono" style="margin-top:6px">--space-3<br/>12</div></div>
+      <div><div class="sg-spacer" style="height:16px"></div><div class="sg-mono" style="margin-top:6px">--space-4<br/>16</div></div>
+      <div><div class="sg-spacer" style="height:24px"></div><div class="sg-mono" style="margin-top:6px">--space-5<br/>24</div></div>
+      <div><div class="sg-spacer" style="height:32px"></div><div class="sg-mono" style="margin-top:6px">--space-6<br/>32</div></div>
+      <div><div class="sg-spacer" style="height:44px"></div><div class="sg-mono" style="margin-top:6px">--space-7<br/>44</div></div>
+      <div><div class="sg-spacer" style="height:64px"></div><div class="sg-mono" style="margin-top:6px">--space-8<br/>64</div></div>
+      <div><div class="sg-spacer" style="height:96px"></div><div class="sg-mono" style="margin-top:6px">--space-9<br/>96</div></div>
+    </div>
+
+    <h3 class="sg-h3">Page grid</h3>
+    <p class="sg-note">Two-column page: a 260px persistent rail and a fluid reading column. The reading column tops out at 760px regardless of viewport — measure matters more than fill.</p>
+    <div style="display:grid; grid-template-columns: 260px 1fr; gap: 0; border:1px solid var(--v2-ink); height: 220px;">
+      <div style="background: var(--v2-ink); color: var(--v2-paper); font-family:var(--v2-font-mono); font-size:11px; padding: 14px;"><div style="opacity:0.7">RAIL · 260px</div></div>
+      <div style="padding: 14px; position:relative;"><div style="font-family:var(--v2-font-mono); font-size:11px; color: var(--v2-ink-mute);">CONTENT · 88px / 56px padding</div><div style="border-left:1px dashed var(--v2-accent); border-right:1px dashed var(--v2-accent); position:absolute; top:14px; bottom:14px; left:88px; right:88px; display:flex; align-items:center; justify-content:center; font-family:var(--v2-font-mono); font-size:11px; color: var(--v2-accent); letter-spacing:1px;">READING · MAX 760px</div></div>
+    </div>
+  </section>
+
+  <!-- ── 05 ORNAMENTS ──────────────────────────────────────────── -->
+  <section class="sg-section" id="ornaments">
+    <div class="sg-section__head"><span><span class="sg-section__num">05</span> &nbsp;·&nbsp; Ornaments</span><span>almost none</span></div>
+    <h2 class="sg-h2">The vocabulary</h2>
+    <p class="sg-note">V2 owns three marks. The section glyph (§), the published dot (●), and the FIG · caption stamp. That's it. No emoji. No icon set. If a UI element needs a glyph, choose one of these or design carefully.</p>
+    <div class="sg-grid sg-grid--3">
+      <div class="sg-card"><div style="font-family:var(--v2-font-serif); font-size:48px; color:var(--v2-accent); line-height:1;">§</div><div class="sg-mono" style="margin-top:8px"><b>Section mark</b><br/>opens every H2.</div></div>
+      <div class="sg-card"><div style="font-size:40px; color:var(--v2-accent); line-height:1;">●</div><div class="sg-mono" style="margin-top:8px"><b>Published dot</b><br/>only in eyebrow strip.</div></div>
+      <div class="sg-card"><div style="font-family:var(--v2-font-mono); font-size:14px; color:var(--v2-ink-mute); letter-spacing:0.2px; padding-top:18px;">FIG · caption text</div><div class="sg-mono" style="margin-top:8px"><b>Caption stamp</b><br/>every figure carries it.</div></div>
+    </div>
+  </section>
+
+  <!-- ── 06 COMPONENTS ─────────────────────────────────────────── -->
+  <section class="sg-section" id="components">
+    <div class="sg-section__head"><span><span class="sg-section__num">06</span> &nbsp;·&nbsp; Components</span><span>10 patterns</span></div>
+    <h2 class="sg-h2">Pieces in use</h2>
+    <p class="sg-note">Each block below is the live class — copy/paste into a post template. All classes are prefixed <code style="font-family:var(--v2-font-mono);font-size:13px;color:var(--v2-accent)">.v2-</code>.</p>
+
+    <h3 class="sg-h3">Meta strip · <span class="sg-token">.v2-meta-strip</span></h3>
+    <div class="sg-demo">
+      <div class="v2-meta-strip">
+        <span>POST · 2026-02-15</span>
+        <span class="v2-meta-strip__live">● PUBLISHED</span>
+        <span>6 MIN READ</span>
+      </div>
+    </div>
+
+    <h3 class="sg-h3">Hero block · <span class="sg-token">.v2-h1 + .v2-dek + .v2-author</span></h3>
+    <div class="sg-demo">
+      <h1 class="v2-h1">Like a Ragged Prayer</h1>
+      <p class="v2-dek">Some interesting stuff from Alexandra Alter on how AI is disrupting the romance novel industry.</p>
+      <div class="v2-author">
+        <div class="v2-author__avatar" style="background:#888"></div>
+        <div>
+          <div class="v2-author__name">David Gérouville-Farrell</div>
+          <div class="v2-author__meta">FEB 15, 2026 · 6 MIN READ</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sg-h3">Section heading · <span class="sg-token">.v2-h2</span></h3>
+    <div class="sg-demo"><h2 class="v2-h2"><span>Not the reaction you'd expect</span></h2></div>
+
+    <h3 class="sg-h3">Prose with drop cap · <span class="sg-token">.v2-prose</span></h3>
+    <div class="sg-demo">
+      <div class="v2-prose">
+        <p>I was expecting to hear a story about how threatened romance novelists feel. I was expecting to hear about how unethical it is that AI trained on all of their creative works. But there was a lot more nuance than I anticipated, and there are a couple of interesting things worth sharing.</p>
+        <p>The romance writing community didn't seem to show the same pattern I typically see in other creative communities — at least not <a href="#">uniformly</a>. Some writers were enthusiastic about using AI for novel writing.</p>
+      </div>
+    </div>
+
+    <h3 class="sg-h3">Pull quote · <span class="sg-token">.v2-quote</span></h3>
+    <div class="sg-demo"><blockquote class="v2-quote">"I see the write is still truncating. Let me try a different approach — I'll use Python to write the file"</blockquote></div>
+
+    <h3 class="sg-h3">Code block · <span class="sg-token">.v2-code</span></h3>
+    <div class="sg-demo">
+      <pre class="v2-code"><div class="v2-code__lang">PYTHON</div><code>options = ClaudeAgentOptions(
+    allowed_tools=["Read", "Write", "Edit", "Glob", "Grep"],
+    can_use_tool=handle_tool_permission,
+)</code></pre>
+    </div>
+
+    <h3 class="sg-h3">Figure · <span class="sg-token">.v2-figure + .v2-figcaption</span></h3>
+    <div class="sg-demo">
+      <figure class="v2-figure">
+        <div class="v2-figure__plate" style="background:linear-gradient(120deg, #d8cfb8, #efece4) center/cover;"></div>
+        <figcaption class="v2-figcaption">We want more giraffes and fewer snakes</figcaption>
+      </figure>
+    </div>
+
+    <h3 class="sg-h3">Buttons &amp; tags · <span class="sg-token">.v2-button .v2-tag-chip</span></h3>
+    <div class="sg-demo" style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+      <button class="v2-button">SUBSCRIBE →</button>
+      <button class="v2-button v2-button--ghost">VIEW ARCHIVE</button>
+      <span class="v2-tag-chip">AI</span>
+      <span class="v2-tag-chip">CREATIVE-INDUSTRIES</span>
+      <span class="v2-tag-chip">FEATURE</span>
+    </div>
+
+    <h3 class="sg-h3">Sidebar rail · <span class="sg-token">.v2-rail</span> (excerpt)</h3>
+    <div class="sg-demo" style="padding:0; background: transparent; border: none;">
+      <aside class="v2-rail" style="width: 260px;">
+        <div class="v2-rail__brand"><div class="v2-rail__brand-name">thingsithinkithink</div><div class="v2-rail__brand-version">v2.0</div></div>
+        <nav class="v2-rail__nav"><div>›&nbsp;Index</div><div>›&nbsp;Archive</div><div>›&nbsp;Tags</div><div>›&nbsp;About</div></nav>
+        <div class="v2-rail__rule"></div>
+        <div class="v2-rail__label">POST · 2026-02-15</div>
+        <div class="v2-rail__title">Like a Ragged Prayer</div>
+        <div class="v2-rail__row"><span>READ</span><b>6′</b></div>
+        <div class="v2-rail__row"><span>BY</span><b>D.G-F.</b></div>
+        <div class="v2-rail__rule"></div>
+        <div class="v2-rail__label">IN THIS POST</div>
+        <ol class="v2-rail__toc">
+          <li><span class="v2-rail__toc-num">01</span><span>Not the reaction you'd expect</span></li>
+          <li><span class="v2-rail__toc-num">02</span><span>The relentless pull of the mean</span></li>
+          <li><span class="v2-rail__toc-num">03</span><span>Two game industries</span></li>
+        </ol>
+      </aside>
+    </div>
+
+    <h3 class="sg-h3">End rule · <span class="sg-token">.v2-end</span></h3>
+    <div class="sg-demo"><div class="v2-end"><span>END · 2026-02-15</span><span>thingsithinkithink / v2</span></div></div>
+  </section>
+
+  <!-- ── 07 PATTERNS ───────────────────────────────────────────── -->
+  <section class="sg-section" id="patterns">
+    <div class="sg-section__head"><span><span class="sg-section__num">07</span> &nbsp;·&nbsp; Patterns</span><span>page templates</span></div>
+    <h2 class="sg-h2">Three pages, one system</h2>
+    <p class="sg-note">The system supports the index, the post, and the archive/tags page. Each is the same rail + same content padding + same vermilion logic — only the content slot changes.</p>
+    <div class="sg-grid sg-grid--3">
+      <div class="sg-card"><div class="sg-mono"><b>INDEX</b></div><div class="sg-mono" style="margin-top:6px">Rail nav highlights "Index" · content area = list of post cards · meta strip across top reads "ARCHIVE · 142 POSTS · UPDATED FEB 15"</div></div>
+      <div class="sg-card"><div class="sg-mono"><b>POST</b></div><div class="sg-mono" style="margin-top:6px">Rail nav collapses to current post (title + TOC + tags + prev/next) · content = h1 + dek + author + hero + prose</div></div>
+      <div class="sg-card"><div class="sg-mono"><b>TAGS / ARCHIVE</b></div><div class="sg-mono" style="margin-top:6px">Rail nav highlights tag · content = h2 per year + monospace year-month-title row, hover shows accent</div></div>
+    </div>
+  </section>
+
+  <!-- ── 08 DO/DON'T ───────────────────────────────────────────── -->
+  <section class="sg-section" id="dodont">
+    <div class="sg-section__head"><span><span class="sg-section__num">08</span> &nbsp;·&nbsp; Do / Don't</span><span>edges of the system</span></div>
+    <h2 class="sg-h2">The edges</h2>
+    <div class="sg-grid sg-grid--3" style="margin-top: 18px;">
+      <div class="sg-do"><div class="sg-tag-do">DO</div><div class="sg-mono">Use vermilion for the §, the drop cap, and the link underline. Three places, no more.</div></div>
+      <div class="sg-dont"><div class="sg-tag-dont">DON'T</div><div class="sg-mono">Don't use vermilion for buttons, banners, callouts, or "important" backgrounds. It loses meaning the moment it's everywhere.</div></div>
+      <div class="sg-do"><div class="sg-tag-do">DO</div><div class="sg-mono">Keep all corners square. Hairline rules only. Empty space is the system's primary tool.</div></div>
+      <div class="sg-dont"><div class="sg-tag-dont">DON'T</div><div class="sg-mono">No rounded corners. No drop shadows. No card-with-3px-border-and-glow. Those belong to a different system.</div></div>
+      <div class="sg-do"><div class="sg-tag-do">DO</div><div class="sg-mono">Stamp every figure with FIG · in the mono caption. Stamp every meta strip with the eyebrow.</div></div>
+      <div class="sg-dont"><div class="sg-tag-dont">DON'T</div><div class="sg-mono">Don't add a fourth font. Don't add icons. The mono is doing all the iconographic work the page needs.</div></div>
+    </div>
+  </section>
+
+  <!-- ── 09 USING ──────────────────────────────────────────────── -->
+  <section class="sg-section" id="use">
+    <div class="sg-section__head"><span><span class="sg-section__num">09</span> &nbsp;·&nbsp; Using the system</span><span>handoff</span></div>
+    <h2 class="sg-h2">Building a new post</h2>
+    <ol class="sg-note" style="padding-left:20px;">
+      <li>Load <span class="sg-token">tokens.css</span> then <span class="sg-token">components.css</span>.</li>
+      <li>Wrap the page in <span class="sg-token">&lt;body class="v2"&gt;</span> · <span class="sg-token">&lt;div class="v2-page"&gt;</span>.</li>
+      <li>Left column is <span class="sg-token">&lt;aside class="v2-rail"&gt;</span> — populate brand, nav, post metadata, TOC, tags, prev/next.</li>
+      <li>Right column is <span class="sg-token">&lt;article class="v2-article"&gt;</span> — meta strip, h1, dek, author, hero, prose.</li>
+      <li>Inside <span class="sg-token">.v2-prose</span>, use <span class="sg-token">.v2-h2</span>, <span class="sg-token">.v2-h3</span>, <span class="sg-token">.v2-quote</span>, <span class="sg-token">.v2-code</span>, <span class="sg-token">.v2-figure</span> as needed.</li>
+      <li>Close with <span class="sg-token">.v2-end</span>.</li>
+    </ol>
+    <p class="sg-note">If you need a new component, ask: does it fit the three principles (structure first, one accent, no rounding)? If yes, propose it. If no, you probably want a different system.</p>
+  </section>
+
+  <footer style="border-top: 1px solid var(--v2-ink); margin-top: 96px; padding-top: 18px; font-family: var(--v2-font-mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--v2-ink-mute); display:flex; justify-content:space-between;">
+    <span>END · V2 · EDITORIAL MONO</span>
+    <span>thingsithinkithink / system / v1.0</span>
+  </footer>
+</main>
+</body>
+</html>
