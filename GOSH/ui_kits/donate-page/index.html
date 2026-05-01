@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Donate to the Children's Cancer Centre - GOSH Charity</title>
+<link rel="stylesheet" href="../../fonts.css">
+<link rel="stylesheet" href="../../src/tokens.css">
+<link rel="stylesheet" href="../../src/components.css">
+<link rel="stylesheet" href="../../colors_and_type.css">
+<style>
+  body { padding: 0; }
+  .top-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: #fff; border-bottom: 1px solid var(--gosh-paper-rule); }
+  .top-bar img { height: 50px; }
+  .nav { display: flex; gap: 24px; align-items: center; }
+  .nav a { color: var(--gosh-ink); text-decoration: none; font-weight: 600; font-size: 16px; }
+  .hero { background: var(--gosh-purple-deep); color: #fff; padding: 80px 32px; }
+  .hero__inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: center; }
+  .hero__title { font-size: 64px; font-weight: 800; line-height: 0.95; margin: 0 0 24px; max-width: 12ch; }
+  .hero__title .accent { color: var(--gosh-cyan); }
+  .hero__sub { font-size: 22px; font-weight: 500; line-height: 1.4; max-width: 32ch; margin-bottom: 32px; }
+  .hero__photo { aspect-ratio: 4 / 5; background: linear-gradient(135deg, var(--gosh-pink), var(--gosh-purple)); border-radius: 8px; }
+
+  .form-section { background: var(--gosh-paper); padding: 60px 32px; }
+  .form-card { max-width: 720px; margin: 0 auto; background: #fff; border: 2px solid var(--gosh-ink); padding: 40px; }
+  .step { font-family: 'GOSH Brave', sans-serif; font-weight: 800; font-size: 14px; letter-spacing: 1px; color: var(--gosh-purple); margin-bottom: 8px; }
+  .step-title { font-size: 28px; font-weight: 700; margin: 0 0 24px; }
+  .helper { color: var(--gosh-ink-mid); font-size: 14px; margin: 4px 0 16px; }
+  .impact { background: var(--gosh-paper-stone); padding: 16px 20px; border-left: 4px solid var(--gosh-cyan); font-size: 16px; margin: 24px 0; }
+  .impact strong { color: var(--gosh-purple); }
+  .frequency { display: flex; gap: 0; margin-bottom: 24px; }
+  .frequency button { flex: 1; padding: 14px; background: var(--gosh-white); border: 2px solid var(--gosh-ink); border-right: 0; font-family: 'GOSH Brave', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer; }
+  .frequency button:last-child { border-right: 2px solid var(--gosh-ink); }
+  .frequency button[aria-pressed="true"] { background: var(--gosh-cyan); }
+  .gosh-amount-toggle__btn { border-radius: 0; }
+
+  .panels { background: var(--gosh-paper-stone); padding: 80px 32px; }
+  .panels__inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  .panel { padding: 40px 32px; }
+  .panel--cyan { background: var(--gosh-cyan); }
+  .panel--lime { background: var(--gosh-lime); }
+  .panel--pink { background: var(--gosh-pink); }
+  .panel h3 { font-size: 28px; line-height: 1.1; margin: 0 0 16px; max-width: 16ch; }
+  .panel p { font-weight: 500; margin: 0 0 24px; }
+
+  footer { background: var(--gosh-purple-deep); color: #fff; padding: 60px 32px; }
+  footer .inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  footer h4 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 16px; }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer li { margin-bottom: 8px; }
+  footer a { color: #fff; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .footer-bottom { max-width: 1180px; margin: 32px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 13px; opacity: 0.7; }
+
+  @media (max-width: 720px) {
+    .hero__inner, .panels__inner, footer .inner { grid-template-columns: 1fr; }
+    .hero__title { font-size: 44px; }
+    .top-bar .nav a:not(.gosh-btn) { display: none; }
+  }
+</style>
+</head>
+<body class="gosh">
+
+<header class="top-bar">
+  <img src="../../assets/logo-default.svg" alt="GOSH Charity">
+  <nav class="nav">
+    <a href="#">About</a>
+    <a href="#">Get involved</a>
+    <a href="#">Appeals</a>
+    <a href="#" class="gosh-btn">Donate now</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero__inner">
+    <div>
+      <p class="gosh-eyebrow" style="color:var(--gosh-cyan)">CHILDREN'S CANCER CENTRE APPEAL</p>
+      <h1 class="hero__title">Build it. <span class="accent">Beat it.</span></h1>
+      <p class="hero__sub">When cancer hits, childhood can suffer. Help us build the most ambitious children's cancer centre Europe has ever seen, so we can give every child the best care, the best chance and the best childhood.</p>
+      <a class="gosh-btn" href="#donate">Donate now</a>
+      <a class="gosh-cta" href="#story" style="margin-left:12px">Read Olivia's story</a>
+    </div>
+    <div class="hero__photo" aria-label="Photograph: a young patient on the rooftop garden, London skyline behind."></div>
+  </div>
+</section>
+
+<section class="form-section" id="donate">
+  <div class="form-card">
+    <p class="step">STEP 1 OF 3</p>
+    <h2 class="step-title">Give to the Children's Cancer Centre</h2>
+
+    <div class="frequency" role="group" aria-label="Donation frequency">
+      <button aria-pressed="true">Single</button>
+      <button>Monthly</button>
+    </div>
+
+    <label class="gosh-label">Choose an amount</label>
+    <p class="helper">Every pound goes further when it's specific.</p>
+    <div class="gosh-amount-toggle">
+      <button class="gosh-amount-toggle__btn">£10</button>
+      <button class="gosh-amount-toggle__btn" aria-pressed="true">£25</button>
+      <button class="gosh-amount-toggle__btn">£50</button>
+      <button class="gosh-amount-toggle__btn">£100</button>
+      <button class="gosh-amount-toggle__btn">£250</button>
+      <button class="gosh-amount-toggle__btn">Other</button>
+    </div>
+
+    <div class="impact">
+      <strong>£25</strong> could fund <strong>an hour</strong> of vital research into rarer childhood cancers.
+    </div>
+
+    <label class="gosh-label" for="email" style="margin-top:24px">Your email</label>
+    <input class="gosh-input" id="email" type="email" placeholder="you@example.com">
+
+    <div style="margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <p class="helper" style="margin:0;max-width:30ch">Your gift is processed securely. Gift Aid is added on the next step.</p>
+      <a class="gosh-btn" href="#">Continue to payment</a>
+    </div>
+  </div>
+</section>
+
+<section class="panels">
+  <div class="panels__inner">
+    <div class="panel panel--cyan">
+      <h3>The best care</h3>
+      <p>Pioneering treatment for the rarest, most complex conditions affecting children.</p>
+      <a class="gosh-cta gosh-cta--white">Read more</a>
+    </div>
+    <div class="panel panel--lime">
+      <h3>The best chance</h3>
+      <p>Groundbreaking research that's already changing how children's cancers are treated worldwide.</p>
+      <a class="gosh-cta">Read more</a>
+    </div>
+    <div class="panel panel--pink">
+      <h3>The best childhood</h3>
+      <p>Family rooms, play therapy and teen spaces - so children can still be children.</p>
+      <a class="gosh-cta gosh-cta--white">Read more</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <div>
+      <img src="../../assets/logo-default.svg" alt="GOSH Charity" style="height:60px;filter:brightness(0) invert(1)">
+      <p style="margin-top:16px;font-weight:500;max-width:32ch;font-size:14px">Great Ormond Street Hospital Children's Charity. Registered charity no. 1160024.</p>
+    </div>
+    <div>
+      <h4>Get involved</h4>
+      <ul>
+        <li><a href="#">Donate</a></li>
+        <li><a href="#">Fundraise for us</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Leave a gift in your will</a></li>
+        <li><a href="#">Corporate partnerships</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">Our impact</a></li>
+        <li><a href="#">Children's stories</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    A demonstration of the GOSH design system - not an official Charity page.
+  </div>
+</footer>
+
+</body>
+</html>

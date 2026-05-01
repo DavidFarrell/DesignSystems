@@ -7,6 +7,7 @@ David Gérouville-Farrell's personal collection of design systems, each in its o
 | **Broadsheet** | [`Broadsheet/`](./Broadsheet/) | The Alasdair Gray broadsheet system. A blog set as a Glaswegian broadsheet of the imagination - engraved frames, sepia plates, fell-letter display, a single oxblood accent. Used for *thingsithinkithink*. |
 | **EditorialMono** | [`EditorialMono/`](./EditorialMono/) | A Swiss editorial system. Three families (Source Serif 4 / Inter / JetBrains Mono), one accent (vermilion), sharp corners. Reads like a working notebook - hierarchy through space and weight, mono carries structure. Alternative cut for *thingsithinkithink*. |
 | **OpenSwim** | [`OpenSwim/`](./OpenSwim/) | The Workbench design system for an offline-first podcast app paired with Shokz OpenSwim bone-conduction headphones. Dark coffee on pale tea, amber for "happening right now", flat rectangles, Space Grotesk + JetBrains Mono. Includes a living style guide, tokens, `.ct-*` components, and a decisions log. |
+| **GOSH** | [`GOSH/`](./GOSH/) | The Great Ormond Street Hospital Charity system, reverse-engineered from gosh.org. Warm paper anchored in deep purple, vivid cyan/lime/pink accents, ink-on-lime "Donate now" rectangle and pill CTAs. One family - GOSH Brave - across the whole system. Used for client-facing GOSH artefacts. |
 
 ## Conventions
 

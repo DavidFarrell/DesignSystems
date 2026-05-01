@@ -1,0 +1,318 @@
+/* GOSH Charity components.
+   Built directly on tokens.css. Class prefix: .gosh-*
+   Behaviour observed in www.gosh.org/static/css/main.7e827ff7c2a1.css.
+
+   The system has two distinct button shapes:
+   - .gosh-btn          rectangular, headers + primary action bars
+   - .gosh-cta          pill, the "Call to action" component
+   The colour-block panels and the colour-block CTA pair an accent
+   surface with ink text. Photographs sit inside warm-paper plates. */
+
+/* ---------- BASE ---------- */
+
+.gosh {
+  font-family: var(--font-family-base);
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.gosh a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.gosh a:hover {
+  color: var(--color-brand-deep);
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+
+.gosh h1, .gosh-h1 {
+  font-family: var(--font-family-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-base);
+  color: var(--color-fg);
+  margin: 0 0 var(--sp-5);
+}
+
+.gosh h2, .gosh-h2 {
+  font-family: var(--font-family-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--sp-5);
+}
+
+.gosh h3, .gosh-h3 {
+  font-family: var(--font-family-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--sp-4);
+}
+
+.gosh h4, .gosh-h4 {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-semibold);
+  line-height: 1.071;
+  margin: var(--sp-3) 0 var(--sp-1);
+}
+
+.gosh-eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  margin-bottom: var(--sp-2);
+}
+
+.gosh-lede {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-relaxed);
+  max-width: var(--measure-prose);
+  margin-bottom: var(--sp-5);
+}
+
+.gosh-prose {
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  max-width: var(--measure-prose);
+}
+.gosh-prose p { margin: 0 0 var(--sp-5); }
+
+/* ---------- BUTTONS - rectangular ---------- */
+
+/* The site's header donate button is a rectangle. Lime fill, ink ink,
+   semibold 600, 20px, no rounding. We expose that as .gosh-btn. */
+.gosh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-base);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  color: var(--color-fg);
+  background: var(--color-cta);
+  border: 0;
+  border-radius: var(--radius-none);
+  padding: 12px 22px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--easing),
+              color var(--dur-fast) var(--easing);
+}
+.gosh-btn:hover { background: var(--gosh-paper-rule); }
+
+/* Variant: cyan rectangle (search button on www.gosh.org). */
+.gosh-btn--cyan { background: var(--gosh-cyan); color: var(--color-fg); }
+
+/* Variant: filled in deep purple, white type. */
+.gosh-btn--purple { background: var(--gosh-purple); color: var(--gosh-white); }
+.gosh-btn--purple:hover { background: var(--gosh-purple-deep); }
+
+/* Variant: ghost / outline */
+.gosh-btn--ghost {
+  background: transparent;
+  color: var(--color-fg);
+  border: 2px solid var(--color-fg);
+  padding: 10px 20px;
+}
+.gosh-btn--ghost:hover { background: var(--color-fg); color: var(--gosh-white); }
+
+/* ---------- BUTTONS - pill CTA ---------- */
+
+/* The .call-to-action component on the site is a pill. 30px radius,
+   ink text, semibold-to-black weight depending on size. We surface
+   that as .gosh-cta. */
+.gosh-cta {
+  display: inline-block;
+  font-family: var(--font-family-base);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  line-height: 1.3;
+  color: var(--color-fg);
+  background: var(--gosh-cyan);
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 40px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  min-width: auto;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--easing);
+}
+.gosh-cta:hover { background: var(--gosh-paper-rule); }
+
+.gosh-cta--lime  { background: var(--gosh-lime); }
+.gosh-cta--pink  { background: var(--gosh-pink); }
+.gosh-cta--white { background: var(--gosh-white); }
+.gosh-cta--small { font-size: var(--fs-md); padding: 8px 24px; }
+
+/* Buttons render their label in extra-black for hero CTAs. */
+.gosh-cta__text {
+  display: block;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-black);
+  line-height: 1;
+  text-align: center;
+  color: var(--color-fg);
+}
+
+/* ---------- COLOUR BLOCKS ---------- */
+
+/* The site uses big flat colour panels (the "colour-block-cta-block"
+   pattern). One accent surface, ink type. White-heart doodle is a
+   background image; we leave that off the base component. */
+.gosh-colour-block {
+  background: var(--gosh-cyan);
+  color: var(--color-fg);
+  padding: var(--sp-9) var(--sp-7);
+}
+.gosh-colour-block--purple { background: var(--gosh-purple); color: var(--gosh-white); }
+.gosh-colour-block--lime   { background: var(--gosh-lime); }
+.gosh-colour-block--pink   { background: var(--gosh-pink); }
+.gosh-colour-block--cyan   { background: var(--gosh-cyan); }
+.gosh-colour-block--paper  { background: var(--gosh-paper-stone); }
+
+/* ---------- CARDS ---------- */
+
+.gosh-card {
+  background: var(--gosh-white);
+  color: var(--color-fg);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.gosh-card__media { aspect-ratio: 16 / 10; background: var(--gosh-paper-stone); }
+.gosh-card__body { padding: var(--sp-7) var(--sp-6) var(--sp-5); flex: 1; }
+.gosh-card__title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: 1.214;
+  margin: 0 0 var(--sp-5);
+}
+.gosh-card__desc {
+  font-size: var(--fs-md);
+  color: var(--color-fg);
+  margin: 0 0 var(--sp-5);
+}
+
+.gosh-card--featured     { background: var(--gosh-paper-stone); }
+.gosh-card--featured-cyan{ background: var(--gosh-cyan); }
+.gosh-card--featured-lime{ background: var(--gosh-lime); }
+
+/* ---------- INPUTS / FORMS ---------- */
+
+.gosh-input {
+  font-family: var(--font-family-base);
+  font-size: var(--fs-md);
+  color: var(--color-fg);
+  background: var(--gosh-white);
+  border: var(--border-thick);
+  border-radius: var(--radius-none);
+  padding: var(--sp-4);
+  width: 100%;
+}
+.gosh-input:focus { outline: 2px solid var(--gosh-cyan); outline-offset: 2px; }
+.gosh-input--error { border-color: var(--color-error); }
+
+.gosh-label {
+  display: block;
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--sp-2);
+}
+
+/* Donation amount toggle pills */
+.gosh-amount-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+.gosh-amount-toggle__btn {
+  background: var(--gosh-white);
+  border: 2px solid var(--color-fg);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-family-base);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-semibold);
+  padding: 10px 24px;
+  cursor: pointer;
+}
+.gosh-amount-toggle__btn[aria-pressed="true"] {
+  background: var(--gosh-cyan);
+}
+
+/* ---------- TAG / PILL ---------- */
+
+.gosh-tag {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--gosh-purple-mist);
+  color: var(--gosh-purple);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+}
+.gosh-tag--cyan   { background: var(--gosh-cyan); color: var(--color-fg); }
+.gosh-tag--lime   { background: var(--gosh-lime); color: var(--color-fg); }
+.gosh-tag--pink   { background: var(--gosh-pink); color: var(--color-fg); }
+.gosh-tag--purple { background: var(--gosh-purple); color: var(--gosh-white); }
+
+/* ---------- HEADER + RULE ---------- */
+
+.gosh-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) var(--sp-7);
+  background: var(--gosh-white);
+  border-bottom: var(--border-rule);
+}
+.gosh-rule { border: 0; border-top: var(--border-rule); margin: var(--sp-7) 0; }
+
+/* ---------- HERO PLATE ---------- */
+
+.gosh-hero {
+  position: relative;
+  padding: var(--sp-9) var(--sp-7);
+  background: var(--gosh-paper-stone);
+}
+.gosh-hero__title {
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  margin: 0 0 var(--sp-5);
+  max-width: 14ch;
+}
+.gosh-hero__sub {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  max-width: var(--measure-prose);
+  margin: 0 0 var(--sp-7);
+}
+
+/* ---------- UTILITIES ---------- */
+
+.gosh-bg-cyan   { background: var(--gosh-cyan); }
+.gosh-bg-purple { background: var(--gosh-purple); color: var(--gosh-white); }
+.gosh-bg-lime   { background: var(--gosh-lime); }
+.gosh-bg-pink   { background: var(--gosh-pink); }
+.gosh-bg-paper  { background: var(--gosh-paper); }
+.gosh-bg-stone  { background: var(--gosh-paper-stone); }
+
+.gosh-text-purple { color: var(--gosh-purple); }
+.gosh-text-cyan   { color: var(--gosh-cyan); }
+.gosh-text-pink   { color: var(--gosh-pink); }

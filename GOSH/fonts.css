@@ -1,0 +1,60 @@
+/* GOSH Brave - the GOSH Charity custom display + body face.
+   Self-hosted from www.gosh.org. Used in 4 weights with italics.
+   The site declares semibold as woff2 and the rest as woff. */
+
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/GOSHBrave-Regular.38cf615e0fc0.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: italic;
+  font-weight: 400;
+  src: url("./fonts/GOSHBrave-Italic.8d252a8ce6d2.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./fonts/GOSHBrave-Medium.df9b03e433fb.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: italic;
+  font-weight: 500;
+  src: url("./fonts/GOSHBrave-MediumItalic.3b9fe78652b6.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./fonts/GOSHBrave-Semibold.7341c37a94ba.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: italic;
+  font-weight: 600;
+  src: url("./fonts/GOSHBrave-SemiboldItalic.defe5fe9a3c5.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/GOSHBrave-Bold.e7712d9939c3.woff") format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: "GOSH Brave";
+  font-style: italic;
+  font-weight: 700;
+  src: url("./fonts/GOSHBrave-BoldItalic.9b2d83733596.woff") format("woff");
+}

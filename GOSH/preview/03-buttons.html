@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>GOSH - Buttons card</title>
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../src/tokens.css">
+<link rel="stylesheet" href="../src/components.css">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 40px; }
+  .card { max-width: 720px; margin: 0 auto; background: #fff; padding: 40px; border: 1px solid var(--gosh-paper-rule); }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 16px 0 32px; }
+  .lbl { font-family: monospace; font-size: 11px; color: var(--gosh-ink-mid); text-transform: uppercase; margin-bottom: 8px; }
+</style>
+</head><body class="gosh">
+<div class="card">
+  <p class="gosh-eyebrow">BUTTONS</p>
+  <h1>Two shapes only</h1>
+  <p>Rectangle for conversion-critical actions. Pill for reading-flow CTAs. Don't invent a third.</p>
+
+  <div class="lbl">.gosh-btn (rectangle)</div>
+  <div class="row">
+    <a class="gosh-btn">Donate now</a>
+    <a class="gosh-btn gosh-btn--cyan">Search</a>
+    <a class="gosh-btn gosh-btn--purple">Sign in</a>
+    <a class="gosh-btn gosh-btn--ghost">Cancel</a>
+  </div>
+
+  <div class="lbl">.gosh-cta (pill)</div>
+  <div class="row">
+    <a class="gosh-cta">Find out more</a>
+    <a class="gosh-cta gosh-cta--lime">Read Olivia's story</a>
+    <a class="gosh-cta gosh-cta--pink">Fundraise for us</a>
+    <a class="gosh-cta gosh-cta--small">More</a>
+  </div>
+</div>
+</body></html>

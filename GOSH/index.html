@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GOSH Charity - Design System</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="src/tokens.css">
+<link rel="stylesheet" href="src/components.css">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  body { padding: 0; }
+  main { max-width: 1180px; margin: 0 auto; padding: 60px 32px; }
+  section { margin-bottom: 80px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .swatch { border-radius: 5px; overflow: hidden; box-shadow: 0 0 0 1px var(--gosh-paper-rule); }
+  .swatch__chip { height: 80px; }
+  .swatch__meta { padding: 12px 14px; background: #fff; font-size: 13px; }
+  .swatch__name { font-weight: 600; }
+  .swatch__hex { color: var(--gosh-ink-mid); font-family: monospace; font-size: 12px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+  .demo { padding: 24px; background: #fff; border-radius: 5px; box-shadow: 0 0 0 1px var(--gosh-paper-rule); }
+  .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .scale-row { display: grid; grid-template-columns: 80px 1fr; align-items: baseline; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--gosh-paper-rule); }
+  .scale-row span:first-child { font-family: monospace; font-size: 12px; color: var(--gosh-ink-mid); }
+  .links a { display: inline-block; margin-right: 16px; }
+  header.top { background: #fff; border-bottom: 1px solid var(--gosh-paper-rule); padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+  header.top .lockup { display: flex; align-items: center; gap: 16px; }
+  header.top img { height: 50px; }
+  header.top h1 { margin: 0; font-size: 22px; font-weight: 700; }
+</style>
+</head>
+<body class="gosh">
+
+<header class="top">
+  <div class="lockup">
+    <img src="assets/logo-default.svg" alt="GOSH Charity">
+    <div>
+      <h1>Design System</h1>
+      <div style="font-size:13px;color:var(--gosh-ink-mid)">Reverse-engineered from gosh.org - 1 May 2026</div>
+    </div>
+  </div>
+  <a class="gosh-btn" href="ui_kits/donate-page/">View donate page</a>
+</header>
+
+<main>
+
+<section>
+  <p class="gosh-eyebrow">OVERVIEW</p>
+  <h1>The GOSH Charity system</h1>
+  <p class="gosh-lede">A faithful re-creation of the visual system used on gosh.org - tokens, components, fonts and a hand-set styleguide. For producing client-facing artefacts that sit comfortably alongside Charity-produced materials.</p>
+  <div class="links">
+    <a href="README.md">README.md</a>
+    <a href="SKILL.md">SKILL.md</a>
+    <a href="reference/main.css">reference/main.css</a>
+    <a href="reference/donate-page-source.html">donate-page source</a>
+    <a href="ui_kits/donate-page/">UI kit: donate page</a>
+  </div>
+</section>
+
+<section>
+  <p class="gosh-eyebrow">PALETTE</p>
+  <h2>Ink</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch__chip" style="background:#212121"></div><div class="swatch__meta"><div class="swatch__name">--gosh-ink</div><div class="swatch__hex">#212121</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#272727"></div><div class="swatch__meta"><div class="swatch__name">--gosh-ink-soft</div><div class="swatch__hex">#272727</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#757575"></div><div class="swatch__meta"><div class="swatch__name">--gosh-ink-mid</div><div class="swatch__hex">#757575</div></div></div>
+  </div>
+
+  <h2 style="margin-top:32px">Paper</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch__chip" style="background:#FAF9F8"></div><div class="swatch__meta"><div class="swatch__name">--gosh-paper</div><div class="swatch__hex">#FAF9F8</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#F0ECEA"></div><div class="swatch__meta"><div class="swatch__name">--gosh-paper-warm</div><div class="swatch__hex">#F0ECEA</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#EEEDE7"></div><div class="swatch__meta"><div class="swatch__name">--gosh-paper-stone</div><div class="swatch__hex">#EEEDE7</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#E7E6E5"></div><div class="swatch__meta"><div class="swatch__name">--gosh-paper-rule</div><div class="swatch__hex">#E7E6E5</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #E7E6E5"></div><div class="swatch__meta"><div class="swatch__name">--gosh-white</div><div class="swatch__hex">#FFFFFF</div></div></div>
+  </div>
+
+  <h2 style="margin-top:32px">GOSH purple</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch__chip" style="background:#2F1351"></div><div class="swatch__meta"><div class="swatch__name">--gosh-purple-deep</div><div class="swatch__hex">#2F1351</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#4C3C90"></div><div class="swatch__meta"><div class="swatch__name">--gosh-purple</div><div class="swatch__hex">#4C3C90</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#6300CC"></div><div class="swatch__meta"><div class="swatch__name">--gosh-purple-bright</div><div class="swatch__hex">#6300CC</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#A5ADD7"></div><div class="swatch__meta"><div class="swatch__name">--gosh-purple-tint</div><div class="swatch__hex">#A5ADD7</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#F5F0F8"></div><div class="swatch__meta"><div class="swatch__name">--gosh-purple-mist</div><div class="swatch__hex">#F5F0F8</div></div></div>
+  </div>
+
+  <h2 style="margin-top:32px">Vivid accents</h2>
+  <div class="swatches">
+    <div class="swatch"><div class="swatch__chip" style="background:#0AD7FF"></div><div class="swatch__meta"><div class="swatch__name">--gosh-cyan</div><div class="swatch__hex">#0AD7FF</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#0078EB"></div><div class="swatch__meta"><div class="swatch__name">--gosh-blue</div><div class="swatch__hex">#0078EB</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#3B99FC"></div><div class="swatch__meta"><div class="swatch__name">--gosh-blue-soft</div><div class="swatch__hex">#3B99FC</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#3333FA"></div><div class="swatch__meta"><div class="swatch__name">--gosh-indigo</div><div class="swatch__hex">#3333FA</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#00B2BB"></div><div class="swatch__meta"><div class="swatch__name">--gosh-teal</div><div class="swatch__hex">#00B2BB</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#E3F30C"></div><div class="swatch__meta"><div class="swatch__name">--gosh-lime</div><div class="swatch__hex">#E3F30C</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#EF7A97"></div><div class="swatch__meta"><div class="swatch__name">--gosh-pink</div><div class="swatch__hex">#EF7A97</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#FFE843"></div><div class="swatch__meta"><div class="swatch__name">--gosh-yellow</div><div class="swatch__hex">#FFE843</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#FBBA00"></div><div class="swatch__meta"><div class="swatch__name">--gosh-yellow-amber</div><div class="swatch__hex">#FBBA00</div></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#B00020"></div><div class="swatch__meta"><div class="swatch__name">--gosh-error</div><div class="swatch__hex">#B00020</div></div></div>
+  </div>
+</section>
+
+<section>
+  <p class="gosh-eyebrow">TYPOGRAPHY</p>
+  <h2>One family - GOSH Brave</h2>
+  <p class="gosh-prose">All headings, body and UI chrome use the GOSH Brave family. The fallback stack is Arial, Helvetica, sans-serif - matching the live site declaration. Visual hierarchy comes from weight (500 / 600 / 700 / 800) and size, never from family contrast.</p>
+  <div class="demo">
+    <div class="scale-row"><span>48 / 800</span><span class="gosh-h1" style="font-size:48px;font-weight:800">Help beat childhood cancer</span></div>
+    <div class="scale-row"><span>40 / 600</span><span class="gosh-h1">Help beat childhood cancer</span></div>
+    <div class="scale-row"><span>28 / 700</span><span class="gosh-h2">Build it. Beat it.</span></div>
+    <div class="scale-row"><span>26 / 600</span><span class="gosh-h3">Stories from the wards</span></div>
+    <div class="scale-row"><span>22 / 600</span><span class="gosh-h4">A new Children's Cancer Centre</span></div>
+    <div class="scale-row"><span>21 / 500</span><span class="gosh-lede" style="margin:0;max-width:none">When cancer hits, childhood can suffer.</span></div>
+    <div class="scale-row"><span>18 / 600</span><span>Body copy. The default running text on gosh.org is set in semibold for warmth and weight.</span></div>
+    <div class="scale-row"><span>14 / 700 caps</span><span class="gosh-eyebrow" style="margin:0">EYEBROW LABEL</span></div>
+  </div>
+</section>
+
+<section>
+  <p class="gosh-eyebrow">BUTTONS</p>
+  <h2>Two shapes only</h2>
+  <div class="grid-2">
+    <div class="demo">
+      <p style="margin-top:0;color:var(--gosh-ink-mid);font-size:13px">.gosh-btn - rectangle</p>
+      <div class="row">
+        <a class="gosh-btn">Donate now</a>
+        <a class="gosh-btn gosh-btn--cyan">Search</a>
+        <a class="gosh-btn gosh-btn--purple">Sign in</a>
+        <a class="gosh-btn gosh-btn--ghost">Cancel</a>
+      </div>
+    </div>
+    <div class="demo">
+      <p style="margin-top:0;color:var(--gosh-ink-mid);font-size:13px">.gosh-cta - pill</p>
+      <div class="row">
+        <a class="gosh-cta">Find out more</a>
+        <a class="gosh-cta gosh-cta--lime">Read Olivia's story</a>
+        <a class="gosh-cta gosh-cta--pink">Fundraise for us</a>
+        <a class="gosh-cta gosh-cta--small">More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="gosh-eyebrow">COLOUR BLOCKS</p>
+  <h2>One accent per surface</h2>
+  <div class="grid-2">
+    <div class="gosh-colour-block">
+      <h3 style="margin-top:0">Help beat childhood cancer.</h3>
+      <p style="font-weight:500;max-width:35ch">When cancer hits, childhood can suffer. We need your help to build the new Children's Cancer Centre.</p>
+      <a class="gosh-btn">Donate now</a>
+    </div>
+    <div class="gosh-colour-block gosh-colour-block--purple">
+      <h3 style="margin-top:0;color:#fff">Build it. Beat it.</h3>
+      <p style="color:#fff;font-weight:500;max-width:35ch">Together we can build the most ambitious cancer centre for children Europe has ever seen.</p>
+      <a class="gosh-cta gosh-cta--lime">Find out more</a>
+    </div>
+    <div class="gosh-colour-block gosh-colour-block--lime">
+      <h3 style="margin-top:0">£25 funds an hour of vital research.</h3>
+      <p style="font-weight:500;max-width:35ch">Every pound goes further when it's specific, measured, and local to a real child.</p>
+      <a class="gosh-btn gosh-btn--purple">Give £25</a>
+    </div>
+    <div class="gosh-colour-block gosh-colour-block--pink">
+      <h3 style="margin-top:0">Stories from the wards.</h3>
+      <p style="font-weight:500;max-width:35ch">Olivia. Theo. Maya. Real children we are proud to fight alongside.</p>
+      <a class="gosh-cta">Read more</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="gosh-eyebrow">COMPONENTS</p>
+  <h2>Cards, tags, forms</h2>
+  <div class="grid-3">
+    <div class="gosh-card">
+      <div class="gosh-card__media" style="background:linear-gradient(135deg,#0AD7FF,#3333FA)"></div>
+      <div class="gosh-card__body">
+        <span class="gosh-tag gosh-tag--purple">RESEARCH</span>
+        <h3 class="gosh-card__title" style="margin-top:12px">Groundbreaking research into children's health</h3>
+        <p class="gosh-card__desc">Pioneering treatments and cures for the rarest, most complex conditions affecting children.</p>
+        <a class="gosh-cta gosh-cta--small">Read more</a>
+      </div>
+    </div>
+    <div class="gosh-card gosh-card--featured">
+      <div class="gosh-card__body">
+        <span class="gosh-tag">APPEAL</span>
+        <h3 class="gosh-card__title" style="margin-top:12px">A new Children's Cancer Centre</h3>
+        <p class="gosh-card__desc">The most ambitious children's cancer centre Europe has seen. We need your help to build it, so we can beat it.</p>
+        <a class="gosh-cta">Donate to the appeal</a>
+      </div>
+    </div>
+    <div class="gosh-card gosh-card--featured-cyan">
+      <div class="gosh-card__body">
+        <span class="gosh-tag" style="background:#fff">STORY</span>
+        <h3 class="gosh-card__title" style="margin-top:12px">Olivia's story</h3>
+        <p class="gosh-card__desc">"When we were told it was leukaemia, the world stopped. Then GOSH made it spin again."</p>
+        <a class="gosh-cta gosh-cta--white">Read Olivia's story</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:24px">
+    <div class="demo">
+      <p style="margin-top:0;color:var(--gosh-ink-mid);font-size:13px">.gosh-amount-toggle</p>
+      <div class="gosh-amount-toggle">
+        <button class="gosh-amount-toggle__btn">£10</button>
+        <button class="gosh-amount-toggle__btn" aria-pressed="true">£25</button>
+        <button class="gosh-amount-toggle__btn">£50</button>
+        <button class="gosh-amount-toggle__btn">£100</button>
+        <button class="gosh-amount-toggle__btn">Other</button>
+      </div>
+    </div>
+    <div class="demo">
+      <p style="margin-top:0;color:var(--gosh-ink-mid);font-size:13px">.gosh-input</p>
+      <label class="gosh-label" for="email">Your email</label>
+      <input class="gosh-input" id="email" type="email" placeholder="you@example.com">
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="gosh-eyebrow">RULES OF THE SYSTEM</p>
+  <h2>The seven non-negotiables</h2>
+  <ol class="gosh-prose">
+    <li>One family. GOSH Brave for everything.</li>
+    <li>Body is 18px / line-height 1.4 / weight 600. Don't shrink it.</li>
+    <li>Two button shapes only - rectangle and pill.</li>
+    <li>One accent colour per surface. Cyan + lime + pink in the same panel is a clown car.</li>
+    <li>Sentence case for headlines. Title Case for proper nouns only.</li>
+    <li>No box-shadows. Layer with paper tiers, ruled lines, or coloured panels.</li>
+    <li>Specificity over sentiment. "£25 funds an hour of research" beats "Your gift makes a difference."</li>
+  </ol>
+</section>
+
+</main>
+</body>
+</html>

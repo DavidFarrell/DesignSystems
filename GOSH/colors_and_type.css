@@ -1,0 +1,54 @@
+/* Friendly semantic aliases over the GOSH tokens.
+   Import after fonts.css and src/tokens.css. Use these short var
+   names (--fg1, --bg1, --accent) in quick prototypes. */
+
+:root {
+  /* Surfaces */
+  --bg1:      var(--gosh-paper);          /* page background       */
+  --bg2:      var(--gosh-paper-stone);    /* card / slab           */
+  --bg3:      var(--gosh-paper-rule);     /* hairline / hover band */
+  --bg-deep:  var(--gosh-purple-deep);    /* dark hero plate       */
+
+  /* Ink */
+  --fg1:      var(--gosh-ink);            /* primary type          */
+  --fg2:      var(--gosh-ink-mid);        /* muted type            */
+  --fg-rev:   var(--gosh-white);          /* reverse-out type      */
+
+  /* Brand */
+  --brand:        var(--gosh-purple);
+  --brand-deep:   var(--gosh-purple-deep);
+
+  /* The signature accents - pick one per surface */
+  --accent:       var(--gosh-cyan);
+  --cta:          var(--gosh-lime);
+  --warm:         var(--gosh-pink);
+  --link:         var(--gosh-blue);
+  --error:        var(--gosh-error);
+
+  /* Type roles */
+  --t-h1:     var(--fs-display);
+  --t-h2:     var(--fs-h2);
+  --t-h3:     var(--fs-h3);
+  --t-body:   var(--fs-md);
+  --t-small:  var(--fs-xs);
+}
+
+/* Sensible element defaults so a bare HTML page already looks GOSH-y. */
+html, body { background: var(--bg1); color: var(--fg1); }
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+  margin: 0;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-family-display); color: var(--fg1); }
+h1 { font-size: var(--t-h1); font-weight: var(--fw-semibold); line-height: var(--lh-base); }
+h2 { font-size: var(--t-h2); font-weight: var(--fw-bold); line-height: var(--lh-snug); }
+h3 { font-size: var(--t-h3); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+h4 { font-size: var(--fs-2xl); font-weight: var(--fw-semibold); }
+
+a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--brand-deep); }
+
+::selection { background: var(--gosh-cyan); color: var(--fg1); }

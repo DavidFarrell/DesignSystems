@@ -1,0 +1,170 @@
+/* GOSH Charity Design Tokens
+   Source of truth: www.gosh.org/static/css/main.7e827ff7c2a1.css (audited 1 May 2026).
+   All values are observed in the live stylesheet. Frequencies (in parens) note how
+   often a hex appears - the higher the count, the more load-bearing the token. */
+
+:root {
+  /* ============================================================
+     COLOUR - INK
+     ============================================================ */
+  --gosh-ink:              #212121;  /* primary text, dark UI            (101) */
+  --gosh-ink-soft:         #272727;  /* subtle alternate                   (4) */
+  --gosh-ink-mid:          #757575;  /* muted text, captions              (22) */
+  --gosh-ink-deepest:      #000000;  /* true black, sparingly              (22) */
+
+  /* ============================================================
+     COLOUR - PAPER (warm whites and stone)
+     The site is set on a warm off-white, never pure paper-white.
+     ============================================================ */
+  --gosh-paper:            #FAF9F8;  /* page background                   (12) */
+  --gosh-paper-warm:       #F0ECEA;  /* cards, slabs                       (3) */
+  --gosh-paper-stone:      #EEEDE7;  /* deeper warm neutral                (6) */
+  --gosh-paper-rule:       #E7E6E5;  /* hairlines, hovers                 (50) */
+  --gosh-paper-edge:       #EAEAEA;  /* secondary rule                     (7) */
+  --gosh-paper-pebble:     #B5A8A0;  /* warm grey accent                   (2) */
+  --gosh-white:            #FFFFFF;  /* reverse-out                       (61) */
+
+  /* ============================================================
+     COLOUR - GOSH PURPLE (the brand anchor)
+     ============================================================ */
+  --gosh-purple-deep:      #2F1351;  /* hero purple                        (6) */
+  --gosh-purple:           #4C3C90;  /* main brand purple                 (20) */
+  --gosh-purple-bright:    #6300CC;  /* highlight                          (3) */
+  --gosh-purple-tint:      #A5ADD7;  /* tint for surfaces                  (2) */
+  --gosh-purple-mist:      #F5F0F8;  /* lightest purple wash               (2) */
+
+  /* ============================================================
+     COLOUR - VIVID ACCENTS
+     The signature GOSH "rainbow" - used for buttons, panels and
+     section colour-blocks. Pair one accent with ink text.
+     ============================================================ */
+  --gosh-cyan:             #0AD7FF;  /* signature cyan, search + CTA      (25) */
+  --gosh-blue:             #0078EB;  /* link / info blue                  (12) */
+  --gosh-blue-soft:        #3B99FC;  /* secondary blue                     (3) */
+  --gosh-indigo:           #3333FA;  /* deep electric blue                 (9) */
+  --gosh-teal:             #00B2BB;  /* teal accent                        (4) */
+  --gosh-lime:             #E3F30C;  /* signature lime - donate CTA        (4) */
+  --gosh-pink:             #EF7A97;  /* warm pink                          (6) */
+  --gosh-yellow:           #FFE843;  /* primary yellow                     (1) */
+  --gosh-yellow-warm:      #FFD854;  /* warm yellow                        (1) */
+  --gosh-yellow-deep:      #FFC439;  /* deeper yellow                      (1) */
+  --gosh-yellow-amber:     #FBBA00;  /* amber                              (1) */
+
+  /* ============================================================
+     COLOUR - STATUS
+     ============================================================ */
+  --gosh-error:            #B00020;  /* form error, destructive           (16) */
+
+  /* ============================================================
+     SEMANTIC ROLES
+     Layer over the raw palette. Use these in components.
+     ============================================================ */
+  --color-bg:              var(--gosh-paper);
+  --color-bg-alt:          var(--gosh-paper-stone);
+  --color-bg-rule:         var(--gosh-paper-rule);
+  --color-fg:              var(--gosh-ink);
+  --color-fg-muted:        var(--gosh-ink-mid);
+  --color-brand:           var(--gosh-purple);
+  --color-brand-deep:      var(--gosh-purple-deep);
+  --color-accent:          var(--gosh-cyan);   /* signature accent */
+  --color-cta:             var(--gosh-lime);   /* donate CTA */
+  --color-link:            var(--gosh-blue);
+  --color-error:           var(--gosh-error);
+
+  /* ============================================================
+     TYPE - FAMILIES
+     One face does everything. The fallback stack matches the
+     .button__header-donate declaration on www.gosh.org.
+     ============================================================ */
+  --font-family-base: "GOSH Brave", Arial, Helvetica, sans-serif;
+  --font-family-display: var(--font-family-base);
+
+  /* ============================================================
+     TYPE - SIZE SCALE
+     Observed sizes from main.css. Stored in rem (16px base).
+     The two large display sizes (40 / 48) appear in hero CTAs.
+     ============================================================ */
+  --fs-xs:        0.875rem;   /* 14px - small print, captions */
+  --fs-sm:        1rem;       /* 16px - default body fallback */
+  --fs-md:        1.125rem;   /* 18px - body                  */
+  --fs-lg:        1.25rem;    /* 20px - lead body, button     */
+  --fs-xl:        1.3125rem;  /* 21px - featured CTA          */
+  --fs-2xl:       1.375rem;   /* 22px - sub-heading           */
+  --fs-3xl:       1.5rem;     /* 24px                          */
+  --fs-h3:        1.625rem;   /* 26px - h3                     */
+  --fs-h2:        1.75rem;    /* 28px - h2 / featured-card hd  */
+  --fs-large:     2.25rem;    /* 36px                          */
+  --fs-display:   2.5rem;     /* 40px - hero heading           */
+  --fs-hero:      3rem;       /* 48px - large hero             */
+
+  /* ============================================================
+     TYPE - WEIGHTS
+     The site leans hard on 600. 400 is rare. 800 is reserved for
+     CTA labels.
+     ============================================================ */
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;   /* default for headings + body emphasis */
+  --fw-bold:       700;
+  --fw-black:      800;   /* CTA labels, "DONATE NOW" etc. */
+
+  /* ============================================================
+     TYPE - LINE HEIGHT
+     ============================================================ */
+  --lh-tight:      1;
+  --lh-snug:       1.125;
+  --lh-base:       1.2;
+  --lh-relaxed:    1.3;
+  --lh-loose:      1.4;
+
+  /* ============================================================
+     SPACING
+     Observed scale, 4px grid.
+     ============================================================ */
+  --sp-1:    4px;
+  --sp-2:    8px;
+  --sp-3:    10px;
+  --sp-4:    15px;
+  --sp-5:    20px;
+  --sp-6:    25px;
+  --sp-7:    30px;
+  --sp-8:    40px;
+  --sp-9:    60px;
+
+  /* ============================================================
+     LAYOUT
+     ============================================================ */
+  --container-max:      1180px;
+  --measure-prose:      680px;
+
+  /* ============================================================
+     RADIUS
+     The system uses two distinct shapes:
+     - rectangular for product chrome and primary action bars
+     - pill (30px) for "call-to-action" links
+     ============================================================ */
+  --radius-none:    0;
+  --radius-sm:      5px;
+  --radius-md:      10px;
+  --radius-pill:    30px;
+  --radius-circle:  50%;
+
+  /* ============================================================
+     BORDER
+     ============================================================ */
+  --border-thick:    2px solid var(--color-fg);  /* observed on inputs */
+  --border-rule:     1px solid var(--color-bg-rule);
+
+  /* ============================================================
+     SHADOW
+     The site keeps shadows minimal - blocks of colour do the lifting.
+     ============================================================ */
+  --shadow-none:    none;
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --dur-fast:   150ms;
+  --dur-base:   250ms;
+  --easing:     ease-out;
+}
