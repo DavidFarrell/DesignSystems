@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ZRE - Components</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+</head>
+<body class="zre">
+
+<header class="zre-header">
+  <div class="zre-container zre-header__inner">
+    <a class="zre-header__brand" href="../">← ZINC RE / Design System</a>
+    <nav class="zre-nav"><a href="./colors.html">Colours</a><a href="./type.html">Type</a><a href="./brand.html">Brand</a></nav>
+  </div>
+</header>
+
+<section class="zre-section zre-container">
+  <span class="zre-eyebrow">Preview · Components</span>
+  <h1 style="margin: 1rem 0 2rem;">Components.</h1>
+
+  <h2 style="margin: 2rem 0 1rem;">Buttons</h2>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+    <a href="#" class="zre-btn">View our investments</a>
+    <a href="#" class="zre-btn zre-btn--ghost">Contact us</a>
+  </div>
+  <div style="background: var(--zre-forest-deep); padding: 2rem; margin-top: 1.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+    <a href="#" class="zre-btn zre-btn--reverse">Read the report</a>
+    <a href="#" class="zre-btn zre-btn--ghost-reverse">Download the PDF</a>
+  </div>
+
+  <h2 style="margin: 3rem 0 1rem;">Read-more link</h2>
+  <a href="#" class="zre-link--arrow">View our investments</a>
+
+  <h2 style="margin: 3rem 0 1rem;">Stats</h2>
+  <div class="zre-grid" style="--zre-cols: 3;">
+    <div class="zre-stat"><div class="zre-stat__value">£600m</div><div class="zre-stat__label">Assets under management</div></div>
+    <div class="zre-stat"><div class="zre-stat__value">35+</div><div class="zre-stat__label">Years' experience</div></div>
+    <div class="zre-stat"><div class="zre-stat__value">9</div><div class="zre-stat__label">Offices, UK &amp; NL</div></div>
+  </div>
+
+  <h2 style="margin: 3rem 0 1rem;">Asset cards</h2>
+  <div class="zre-grid" style="--zre-cols: 3;">
+    <a href="#" class="zre-asset">
+      <div class="zre-asset__plate" style="background-image: linear-gradient(135deg, #0d3123, #0a241a);"></div>
+      <div class="zre-asset__meta"><span class="zre-asset__loc">London EC3V</span><span class="zre-asset__loc" style="color: var(--zre-grey-mute);">2024</span></div>
+      <h3 class="zre-asset__title">Office repositioning</h3>
+      <p class="zre-asset__desc">A full repositioning of a 60,000 sq ft City office asset.</p>
+    </a>
+    <a href="#" class="zre-asset">
+      <div class="zre-asset__plate" style="background-image: linear-gradient(135deg, #0a241a, #091510);"></div>
+      <div class="zre-asset__meta"><span class="zre-asset__loc">Amsterdam Zuidas</span><span class="zre-asset__loc" style="color: var(--zre-grey-mute);">2023</span></div>
+      <h3 class="zre-asset__title">Build-to-rent residential</h3>
+      <p class="zre-asset__desc">Forward-funded BTR scheme with a 25-year operator covenant.</p>
+    </a>
+    <a href="#" class="zre-asset">
+      <div class="zre-asset__plate" style="background-image: linear-gradient(135deg, #091510, #0d3123);"></div>
+      <div class="zre-asset__meta"><span class="zre-asset__loc">Manchester</span><span class="zre-asset__loc" style="color: var(--zre-grey-mute);">2022</span></div>
+      <h3 class="zre-asset__title">Logistics consolidation</h3>
+      <p class="zre-asset__desc">Two adjacent industrial holdings consolidated into a regional hub.</p>
+    </a>
+  </div>
+
+  <h2 style="margin: 3rem 0 1rem;">People</h2>
+  <div class="zre-grid" style="--zre-cols: 4;">
+    <div class="zre-person">
+      <div class="zre-person__photo" style="background: linear-gradient(180deg, #d3d1d3, #979797);"></div>
+      <div class="zre-person__name">Gary Roberts</div>
+      <div class="zre-person__role">Founder &amp; CEO</div>
+    </div>
+    <div class="zre-person">
+      <div class="zre-person__photo" style="background: linear-gradient(180deg, #d3d1d3, #979797);"></div>
+      <div class="zre-person__name">Bob van den Bichelaer</div>
+      <div class="zre-person__role">Partner | CDO</div>
+    </div>
+    <div class="zre-person">
+      <div class="zre-person__photo" style="background: linear-gradient(180deg, #d3d1d3, #979797);"></div>
+      <div class="zre-person__name">Yuliia Shportaliuk</div>
+      <div class="zre-person__role">Investment Manager - NL</div>
+    </div>
+    <div class="zre-person">
+      <div class="zre-person__photo" style="background: linear-gradient(180deg, #d3d1d3, #979797);"></div>
+      <div class="zre-person__name">Jonathan Weinstein</div>
+      <div class="zre-person__role">Asset Manager - UK</div>
+    </div>
+  </div>
+
+  <h2 style="margin: 3rem 0 1rem;">Pull quote</h2>
+  <blockquote class="zre-quote">"We pair a dynamic capital allocation framework with committed capital, operational agility and empowered teams."</blockquote>
+
+  <h2 style="margin: 3rem 0 1rem;">Contact form</h2>
+  <div class="zre-grid" style="--zre-cols: 12; max-width: 40rem;">
+    <div style="grid-column: span 6;"><label class="zre-eyebrow" style="display:block; margin-bottom:0.25rem;">First name</label><input class="zre-input" type="text" placeholder="Your first name" /></div>
+    <div style="grid-column: span 6;"><label class="zre-eyebrow" style="display:block; margin-bottom:0.25rem;">Last name</label><input class="zre-input" type="text" placeholder="Your last name" /></div>
+    <div style="grid-column: span 12;"><label class="zre-eyebrow" style="display:block; margin-bottom:0.25rem;">Email</label><input class="zre-input" type="email" placeholder="you@institution.com" /></div>
+    <div style="grid-column: span 12;"><label class="zre-eyebrow" style="display:block; margin-bottom:0.25rem;">Description of issue *</label><input class="zre-input" type="text" placeholder="Brief description" /></div>
+    <div style="grid-column: span 12; margin-top: 1.5rem;"><a href="#" class="zre-btn">Submit enquiry</a></div>
+  </div>
+</section>
+
+<footer class="zre-footer">
+  <div class="zre-container zre-grid" style="--zre-cols: 12;">
+    <div style="grid-column: span 6;"><span class="zre-wordmark zre-wordmark--lg">ZINC RE</span><p style="max-width: 26rem; margin-top: 1rem;">A real-estate asset manager committed to a relentless pursuit of excellence.</p></div>
+    <div style="grid-column: span 2;"><h4>London</h4><ul><li>9 Marshalsea Rd</li><li>SE1, United Kingdom</li><li><a href="#">+44 20 0000 0000</a></li></ul></div>
+    <div style="grid-column: span 2;"><h4>Amsterdam</h4><ul><li>Zuidas Tower</li><li>1082 Netherlands</li><li><a href="#">+31 20 000 0000</a></li></ul></div>
+    <div style="grid-column: span 2;"><h4>Connect</h4><ul><li><a href="#">LinkedIn</a></li><li><a href="#">Investor Login</a></li></ul></div>
+    <div style="grid-column: span 12;" class="zre-footer__rule">© ZINC Real Estate 2026 - this is a UI-kit recreation, not the official ZRE site.</div>
+  </div>
+</footer>
+
+</body>
+</html>

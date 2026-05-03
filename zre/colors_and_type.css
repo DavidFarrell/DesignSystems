@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Zinc Real Estate - Semantic aliases over tokens.css
+   ========================================================================== */
+
+@import url("./src/tokens.css");
+
+:root {
+  /* Surfaces */
+  --bg1:     var(--zre-paper);          /* default page */
+  --bg2:     var(--zre-white);
+  --bg3:     var(--zre-bone);
+  --bg-dark: var(--zre-forest-deep);    /* hero / dark sections */
+  --bg-deep: var(--zre-forest);         /* secondary dark plate */
+
+  /* Ink */
+  --fg1:     var(--zre-ink);            /* default text */
+  --fg2:     var(--zre-grey);
+  --fg-mute: var(--zre-grey-mute);
+  --fg-rev:  var(--zre-paper);          /* text on dark surfaces */
+
+  /* Brand voice */
+  --accent:  var(--zre-forest);         /* the forest green is the brand */
+
+  /* Type */
+  --font-display: var(--zre-display);
+  --font-body:    var(--zre-serif);
+
+  --h1:    var(--zre-fs-hero-d);
+  --h2:    var(--zre-fs-h2);
+  --h3:    var(--zre-fs-h3);
+  --h4:    var(--zre-fs-h4);
+  --body:  var(--zre-fs-body);
+}
+
+/* ---- Element defaults --------------------------------------------------- */
+html, body {
+  background: var(--bg1);
+  color: var(--fg1);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--zre-lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--zre-w-bold);
+  letter-spacing: var(--zre-track-display);
+  text-transform: none;
+  color: var(--zre-forest);
+}
+
+h1 { font-size: var(--h1); line-height: var(--zre-lh-hero-d); }
+h2 { font-size: var(--h2); line-height: var(--zre-lh-h2); }
+h3 { font-size: var(--h3); line-height: var(--zre-lh-h3); }
+h4 { font-size: var(--h4); line-height: var(--zre-lh-h4); }
+
+@media (max-width: 768px) {
+  h1 { font-size: var(--zre-fs-hero-m); line-height: var(--zre-lh-hero-m); }
+  h2 { font-size: 2.25rem; }
+}
+
+p {
+  margin: 0 0 1.25rem;
+  max-width: var(--zre-prose-max);
+  font-size: var(--zre-fs-body);
+  line-height: var(--zre-lh-body);
+  color: var(--zre-ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: var(--zre-link-offset);
+  text-decoration-thickness: 1px;
+  transition: color var(--zre-dur-fast) var(--zre-ease);
+}
+a:hover { color: var(--zre-forest); text-decoration-color: var(--zre-forest); }
+
+hr { border: 0; border-top: var(--zre-hairline); margin: var(--zre-sp-12) 0; }
+
+::selection { background: var(--zre-forest); color: var(--zre-paper); }

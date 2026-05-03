@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PD - Colours</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .swatch { border-radius: var(--pd-radius-card); padding: var(--pd-sp-8); min-height: 12rem; display:flex; flex-direction:column; justify-content:flex-end; }
+  .swatch code { background: rgba(255,255,255,0.12); padding: 0.1em 0.5em; border-radius: 4px; font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; }
+</style>
+</head>
+<body class="pd">
+
+<header class="pd-header">
+  <div class="pd-container pd-header__inner">
+    <a class="pd-header__brand" href="../">← public digital / design system</a>
+    <nav class="pd-nav"><a href="./type.html">Type</a><a href="./components.html">Components</a><a href="./brand.html">Brand</a></nav>
+  </div>
+</header>
+
+<section class="pd-section pd-container">
+  <span class="pd-eyebrow" style="color:var(--pd-red);">PREVIEW · PALETTE</span>
+  <h1 class="pd-f-page" style="margin:1rem 0 2.5rem; max-width:18ch;">One paper. One ink. One red. Nine plate hues.</h1>
+
+  <h2 class="pd-f-large" style="margin:2rem 0 1rem;">Surface &amp; ink</h2>
+  <div class="pd-grid" style="--pd-cols:4;">
+    <div class="swatch" style="background:var(--pd-paper); color:var(--pd-black); border:1px solid var(--pd-paper-bone);"><strong>Paper</strong><br><code>#f7f4f4</code></div>
+    <div class="swatch" style="background:var(--pd-white); color:var(--pd-black); border:1px solid var(--pd-paper-bone);"><strong>White</strong><br><code>#ffffff</code></div>
+    <div class="swatch" style="background:var(--pd-paper-stone); color:var(--pd-black);"><strong>Stone</strong><br><code>#edeaea</code></div>
+    <div class="swatch" style="background:var(--pd-paper-bone); color:var(--pd-black);"><strong>Bone</strong><br><code>#e3e0e0</code></div>
+    <div class="swatch" style="background:var(--pd-black); color:var(--pd-white);"><strong>Ink</strong><br><code>#2d2d2c</code></div>
+    <div class="swatch" style="background:var(--pd-blacker); color:var(--pd-white);"><strong>Blacker</strong><br><code>#1b1b1a</code></div>
+    <div class="swatch" style="background:var(--pd-grey); color:var(--pd-white);"><strong>Grey</strong><br><code>#708494</code></div>
+    <div class="swatch" style="background:var(--pd-grey-soft); color:var(--pd-white);"><strong>Grey soft</strong><br><code>#9ca3af</code></div>
+  </div>
+
+  <h2 class="pd-f-large" style="margin:3rem 0 1rem;">Signature accent</h2>
+  <div class="pd-grid" style="--pd-cols:4;">
+    <div class="swatch" style="background:var(--pd-red); color:var(--pd-white); grid-column: span 2;"><strong>PD red</strong><br><code>#ea5342</code><br><small style="opacity:.85;">Used on link hover, errors, eyebrow flashes, button hover. Never on broad surfaces.</small></div>
+  </div>
+
+  <h2 class="pd-f-large" style="margin:3rem 0 1rem;">Plate accents (one per surface)</h2>
+  <div class="pd-grid" style="--pd-cols:4;">
+    <div class="swatch" style="background:var(--pd-orange);"><strong>Orange</strong><br><code>#ff8854</code></div>
+    <div class="swatch" style="background:var(--pd-yellow);"><strong>Yellow</strong><br><code>#ecbd2b</code></div>
+    <div class="swatch" style="background:var(--pd-green); color:var(--pd-white);"><strong>Green</strong><br><code>#0e7d75</code></div>
+    <div class="swatch" style="background:var(--pd-turquoise); color:var(--pd-white);"><strong>Turquoise</strong><br><code>#23928a</code></div>
+    <div class="swatch" style="background:var(--pd-sky);"><strong>Sky</strong><br><code>#7cc7d6</code></div>
+    <div class="swatch" style="background:var(--pd-ice);"><strong>Ice</strong><br><code>#bed1d4</code></div>
+    <div class="swatch" style="background:var(--pd-blue); color:var(--pd-white);"><strong>Blue</strong><br><code>#325b92</code></div>
+    <div class="swatch" style="background:var(--pd-pink);"><strong>Pink</strong><br><code>#e2bacc</code></div>
+    <div class="swatch" style="background:var(--pd-taupe);"><strong>Taupe</strong><br><code>#bdaea4</code></div>
+  </div>
+</section>
+
+</body>
+</html>

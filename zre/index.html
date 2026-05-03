@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ZINC Real Estate - Design System</title>
+<link rel="stylesheet" href="./fonts.css" />
+<link rel="stylesheet" href="./src/tokens.css" />
+<link rel="stylesheet" href="./src/components.css" />
+<link rel="stylesheet" href="./colors_and_type.css" />
+</head>
+<body class="zre">
+
+<header class="zre-header">
+  <div class="zre-container zre-header__inner">
+    <a class="zre-header__brand" href="./">ZINC RE / Design System</a>
+    <nav class="zre-nav">
+      <a href="./reference/original_homepage.html" target="_blank">Source</a>
+      <a href="./README.md">README</a>
+      <a href="./ui_kits/homepage/index.html" class="zre-btn">Open UI kit</a>
+    </nav>
+  </div>
+</header>
+
+<section class="zre-hero">
+  <div class="zre-container zre-hero__inner">
+    <span class="zre-eyebrow zre-eyebrow--reverse">A Working Re-creation</span>
+    <h1>Forest green on cream. Plantin on Reservation Wide. The whole brochure in 60 KB of CSS.</h1>
+    <p>Tokens, components, fonts and a homepage UI kit, audited from the live zincre.com bundle on 3 May 2026 and re-organised into the same convention as the other systems in this folder.</p>
+    <a href="./ui_kits/homepage/index.html" class="zre-btn zre-btn--reverse">Open the UI kit</a>
+  </div>
+</section>
+
+<section class="zre-section zre-container">
+  <span class="zre-eyebrow">Browse</span>
+  <h2 style="margin:1rem 0 3rem;">The system, in five short pages.</h2>
+  <div class="zre-grid" style="--zre-cols:12;">
+    <a class="zre-card" style="grid-column: span 6;" href="./preview/colors.html">
+      <span class="zre-eyebrow">Preview</span>
+      <h3 style="margin-top:0.5rem;">Colours</h3>
+      <p>Forest green family, cream surfaces, hairline grey - the entire palette.</p>
+    </a>
+    <a class="zre-card" style="grid-column: span 6;" href="./preview/type.html">
+      <span class="zre-eyebrow">Preview</span>
+      <h3 style="margin-top:0.5rem;">Type pairing</h3>
+      <p>Reservation Wide for display + labels, Plantin for body and italics.</p>
+    </a>
+    <a class="zre-card" style="grid-column: span 6;" href="./preview/components.html">
+      <span class="zre-eyebrow">Preview</span>
+      <h3 style="margin-top:0.5rem;">Components</h3>
+      <p>Buttons, stats, asset cards, people, quote, form, footer.</p>
+    </a>
+    <a class="zre-card" style="grid-column: span 6;" href="./preview/brand.html">
+      <span class="zre-eyebrow">Preview</span>
+      <h3 style="margin-top:0.5rem;">Brand voice</h3>
+      <p>Casing, tone, do/don't, exemplars from the live site.</p>
+    </a>
+    <a class="zre-card" style="grid-column: span 12; background: var(--zre-forest-deep); color: var(--zre-paper); border:0;" href="./ui_kits/homepage/index.html">
+      <span class="zre-eyebrow zre-eyebrow--reverse">UI kit</span>
+      <h3 style="margin-top:0.5rem; color: var(--zre-paper);">Homepage</h3>
+      <p style="color: rgba(248,248,248,0.85);">A click-thru recreation of zincre.com using only the tokens and components in this folder.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="zre-footer">
+  <div class="zre-container zre-grid" style="--zre-cols:12;">
+    <div style="grid-column: span 6;">
+      <span class="zre-wordmark zre-wordmark--lg">ZINC RE</span>
+      <p style="max-width: 28rem; margin-top: 1.5rem; color: rgba(248,248,248,0.8);">A discreet, expensively-quiet design system for a real-estate asset manager.</p>
+    </div>
+    <div style="grid-column: span 3;">
+      <h4>System</h4>
+      <ul>
+        <li><a href="./README.md">README</a></li>
+        <li><a href="./SKILL.md">SKILL</a></li>
+        <li><a href="./src/tokens.css">tokens.css</a></li>
+        <li><a href="./src/components.css">components.css</a></li>
+      </ul>
+    </div>
+    <div style="grid-column: span 3;">
+      <h4>Reference</h4>
+      <ul>
+        <li><a href="./reference/original_homepage.html" target="_blank">Original homepage shell</a></li>
+        <li><a href="./reference/original_styleguide.css" target="_blank">Original CSS bundle</a></li>
+      </ul>
+    </div>
+    <div style="grid-column: span 12;" class="zre-footer__rule">
+      Tokens audited 3 May 2026 - not an official ZINC Real Estate asset.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

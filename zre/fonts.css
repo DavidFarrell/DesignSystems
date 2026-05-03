@@ -1,0 +1,37 @@
+/* Zinc Real Estate uses two type families.
+   Display: Reservation Wide (custom geometric wide; Bold + Regular).
+   Body:    Plantin (Monotype, classical book serif; Light + Roman + Semibold).
+   The original site serves these as raw .ttf / .otf from /fonts/.
+   Here we serve the same files locally under their original filenames.
+
+   Licensing note: Plantin (Monotype) and Reservation (Latinotype) are
+   commercial faces. The files bundled here are taken directly from the
+   live zincre.com asset folder for parity with the source. Do not
+   redistribute in client work without acquiring the appropriate licence. */
+
+@font-face {
+  font-family: "Reservation Wide";
+  src: url("./fonts/Reservation-Wide-Regular.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Reservation Wide";
+  src: url("./fonts/Reservation-Wide-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "Plantin";
+  src: url("./fonts/Plantin-Light.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Plantin";
+  src: url("./fonts/Plantin-Roman.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Plantin";
+  src: url("./fonts/Plantin-Semibold.otf") format("opentype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ZRE - Type</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .row { padding-block: var(--zre-sp-6); border-bottom: var(--zre-hairline); display:grid; grid-template-columns: 18rem 1fr; gap: var(--zre-sp-6); align-items: baseline; }
+  .row code { font-family: ui-monospace, Menlo, monospace; color: var(--zre-grey-mute); font-size: 0.85em; }
+</style>
+</head>
+<body class="zre">
+
+<header class="zre-header">
+  <div class="zre-container zre-header__inner">
+    <a class="zre-header__brand" href="../">← ZINC RE / Design System</a>
+    <nav class="zre-nav"><a href="./colors.html">Colours</a><a href="./components.html">Components</a><a href="./brand.html">Brand</a></nav>
+  </div>
+</header>
+
+<section class="zre-section zre-container">
+  <span class="zre-eyebrow">Preview · Type</span>
+  <h1 style="margin: 1rem 0 2rem;">Two families. The discipline is the design.</h1>
+
+  <p class="zre-lead" style="max-width: 50ch; margin-bottom: 3rem;">Reservation Wide carries every label and every headline. Plantin carries every paragraph. There is no third family - no monospace, no geometric sans, no "modern" cut for buttons. The pairing is the brand.</p>
+
+  <h2 style="margin: 2rem 0 1rem;">Reservation Wide (display)</h2>
+
+  <div class="row"><code>Hero · 60-72px / 1.05</code><div class="zre-display" style="font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--zre-forest);">Driven to deliver exceptional returns.</div></div>
+  <div class="row"><code>H2 · 48px / 1.15</code><div class="zre-display" style="font-size: 3rem; color: var(--zre-forest);">A Real Estate Asset Manager.</div></div>
+  <div class="row"><code>H3 · 30px / 1.25</code><div class="zre-display" style="font-size: 1.875rem; color: var(--zre-forest);">About ZINC Real Estate</div></div>
+  <div class="row"><code>H4 · 24px / 1.3</code><div class="zre-display" style="font-size: 1.5rem; color: var(--zre-forest);">Asset card title</div></div>
+  <div class="row"><code>Stat · clamp(48,7vw,88)</code><div class="zre-stat__value">£600m</div></div>
+  <div class="row"><code>Eyebrow · 12px tracked 0.18em</code><div class="zre-eyebrow">Investments</div></div>
+  <div class="row"><code>Button · 14px tracked 0.18em</code><div><a href="#" class="zre-btn">View our investments</a></div></div>
+  <div class="row"><code>Wordmark · 0.22em</code><div class="zre-wordmark zre-wordmark--lg" style="color: var(--zre-forest);">ZINC RE</div></div>
+
+  <h2 style="margin: 3rem 0 1rem;">Plantin (body)</h2>
+
+  <div class="row"><code>Lead · 20px / 1.6 (italic)</code><div class="zre-lead">We pair a dynamic capital allocation framework with committed capital, operational agility and empowered teams.</div></div>
+  <div class="row"><code>Body · 18px / 1.7 (Light)</code><div style="font-family: var(--zre-serif); font-weight: 300; font-size: 1.125rem; line-height: 1.7; max-width: 56ch;">At Zinc, we are driven to deliver exceptional returns for our valued investors. Committed to a relentless pursuit of excellence. The default body weight is Plantin Light, set generously, so a long page reads like a printed brochure rather than a UI screen.</div></div>
+  <div class="row"><code>Body · Roman (400)</code><div style="font-family: var(--zre-serif); font-weight: 400; font-size: 1.125rem; line-height: 1.7;">Roman is reserved for emphasis runs and for pull quotes that need slightly more weight than Light.</div></div>
+  <div class="row"><code>Body · Semibold (600)</code><div style="font-family: var(--zre-serif); font-weight: 600; font-size: 1.125rem; line-height: 1.7;">Semibold is rare - reserved for the lead sentence of a contact card or an in-line emphasis.</div></div>
+  <div class="row"><code>Italic Plantin</code><div style="font-family: var(--zre-serif); font-style: italic; font-weight: 300; font-size: 1.125rem; line-height: 1.7;">Italic Plantin Light carries person roles (<em>Partner | CEO</em>) and figure captions.</div></div>
+</section>
+
+</body>
+</html>

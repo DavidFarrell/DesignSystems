@@ -1,0 +1,70 @@
+/* ==========================================================================
+   Public Digital - Semantic aliases over tokens.css
+   Friendly variable names for the design agent (fg1, bg1, accent...).
+   ========================================================================== */
+
+@import url("./src/tokens.css");
+
+:root {
+  /* Surfaces */
+  --bg1:      var(--pd-paper);     /* page background */
+  --bg2:      var(--pd-white);     /* cards / panels */
+  --bg3:      var(--pd-paper-stone);/* secondary plate */
+  --bg-dark:  var(--pd-blacker);   /* hero plates, footer */
+
+  /* Ink */
+  --fg1:      var(--pd-black);     /* default text */
+  --fg2:      var(--pd-grey);      /* muted text */
+  --fg-rev:   var(--pd-white);     /* text on dark surfaces */
+
+  /* Brand voice */
+  --accent:   var(--pd-red);       /* THE PD red - links, errors, eyebrow flashes */
+
+  /* Type */
+  --font-display: var(--pd-font);
+  --font-body:    var(--pd-font);
+
+  --h1:    var(--pd-fs-home-hero-d);
+  --h2:    var(--pd-fs-page-d);
+  --h3:    var(--pd-fs-large);
+  --h4:    var(--pd-fs-small-hdr);
+  --body:  var(--pd-fs-base);
+  --label: var(--pd-fs-sm);
+}
+
+/* ---- Element defaults --------------------------------------------------- */
+html, body {
+  background: var(--bg1);
+  color: var(--fg1);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: var(--pd-w-bold); margin: 0; }
+h1 { font-size: var(--h1); line-height: var(--pd-lh-home-hero-d); }
+h2 { font-size: var(--h2); line-height: var(--pd-lh-page-d); }
+h3 { font-size: var(--h3); line-height: var(--pd-lh-large); }
+h4 { font-size: var(--h4); line-height: var(--pd-lh-small-hdr); }
+
+@media (max-width: 768px) {
+  h1 { font-size: var(--pd-fs-home-hero-m); line-height: var(--pd-lh-home-hero-m); }
+  h2 { font-size: var(--pd-fs-page-m);      line-height: var(--pd-lh-page-m); }
+}
+
+p { margin: 0 0 1rem; max-width: var(--pd-prose-max); }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: var(--pd-link-offset);
+  text-decoration-thickness: 1px;
+  transition: color var(--pd-dur-fast) var(--pd-ease);
+}
+a:hover { color: var(--accent); }
+
+hr { border: 0; border-top: 1px solid var(--pd-grey-rule); margin: var(--pd-sp-12) 0; }
+
+::selection { background: var(--accent); color: var(--pd-white); }

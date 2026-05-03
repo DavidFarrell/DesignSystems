@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ZRE - Colours</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .swatch { padding: 2rem; min-height: 12rem; display:flex; flex-direction:column; justify-content:flex-end; }
+  .swatch code { font-family: ui-monospace, Menlo, monospace; font-size: 0.85em; opacity: 0.85; }
+  .swatch strong { font-family: var(--zre-display); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.875rem; }
+</style>
+</head>
+<body class="zre">
+
+<header class="zre-header">
+  <div class="zre-container zre-header__inner">
+    <a class="zre-header__brand" href="../">← ZINC RE / Design System</a>
+    <nav class="zre-nav"><a href="./type.html">Type</a><a href="./components.html">Components</a><a href="./brand.html">Brand</a></nav>
+  </div>
+</header>
+
+<section class="zre-section zre-container">
+  <span class="zre-eyebrow">Preview · Palette</span>
+  <h1 style="margin: 1rem 0 2.5rem; max-width: 22ch;">One brand colour family. No second hue.</h1>
+
+  <h2 style="margin: 2rem 0 1rem; font-size: 1.875rem;">Forest greens (the brand)</h2>
+  <div class="zre-grid" style="--zre-cols: 4;">
+    <div class="swatch" style="background: var(--zre-forest); color: var(--zre-paper);"><strong>Forest</strong><br><code>#0a241a</code></div>
+    <div class="swatch" style="background: var(--zre-forest-deep); color: var(--zre-paper);"><strong>Forest deep</strong><br><code>#080f0f</code></div>
+    <div class="swatch" style="background: var(--zre-forest-mid); color: var(--zre-paper);"><strong>Forest mid</strong><br><code>#0d3123</code></div>
+    <div class="swatch" style="background: var(--zre-forest-shade); color: var(--zre-paper);"><strong>Forest shade</strong><br><code>#091510</code></div>
+  </div>
+
+  <h2 style="margin: 3rem 0 1rem; font-size: 1.875rem;">Surface &amp; ink</h2>
+  <div class="zre-grid" style="--zre-cols: 4;">
+    <div class="swatch" style="background: var(--zre-paper); border: var(--zre-hairline);"><strong>Paper</strong><br><code>#f8f8f8</code></div>
+    <div class="swatch" style="background: var(--zre-white); border: var(--zre-hairline);"><strong>White</strong><br><code>#ffffff</code></div>
+    <div class="swatch" style="background: var(--zre-bone);"><strong>Bone</strong><br><code>#e5e3df</code></div>
+    <div class="swatch" style="background: var(--zre-stone);"><strong>Stone</strong><br><code>#ededed</code></div>
+    <div class="swatch" style="background: var(--zre-rule);"><strong>Hairline</strong><br><code>#d3d1d3</code></div>
+    <div class="swatch" style="background: var(--zre-grey-mute); color: var(--zre-paper);"><strong>Grey mute</strong><br><code>#979797</code></div>
+    <div class="swatch" style="background: var(--zre-grey); color: var(--zre-paper);"><strong>Grey</strong><br><code>#374151</code></div>
+    <div class="swatch" style="background: var(--zre-ink); color: var(--zre-paper);"><strong>Ink</strong><br><code>#111111</code></div>
+  </div>
+
+  <h2 style="margin: 3rem 0 1rem; font-size: 1.875rem;">Permitted variation</h2>
+  <p style="max-width: 56ch;">For data-density work (charts, tables, cap-table breakdowns) the system permits opacity stops on the forest family - never an additional hue. Reach for grey before reaching for colour.</p>
+  <div class="zre-grid" style="--zre-cols: 5;">
+    <div class="swatch" style="background: var(--zre-forest); color: var(--zre-paper);"><strong>100%</strong></div>
+    <div class="swatch" style="background: rgba(10,36,26,0.8); color: var(--zre-paper);"><strong>80%</strong></div>
+    <div class="swatch" style="background: rgba(10,36,26,0.6); color: var(--zre-paper);"><strong>60%</strong></div>
+    <div class="swatch" style="background: rgba(10,36,26,0.4); color: var(--zre-ink);"><strong>40%</strong></div>
+    <div class="swatch" style="background: rgba(10,36,26,0.2); color: var(--zre-ink);"><strong>20%</strong></div>
+  </div>
+</section>
+
+</body>
+</html>

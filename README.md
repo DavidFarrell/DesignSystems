@@ -8,6 +8,8 @@ David Gérouville-Farrell's personal collection of design systems, each in its o
 | **EditorialMono** | [`EditorialMono/`](./EditorialMono/) | A Swiss editorial system. Three families (Source Serif 4 / Inter / JetBrains Mono), one accent (vermilion), sharp corners. Reads like a working notebook - hierarchy through space and weight, mono carries structure. Alternative cut for *thingsithinkithink*. |
 | **OpenSwim** | [`OpenSwim/`](./OpenSwim/) | The Workbench design system for an offline-first podcast app paired with Shokz OpenSwim bone-conduction headphones. Dark coffee on pale tea, amber for "happening right now", flat rectangles, Space Grotesk + JetBrains Mono. Includes a living style guide, tokens, `.ct-*` components, and a decisions log. |
 | **GOSH** | [`GOSH/`](./GOSH/) | The Great Ormond Street Hospital Charity system, reverse-engineered from gosh.org. Warm paper anchored in deep purple, vivid cyan/lime/pink accents, ink-on-lime "Donate now" rectangle and pill CTAs. One family - GOSH Brave - across the whole system. Used for client-facing GOSH artefacts. |
+| **pd** | [`pd/`](./pd/) | The Public Digital house style, reverse-engineered from public.digital. Warm off-white paper, near-black ink, one signature red accent, nine categorical plate hues for client-story cards. One family - Brown - across the whole system. Oversized sentence-case headlines, no shadows, two radii (square + pill). |
+| **zre** | [`zre/`](./zre/) | The ZINC Real Estate house style, reverse-engineered from zincre.com. Forest green on cream, classical Plantin serif paired with a tightly-set Reservation Wide display, no second brand colour, square corners, hairline rules, grayscale portraits. Used for the ZINC RE engagement. |
 
 ## Conventions
 

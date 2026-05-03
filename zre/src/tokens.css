@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Zinc Real Estate (ZRE) - Design Tokens
+   Audited from zincre.com on 3 May 2026.
+   Source: /css/app.main.85a6ab3cb932ecfb8357.bundle.css
+   ========================================================================== */
+
+:root {
+  /* ---- Type families ---------------------------------------------------- */
+  --zre-display: "Reservation Wide", "Helvetica Neue", Arial, sans-serif;
+  --zre-serif:   "Plantin", "Iowan Old Style", "Palatino Linotype",
+                 Georgia, "Times New Roman", serif;
+
+  /* ---- Palette --------------------------------------------------------- */
+  /* Surface */
+  --zre-paper:        #f8f8f8;   /* default light surface */
+  --zre-white:        #ffffff;
+  --zre-bone:         #e5e3df;   /* subtle inset / cards on cream */
+  --zre-stone:        #ededed;
+  --zre-rule:         #d3d1d3;   /* hairline rules */
+
+  /* Forest greens - the brand anchor */
+  --zre-forest:       #0a241a;   /* primary dark green */
+  --zre-forest-deep:  #080f0f;   /* deepest reverse-out background */
+  --zre-forest-mid:   #0d3123;   /* slightly brighter green */
+  --zre-forest-shade: #091510;   /* between deep and forest */
+
+  /* Ink */
+  --zre-ink:          #111111;   /* near-black for type on paper */
+  --zre-ink-soft:     #222222;
+  --zre-grey:         #374151;
+  --zre-grey-soft:    #9ca3af;
+  --zre-grey-mute:    #979797;
+
+  /* Sparingly-used utility */
+  --zre-blue:         #5eb0ef;   /* link / info, not a brand colour */
+
+  /* ---- Type scale ------------------------------------------------------ */
+  /* Reservation Wide is set big, with negative tracking. Plantin sets at
+     1.05-1.10 line-height for display, 1.55 for body. */
+  --zre-fs-hero-d:   3.75rem;   --zre-lh-hero-d:   1.1;     /* 60px desktop hero */
+  --zre-fs-hero-m:   2.25rem;   --zre-lh-hero-m:   1.15;    /* mobile hero */
+  --zre-fs-h2:       3rem;      --zre-lh-h2:       1.15;    /* 48px section headline */
+  --zre-fs-h3:       1.875rem;  --zre-lh-h3:       1.25;    /* 30px sub-section */
+  --zre-fs-h4:       1.5rem;    --zre-lh-h4:       1.3;     /* 24px card header */
+  --zre-fs-lead:     1.25rem;   --zre-lh-lead:     1.6;     /* 20px lead-in */
+  --zre-fs-body:     1.125rem;  --zre-lh-body:     1.7;     /* 18px body, generous */
+  --zre-fs-base:     1rem;      --zre-lh-base:     1.6;
+  --zre-fs-sm:       0.875rem;  --zre-lh-sm:       1.5;     /* labels */
+  --zre-fs-xs:       0.75rem;   --zre-lh-xs:       1.4;     /* eyebrow tracked */
+
+  /* Tracking - Reservation Wide is wide already; use only mild positive
+     tracking on small caps / eyebrows. Display is set tight. */
+  --zre-track-eyebrow: 0.18em;
+  --zre-track-display: -0.005em;
+
+  /* ---- Weights --------------------------------------------------------- */
+  --zre-w-light: 300;
+  --zre-w-reg:   400;
+  --zre-w-semi:  600;
+  --zre-w-bold:  700;
+
+  /* ---- Spacing (4-px base) -------------------------------------------- */
+  --zre-sp-1: 0.25rem;
+  --zre-sp-2: 0.5rem;
+  --zre-sp-3: 0.75rem;
+  --zre-sp-4: 1rem;
+  --zre-sp-5: 1.25rem;
+  --zre-sp-6: 1.5rem;
+  --zre-sp-8: 2rem;
+  --zre-sp-10: 2.5rem;
+  --zre-sp-12: 3rem;
+  --zre-sp-16: 4rem;
+  --zre-sp-20: 5rem;
+  --zre-sp-24: 6rem;
+  --zre-sp-32: 8rem;     /* large section padding */
+
+  /* ---- Layout --------------------------------------------------------- */
+  --zre-container-max:  1320px;
+  --zre-container-pad-mobile:  1.25rem;
+  --zre-container-pad-desktop: 3.5rem;
+  --zre-grid-columns: 12;
+  --zre-grid-gutter: 1.75rem;
+  --zre-prose-max:  68ch;
+
+  /* ---- Radius --------------------------------------------------------- */
+  /* The system is almost entirely square. Two micro-radii for inputs/buttons. */
+  --zre-radius-0:    0;
+  --zre-radius-sm:   2px;
+  --zre-radius-md:   4px;
+  --zre-radius-pill: 9999px;       /* used only on small chips / dots */
+
+  /* ---- Motion --------------------------------------------------------- */
+  --zre-dur-fast: 0.15s;
+  --zre-dur-base: 0.30s;
+  --zre-ease:     cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* ---- Hairline ------------------------------------------------------- */
+  --zre-hairline: 1px solid var(--zre-rule);
+  --zre-hairline-on-dark: 1px solid rgba(255, 255, 255, 0.18);
+
+  /* ---- Link underline distance ---------------------------------------- */
+  --zre-link-offset: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --zre-dur-fast: 0s; --zre-dur-base: 0s; }
+}

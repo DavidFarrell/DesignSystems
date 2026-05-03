@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Public Digital - Design System</title>
+<link rel="stylesheet" href="./fonts.css" />
+<link rel="stylesheet" href="./src/tokens.css" />
+<link rel="stylesheet" href="./src/components.css" />
+<link rel="stylesheet" href="./colors_and_type.css" />
+</head>
+<body class="pd">
+
+<header class="pd-header">
+  <div class="pd-container pd-header__inner">
+    <a class="pd-header__brand" href="./">public digital <span style="font-weight:400;color:var(--pd-grey);">/ design system</span></a>
+    <nav class="pd-nav">
+      <a href="./reference/original_homepage.html" target="_blank">Source</a>
+      <a href="./README.md">README</a>
+      <a href="./ui_kits/homepage/index.html" class="pd-btn">Open UI kit</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pd-hero pd-container">
+  <h1>A working re-creation of the public.digital house style.</h1>
+  <p>Tokens, components, fonts and a homepage UI kit, audited from the live Next.js bundle on 3 May 2026 and re-organised into the same convention as Broadsheet, EditorialMono, OpenSwim and GOSH.</p>
+</section>
+
+<section class="pd-section pd-container">
+  <h2 class="pd-f-page" style="margin-bottom:2rem;">Browse</h2>
+  <div class="pd-grid" style="--pd-cols:12;">
+    <a class="pd-card pd-card--ice"  style="grid-column:span 6;" href="./preview/colors.html">
+      <span class="pd-eyebrow">PREVIEW</span>
+      <h3>Colours</h3>
+      <p>Paper, ink, the signature red, and the nine plate accents.</p>
+    </a>
+    <a class="pd-card pd-card--yellow" style="grid-column:span 6;" href="./preview/type.html">
+      <span class="pd-eyebrow">PREVIEW</span>
+      <h3>Type scale</h3>
+      <p>Brown in 11 stops, from label to 88-px hero.</p>
+    </a>
+    <a class="pd-card pd-card--pink" style="grid-column:span 6;" href="./preview/components.html">
+      <span class="pd-eyebrow">PREVIEW</span>
+      <h3>Components</h3>
+      <p>Buttons, tags, cards, stats, newsletter, footer.</p>
+    </a>
+    <a class="pd-card pd-card--green" style="grid-column:span 6;" href="./preview/brand.html">
+      <span class="pd-eyebrow">PREVIEW</span>
+      <h3>Brand voice</h3>
+      <p>Casing, tone, do/don't, exemplars from the live site.</p>
+    </a>
+    <a class="pd-card pd-card--black" style="grid-column:span 12;" href="./ui_kits/homepage/index.html">
+      <span class="pd-eyebrow">UI KIT</span>
+      <h3>Homepage</h3>
+      <p>A click-thru recreation of the public.digital home page using only the tokens and components in this folder.</p>
+    </a>
+  </div>
+</section>
+
+<footer class="pd-footer">
+  <div class="pd-container pd-grid" style="--pd-cols:12;">
+    <div style="grid-column:span 6;">
+      <p class="pd-f-large" style="max-width:24ch;">A faithful, calm, oversized-type house style for public-interest work.</p>
+    </div>
+    <div style="grid-column:span 3;">
+      <h4>System</h4>
+      <ul>
+        <li><a href="./README.md">README</a></li>
+        <li><a href="./SKILL.md">SKILL</a></li>
+        <li><a href="./src/tokens.css">tokens.css</a></li>
+        <li><a href="./src/components.css">components.css</a></li>
+      </ul>
+    </div>
+    <div style="grid-column:span 3;">
+      <h4>Reference</h4>
+      <ul>
+        <li><a href="./reference/original_homepage.html" target="_blank">Original homepage HTML</a></li>
+        <li><a href="./reference/original_styleguide.css" target="_blank">Original CSS bundle</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
