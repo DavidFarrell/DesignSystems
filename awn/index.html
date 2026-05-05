@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>awin - Design System</title>
+<link rel="stylesheet" href="./fonts.css" />
+<link rel="stylesheet" href="./src/tokens.css" />
+<link rel="stylesheet" href="./src/components.css" />
+<link rel="stylesheet" href="./colors_and_type.css" />
+</head>
+<body class="awn">
+
+<header class="awn-header">
+  <div class="awn-header__inner">
+    <div class="awn-header__bar">
+      <a class="awn-header__brand" href="./">awin <span style="font-weight:400;color:var(--awn-medium);font-size:1rem;">/ design system</span></a>
+      <nav class="awn-nav">
+        <a href="./preview/colors.html">Colours</a>
+        <a href="./preview/type.html">Type</a>
+        <a href="./preview/components.html">Components</a>
+        <a href="./preview/brand.html">Brand</a>
+      </nav>
+      <div class="awn-header__cta">
+        <a class="awn-link--minimal" href="./README.md">README</a>
+        <a class="awn-btn awn-btn--gradient awn-btn--sm" href="./ui_kits/homepage/index.html">Open UI kit</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="awn-hero">
+  <div class="awn-container">
+    <h1>A working re-creation of the awin.com house style.</h1>
+    <p>Inter, gradient orange, deep violet and lilac wash - audited from the live Tailwind v4 bundle on 5 May 2026 and re-organised into the same convention as the other Paidia design systems.</p>
+    <a class="awn-btn" href="./ui_kits/homepage/index.html">Open the homepage UI kit</a>
+  </div>
+</section>
+
+<section class="awn-section awn-container">
+  <span class="awn-eyebrow">Browse</span>
+  <h2 class="awn-f-page" style="margin: var(--awn-sp-3) 0 var(--awn-sp-8);">What's in the system.</h2>
+  <div class="awn-grid" style="--awn-cols:12;">
+    <a class="awn-card awn-card--lilac" style="grid-column:span 6;" href="./preview/colors.html">
+      <span class="awn-eyebrow">Preview</span>
+      <h3>Colours</h3>
+      <p>Surfaces, ink, the signature orange, the brand violet, and every named gradient.</p>
+    </a>
+    <a class="awn-card awn-card--cream" style="grid-column:span 6;" href="./preview/type.html">
+      <span class="awn-eyebrow">Preview</span>
+      <h3>Type scale</h3>
+      <p>Inter in six weights and twelve stops, from 12-px label to 72-px hero.</p>
+    </a>
+    <a class="awn-card" style="grid-column:span 6;" href="./preview/components.html">
+      <span class="awn-eyebrow">Preview</span>
+      <h3>Components</h3>
+      <p>Buttons, tags, cards, stats, tabs, newsletter, header bar, hero, footer.</p>
+    </a>
+    <a class="awn-card" style="grid-column:span 6;" href="./preview/brand.html">
+      <span class="awn-eyebrow">Preview</span>
+      <h3>Brand voice</h3>
+      <p>Ten rules, do / don't, voice exemplars lifted from the live site.</p>
+    </a>
+    <a class="awn-card awn-card--orange" style="grid-column:span 12;" href="./ui_kits/homepage/index.html">
+      <span class="awn-eyebrow">UI kit</span>
+      <h3>Homepage</h3>
+      <p>A click-thru recreation of the awin.com home page using only the tokens and components in this folder.</p>
+    </a>
+  </div>
+</section>
+
+<section class="awn-section">
+  <div class="awn-container">
+    <span class="awn-eyebrow">Reference</span>
+    <h2 class="awn-f-large" style="margin: var(--awn-sp-3) 0 var(--awn-sp-6);">The audit material</h2>
+    <div class="awn-grid" style="--awn-cols:12;">
+      <a class="awn-card" style="grid-column:span 6;" href="./reference/original_homepage.html" target="_blank">
+        <span class="awn-eyebrow">Source</span>
+        <h3>Original homepage HTML</h3>
+        <p>The awin.com homepage as captured on 5 May 2026.</p>
+      </a>
+      <a class="awn-card" style="grid-column:span 6;" href="./reference/original_styleguide.css" target="_blank">
+        <span class="awn-eyebrow">Source</span>
+        <h3>Original CSS bundle</h3>
+        <p>156 KB Tailwind v4 stylesheet, OKLCH-authored, copied verbatim.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="awn-footer">
+  <div class="awn-container">
+    <div class="awn-grid" style="--awn-cols:12;">
+      <div style="grid-column:span 6;">
+        <p class="awn-f-large" style="max-width:28ch; color:#fff;">A friendly, gradient-orange, semibold-Inter house style for partnership-marketing work.</p>
+      </div>
+      <div style="grid-column:span 3;">
+        <h4>System</h4>
+        <ul>
+          <li><a href="./README.md">README</a></li>
+          <li><a href="./SKILL.md">SKILL</a></li>
+          <li><a href="./src/tokens.css">tokens.css</a></li>
+          <li><a href="./src/components.css">components.css</a></li>
+        </ul>
+      </div>
+      <div style="grid-column:span 3;">
+        <h4>Preview</h4>
+        <ul>
+          <li><a href="./preview/colors.html">Colours</a></li>
+          <li><a href="./preview/type.html">Type</a></li>
+          <li><a href="./preview/components.html">Components</a></li>
+          <li><a href="./preview/brand.html">Brand</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: var(--awn-sp-12); padding-top: var(--awn-sp-6); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--awn-sp-3); font-size: var(--awn-fs-sm); color: rgba(255,255,255,0.7);">
+      <span>Audited from awin.com on 5 May 2026 · Not an official Awin asset.</span>
+      <span>Paidia / Design Systems</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

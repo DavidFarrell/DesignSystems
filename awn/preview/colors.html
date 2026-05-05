@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Awin - Colours</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .swatch { border-radius: var(--awn-radius-2xl); padding: var(--awn-sp-6); min-height: 11rem; display:flex; flex-direction:column; justify-content:flex-end; gap:.25rem; }
+  .swatch code { background: oklch(1 0 0 / 0.16); padding: 0.1em 0.5em; border-radius: 4px; font-family: var(--awn-font-mono); font-size: 0.75em; display:inline-block; }
+  .swatch small { opacity: 0.85; font-size: 0.78rem; line-height: 1.35; }
+</style>
+</head>
+<body class="awn">
+
+<section class="awn-section awn-container">
+  <p style="margin:0 0 var(--awn-sp-3);"><a class="awn-link--minimal" href="../">← awn / design system</a></p>
+  <span class="awn-eyebrow">Preview · Palette</span>
+  <h1 class="awn-f-page" style="margin:.75rem 0 2.5rem; max-width:24ch;">One signature orange, a deep partner violet, and a calm lilac wash.</h1>
+
+  <h2 class="awn-f-large" style="margin:2rem 0 1rem;">Surface &amp; ink</h2>
+  <div class="awn-grid" style="--awn-cols:4;">
+    <div class="swatch" style="background:var(--awn-white); color:var(--awn-text); border:1px solid var(--awn-grey-100);"><strong>White</strong><code>#ffffff</code><small>Page paper</small></div>
+    <div class="swatch" style="background:var(--awn-cool-grey); color:var(--awn-text);"><strong>Cool grey</strong><code>~#f6f6f6</code><small>Hover surface</small></div>
+    <div class="swatch" style="background:var(--awn-grey-100); color:var(--awn-text);"><strong>Grey 100</strong><code>~#f1f1f1</code><small>Surface</small></div>
+    <div class="swatch" style="background:var(--awn-soft-orange); color:var(--awn-text);"><strong>Soft orange</strong><code>~#fbf2e9</code><small>Warm secondary tint</small></div>
+    <div class="swatch" style="background:var(--awn-lilac-50); color:var(--awn-text);"><strong>Lilac 50</strong><code>~#f8f4fa</code><small>Default tertiary surface</small></div>
+    <div class="swatch" style="background:var(--awn-lilac); color:var(--awn-text);"><strong>Lilac</strong><code>~#f1eaf5</code><small>Hover lilac</small></div>
+    <div class="swatch" style="background:var(--awn-lilac-alt); color:var(--awn-text);"><strong>Lilac alt</strong><code>~#dfd1ea</code><small>Active lilac</small></div>
+    <div class="swatch" style="background:var(--awn-sky-blue); color:var(--awn-text);"><strong>Sky blue</strong><code>~#e7eef5</code><small>Cool secondary tint</small></div>
+    <div class="swatch" style="background:var(--awn-text); color:var(--awn-white);"><strong>Text</strong><code>~#525252</code><small>Body / headings - warm dark grey</small></div>
+    <div class="swatch" style="background:var(--awn-medium); color:var(--awn-white);"><strong>Medium</strong><code>~#7a7a7a</code><small>Secondary copy</small></div>
+    <div class="swatch" style="background:var(--awn-disabled); color:var(--awn-white);"><strong>Disabled</strong><code>~#9f9f9f</code></div>
+    <div class="swatch" style="background:var(--awn-american-silver); color:var(--awn-text);"><strong>Silver</strong><code>~#c5c5c5</code><small>Rules / chip borders</small></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 1rem;">Brand - the orange / violet pair</h2>
+  <div class="awn-grid" style="--awn-cols:4;">
+    <div class="swatch" style="background:var(--awn-orange-default); color:var(--awn-white);"><strong>Orange (PRIMARY)</strong><code>oklch(.696 .204 43.5)</code><small>~#ff5d2b · the signature accent. Buttons, links, eyebrows.</small></div>
+    <div class="swatch" style="background:var(--awn-orange-400); color:var(--awn-white);"><strong>Orange 400</strong><code>~#fc5a2a</code></div>
+    <div class="swatch" style="background:var(--awn-orange-600); color:var(--awn-white);"><strong>Orange 600</strong><code>~#e1411b</code><small>Active / pressed</small></div>
+    <div class="swatch" style="background:var(--awn-red-primary); color:var(--awn-white);"><strong>Red primary</strong><code>~#d3290e</code><small>data-theme=red variant</small></div>
+    <div class="swatch" style="background:var(--awn-purple-solid); color:var(--awn-white);"><strong>Purple solid</strong><code>oklch(.422 .197 286.3)</code><small>~#3a1d8b · the deep partner voice. Footer, alt hero, dark plates.</small></div>
+    <div class="swatch" style="background:var(--awn-violet); color:var(--awn-white);"><strong>Violet</strong><code>~#321780</code></div>
+    <div class="swatch" style="background:var(--awn-vodka); color:var(--awn-text);"><strong>Vodka</strong><code>~#bba2cb</code><small>Lilac on dark</small></div>
+    <div class="swatch" style="background:var(--awn-gradient-orange); color:var(--awn-white);"><strong>Gradient orange</strong><code>--awn-gradient-orange</code><small>Primary CTA on dark, hero plate</small></div>
+    <div class="swatch" style="background:var(--awn-gradient-purple); color:var(--awn-white);"><strong>Gradient purple</strong><code>--awn-gradient-purple</code><small>Alt hero, partnership module</small></div>
+    <div class="swatch" style="background:var(--awn-gradient-pulse); color:var(--awn-white);"><strong>Gradient pulse</strong><code>--awn-gradient-pulse</code></div>
+    <div class="swatch" style="background:var(--awn-gradient-ava-glow); color:var(--awn-white);"><strong>Ava glow</strong><code>--awn-gradient-ava-glow</code><small>Reserved for AI assistant moments</small></div>
+    <div class="swatch" style="background:var(--awn-gradient-flow); color:var(--awn-white);"><strong>Gradient flow</strong><code>--awn-gradient-flow</code></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 1rem;">Status</h2>
+  <div class="awn-grid" style="--awn-cols:4;">
+    <div class="swatch" style="background:var(--awn-green); color:var(--awn-white);"><strong>Green</strong><code>~#3e8c52</code><small>Success</small></div>
+    <div class="swatch" style="background:var(--awn-amber-400); color:var(--awn-text);"><strong>Amber 400</strong><code>~#f5b517</code><small>Warning</small></div>
+    <div class="swatch" style="background:var(--awn-red); color:var(--awn-white);"><strong>Red</strong><code>~#ed3a17</code><small>Error</small></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 1rem;">Categorical (illustration / data viz)</h2>
+  <div class="awn-grid" style="--awn-cols:4;">
+    <div class="swatch" style="background:var(--awn-accent-blue); color:var(--awn-white);"><strong>Accent blue</strong><code>~#4669d6</code></div>
+    <div class="swatch" style="background:var(--awn-accent-pink); color:var(--awn-text);"><strong>Accent pink</strong><code>~#f580c1</code></div>
+    <div class="swatch" style="background:var(--awn-fuchsia-500); color:var(--awn-white);"><strong>Fuchsia 500</strong><code>~#dc28d3</code></div>
+    <div class="swatch" style="background:var(--awn-yellow-400); color:var(--awn-text);"><strong>Yellow 400</strong><code>~#f0d11b</code></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 1rem;">A note on OKLCH</h2>
+  <p class="awn-prose">Awin's source CSS is authored in <a href="https://oklch.com/">OKLCH</a> - a perceptually-uniform colour space supported in modern browsers. We've kept the original OKLCH values as canonical because they round-trip without loss; the sRGB hex values shown above are visual approximations for designers using legacy tools. When in doubt, use the token (<code>var(--awn-orange-default)</code>) and let the browser resolve it.</p>
+</section>
+
+</body>
+</html>

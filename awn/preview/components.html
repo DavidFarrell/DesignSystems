@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Awin - Components</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .demo-block { padding: var(--awn-sp-6); border-radius: var(--awn-radius-2xl); background: #fff; border: 1px solid var(--awn-grey-100); margin-bottom: var(--awn-sp-4); }
+  .demo-block + h3 { margin-top: var(--awn-sp-8); }
+  .row-buttons { display:flex; flex-wrap:wrap; gap: var(--awn-sp-3); align-items: center; }
+  .demo-grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: var(--awn-sp-4); }
+  .demo-grid-4 { display:grid; grid-template-columns: repeat(4, 1fr); gap: var(--awn-sp-4); }
+</style>
+</head>
+<body class="awn">
+
+<section class="awn-section awn-container">
+  <p style="margin:0 0 var(--awn-sp-3);"><a class="awn-link--minimal" href="../">← awn / design system</a></p>
+  <span class="awn-eyebrow">Preview · Components</span>
+  <h1 class="awn-f-page" style="margin:.75rem 0 2rem; max-width:24ch;">The pieces. Pill buttons, lilac plates, gradient numbers, one floating header.</h1>
+
+  <h3 class="awn-f-section">Buttons</h3>
+  <div class="demo-block">
+    <p class="awn-f-small" style="color:var(--awn-medium);margin:0 0 var(--awn-sp-4);">Solid pill is the signature; gradient is the showcase variant on dark or hero plates; ghost and quiet for secondary moments.</p>
+    <div class="row-buttons">
+      <a class="awn-btn" href="#">Start growing</a>
+      <a class="awn-btn awn-btn--gradient" href="#">Start growing <span class="awn-arrow"></span></a>
+      <a class="awn-btn awn-btn--ghost" href="#">Read more</a>
+      <a class="awn-btn awn-btn--quiet" href="#">View partners</a>
+      <a class="awn-btn awn-btn--sm" href="#">Compact</a>
+      <a class="awn-btn awn-btn--lg" href="#">Large</a>
+    </div>
+    <div class="row-buttons" style="margin-top:var(--awn-sp-4); padding: var(--awn-sp-4); background: var(--awn-purple-solid); border-radius: var(--awn-radius-2xl);">
+      <a class="awn-btn awn-btn--reverse" href="#">On dark</a>
+      <a class="awn-btn awn-btn--gradient" href="#">Gradient on dark</a>
+    </div>
+  </div>
+
+  <h3 class="awn-f-section">Inline CTA links</h3>
+  <div class="demo-block">
+    <a class="awn-link--cta" href="#">Start growing</a>
+    &nbsp;&nbsp;&nbsp;
+    <a class="awn-link--cta" href="#">Start earning</a>
+    &nbsp;&nbsp;&nbsp;
+    <a class="awn-link--cta" href="#">Read full story</a>
+  </div>
+
+  <h3 class="awn-f-section">Tag chips</h3>
+  <div class="demo-block">
+    <div class="row-buttons">
+      <span class="awn-tag">Retail</span>
+      <span class="awn-tag">Fashion</span>
+      <span class="awn-tag">Travel</span>
+      <span class="awn-tag awn-tag--orange">Featured</span>
+      <span class="awn-tag awn-tag--solid">Lilac wash</span>
+    </div>
+  </div>
+
+  <h3 class="awn-f-section">Industry tab row</h3>
+  <div class="demo-block">
+    <div class="awn-tabs" role="tablist">
+      <button class="awn-tab" role="tab" aria-selected="true">Retail</button>
+      <button class="awn-tab" role="tab">Fashion</button>
+      <button class="awn-tab" role="tab">Travel</button>
+      <button class="awn-tab" role="tab">Finance</button>
+      <button class="awn-tab" role="tab">Telecom</button>
+    </div>
+  </div>
+
+  <h3 class="awn-f-section">Stats - gradient figures</h3>
+  <div class="demo-block">
+    <div class="demo-grid-4">
+      <div class="awn-stat"><div class="awn-stat__value">£15B+</div><div class="awn-stat__label">Annual partner revenue</div></div>
+      <div class="awn-stat"><div class="awn-stat__value">30K+</div><div class="awn-stat__label">Trusted brands</div></div>
+      <div class="awn-stat"><div class="awn-stat__value">1M+</div><div class="awn-stat__label">Approved partners</div></div>
+      <div class="awn-stat"><div class="awn-stat__value">25+</div><div class="awn-stat__label">Years in market</div></div>
+    </div>
+  </div>
+
+  <h3 class="awn-f-section">Cards - default and plate variants</h3>
+  <div class="demo-grid-3">
+    <a class="awn-card" href="#">
+      <span class="awn-eyebrow">Advertisers</span>
+      <h3>Reach the right partners, faster.</h3>
+      <p>Find creators, content publishers, and strategic affiliates that match your brand and goals.</p>
+    </a>
+    <a class="awn-card awn-card--lilac" href="#">
+      <span class="awn-eyebrow">Creators</span>
+      <h3>Turn your audience into a partnership.</h3>
+      <p>Promote brands you actually use, and earn commission on every sale you drive.</p>
+    </a>
+    <a class="awn-card awn-card--cream" href="#">
+      <span class="awn-eyebrow">Agencies</span>
+      <h3>Scale affiliate programmes for your clients.</h3>
+      <p>Tools, reporting, and a network designed for client-facing teams.</p>
+    </a>
+    <a class="awn-card awn-card--orange" href="#">
+      <span class="awn-eyebrow">Spotlight</span>
+      <h3>Samsung +67% ROI with Awin tools.</h3>
+      <p>How Awin's tech stack accelerated affiliate revenue across categories.</p>
+    </a>
+    <a class="awn-card awn-card--purple" href="#">
+      <span class="awn-eyebrow">Spotlight</span>
+      <h3>Vodafone gets 2K extra sales/month.</h3>
+      <p>SaleCycle's partnership delivered measurable telco growth.</p>
+    </a>
+    <a class="awn-card awn-card--ink" href="#">
+      <span class="awn-eyebrow">Insight</span>
+      <h3>The right partnerships win bigger.</h3>
+      <p>How performance-based partnerships outperform paid social on three key metrics.</p>
+    </a>
+  </div>
+
+  <h3 class="awn-f-section">Form input</h3>
+  <div class="demo-block" style="background:var(--awn-lilac-50); border-color: transparent;">
+    <h2 style="margin:0 0 var(--awn-sp-3);">Subscribe to the Awin update.</h2>
+    <p style="margin:0 0 var(--awn-sp-4); color: var(--awn-medium);">Monthly. Performance, partnerships, and the people behind them.</p>
+    <form onsubmit="event.preventDefault();" class="awn-newsletter" style="background: transparent; padding: 0;">
+      <input class="awn-input" type="email" placeholder="you@company.com" />
+      <button class="awn-btn awn-btn--gradient" type="submit">Subscribe</button>
+    </form>
+  </div>
+
+  <h3 class="awn-f-section">Logo wall</h3>
+  <div class="demo-block">
+    <div class="awn-logos">
+      <span>etsy</span><span>Vodafone</span><span>Samsung</span>
+      <span>SharkNinja</span><span>HP</span><span>Bloomingdale's</span>
+    </div>
+  </div>
+
+  <h3 class="awn-f-section">Floating pill header</h3>
+  <div class="demo-block" style="padding: 0; background: var(--awn-gradient-purple); min-height: 220px; position: relative; border: none;">
+    <header class="awn-header" style="position: relative;">
+      <div class="awn-header__inner">
+        <div class="awn-header__bar">
+          <a class="awn-header__brand" href="#">awin</a>
+          <nav class="awn-nav" aria-label="Primary">
+            <a href="#">Solutions</a>
+            <a href="#">Partners</a>
+            <a href="#">Resources</a>
+            <a href="#">Pricing</a>
+          </nav>
+          <div class="awn-header__cta">
+            <a class="awn-link--minimal" href="#">Sign in</a>
+            <a class="awn-btn awn-btn--gradient awn-btn--sm" href="#">Start growing</a>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <h3 class="awn-f-section">Hero plate</h3>
+  <div class="demo-block" style="padding: 0; background: transparent; border: none;">
+    <section class="awn-hero" style="padding-block: var(--awn-sp-16); border-radius: var(--awn-radius-3xl);">
+      <div class="awn-container">
+        <h1>Your growth, <em>your way.</em></h1>
+        <p>Connect with 30K+ trusted brands and 1M+ approved partners who support your marketing goals and deliver results.</p>
+        <a class="awn-btn" href="#">Start growing</a>
+      </div>
+    </section>
+  </div>
+
+  <h3 class="awn-f-section">Prose</h3>
+  <div class="demo-block">
+    <article class="awn-prose">
+      <h2>How to think about partnership marketing</h2>
+      <p>Partnership marketing isn't a channel - it's a way of going to market. The brands that get the most out of it treat partners like extensions of their own team, not as a media-buying funnel.</p>
+      <blockquote>"Through the right partnerships, everyone wins bigger."</blockquote>
+      <h3>Three signals to watch</h3>
+      <p>Look at <strong>repeat-partner revenue</strong>, <strong>category-mix shift</strong>, and <strong>net-new-customer rate</strong>. If those three move together, the programme is healthy.</p>
+      <p>Need to dig in? <a href="#">Read the full guide</a> or <a href="#">talk to our team</a>.</p>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>

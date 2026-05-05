@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Awin - Brand</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .ten-rules { display:grid; grid-template-columns: repeat(2, 1fr); gap: var(--awn-sp-4); margin-top: var(--awn-sp-6); }
+  .rule { background: #fff; border: 1px solid var(--awn-grey-100); border-radius: var(--awn-radius-2xl); padding: var(--awn-sp-6); }
+  .rule .num { display:inline-block; padding: var(--awn-sp-1) var(--awn-sp-3); background: var(--awn-gradient-orange); color:#fff; border-radius: var(--awn-radius-pill); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: var(--awn-sp-3); }
+  .rule h3 { margin: 0 0 var(--awn-sp-2); }
+  .rule p { margin: 0; color: var(--awn-medium); }
+  .do-dont { display:grid; grid-template-columns: 1fr 1fr; gap: var(--awn-sp-6); margin-top: var(--awn-sp-4); }
+  .do-dont > div { padding: var(--awn-sp-6); border-radius: var(--awn-radius-2xl); }
+  .do { background: var(--awn-soft-orange); }
+  .dont { background: var(--awn-lilac); }
+  .do h4, .dont h4 { margin-top: 0; font-weight: 700; }
+  .do h4 { color: var(--awn-orange-default); }
+  .dont h4 { color: var(--awn-purple-solid); }
+  .do ul, .dont ul { margin: var(--awn-sp-3) 0 0; padding-left: 1.25rem; }
+  .do li, .dont li { margin-bottom: var(--awn-sp-2); }
+</style>
+</head>
+<body class="awn">
+
+<section class="awn-section awn-container">
+  <p style="margin:0 0 var(--awn-sp-3);"><a class="awn-link--minimal" href="../">← awn / design system</a></p>
+  <span class="awn-eyebrow">Preview · Brand</span>
+  <h1 class="awn-f-page" style="margin:.75rem 0 1rem; max-width:24ch;">A friendly platform with two voices: orange that moves, violet that holds.</h1>
+  <p class="awn-f-lead" style="max-width: 60ch; color: var(--awn-text);">The shape of the Awin brand is <strong>warm-paper-and-lilac surfaces, oversized italic-accented headlines, gradient-orange CTAs, deep violet for footers and dividers, and a single floating pill header that lets the page breathe.</strong> Pill-shaped everything. Almost no shadows. No iconography beyond a small fire wordmark and a few line glyphs. Hierarchy comes from semibold weight and gradient fills - never from drop shadows or stroke.</p>
+
+  <h2 class="awn-f-large" style="margin: 3rem 0 0;">The voice in one paragraph</h2>
+  <p class="awn-prose" style="margin-top: var(--awn-sp-4);">Awin's voice is <em>capable and friendly</em>. Sentences are short. Headlines lean on subject-plus-verb (<em>"Your growth, your way"</em>; <em>"The right connections change everything"</em>). The site uses informal-but-direct language: "Start growing," "Tell us who you are," "Join our global affiliate platform." The tone never gets shouty about AI, growth or transformation - claims are concrete and number-backed (<em>30K+ brands, 1M+ partners, £15B+ revenue, 25+ years</em>) rather than aspirational. When the company speaks about itself it says <strong>"we"</strong>, when it speaks to the reader it says <strong>"you"</strong>, and when it summarises the mutual benefit it says <em>"everyone wins bigger."</em></p>
+
+  <h2 class="awn-f-large" style="margin: 3rem 0 0;">Ten rules that hold the system together</h2>
+  <div class="ten-rules">
+    <div class="rule"><span class="num">01</span><h3>One typeface: Inter.</h3><p>Display, body, UI, button labels. Six weights loaded; semibold and bold do most of the work.</p></div>
+    <div class="rule"><span class="num">02</span><h3>Sentence case for headlines.</h3><p>Title case is reserved for product / programme names and proper nouns.</p></div>
+    <div class="rule"><span class="num">03</span><h3>Orange is the only loud accent.</h3><p>Use the gradient on hero CTAs and the solid orange for stat numbers and inline CTA links.</p></div>
+    <div class="rule"><span class="num">04</span><h3>Purple holds the room.</h3><p>Footer, section dividers, dark hero variants - never on body type or buttons. It is the calm background voice.</p></div>
+    <div class="rule"><span class="num">05</span><h3>Lilac is the second surface.</h3><p>Lilac-50 for tertiary panels, soft-orange for warmer call-outs. Both are quieter than white.</p></div>
+    <div class="rule"><span class="num">06</span><h3>Pill everything.</h3><p>Buttons, tags, header bar, tabs. The square corners belong to cards (1rem / 1.5rem radii) and hairline rules.</p></div>
+    <div class="rule"><span class="num">07</span><h3>Almost no shadow.</h3><p>The exception is the floating header (a soft popover shadow). Everything else holds shape with surface colour and a 1px border.</p></div>
+    <div class="rule"><span class="num">08</span><h3>One small icon vocabulary.</h3><p>The Awin fire wordmark, social marks in the footer, and a `→` for inline CTAs. Don't add Lucide / Heroicons.</p></div>
+    <div class="rule"><span class="num">09</span><h3>Gradients are an Awin signature.</h3><p>Six named gradients: orange, orange-hover, orange-active, pulse, purple, lilac, ava-glow. Use the named tokens, don't compose new ones.</p></div>
+    <div class="rule"><span class="num">10</span><h3>Stats wear the gradient.</h3><p>Big numbers (`30K+`, `£15B+`) get the gradient-orange text fill via `.awn-stat__value`. Body type stays solid `--awn-text`.</p></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin: 3rem 0 0;">Do / don't</h2>
+  <div class="do-dont">
+    <div class="do">
+      <h4>Do</h4>
+      <ul>
+        <li>Lead with concrete numbers: <em>30K+ brands</em>, not <em>a global network</em>.</li>
+        <li>Pair the gradient-orange CTA with a quiet ghost or text link as its secondary.</li>
+        <li>Use lilac-50 to break a long page up - it's the workhorse alternate surface.</li>
+        <li>Italicise the second half of a headline when you want it to land softer (<em>"Your growth, your way"</em>).</li>
+        <li>Trust semibold (600) for body emphasis - it's stronger than colour for in-prose lift.</li>
+      </ul>
+    </div>
+    <div class="dont">
+      <h4>Don't</h4>
+      <ul>
+        <li>Don't put orange on broad surfaces. It's an accent, not a wall colour.</li>
+        <li>Don't shadow cards or buttons. Use a 1px hairline + lift on hover.</li>
+        <li>Don't stack two gradients in one section - pick orange or purple, not both.</li>
+        <li>Don't use Title Case for headlines. Sentence case throughout.</li>
+        <li>Don't add an icon set. Brand glyph + → is the vocabulary.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin: 3rem 0 0;">Voice exemplars</h2>
+  <div class="awn-prose" style="max-width: 72ch; margin-top: var(--awn-sp-4);">
+    <blockquote>"Your growth, <em>your way</em>."</blockquote>
+    <blockquote>"The right connections change everything."</blockquote>
+    <blockquote>"Through the right partnerships, everyone wins bigger."</blockquote>
+    <blockquote>"Think global, boost local, succeed everywhere."</blockquote>
+    <blockquote>"Smart businesses across every industry rely on us for sustainable partnership growth."</blockquote>
+  </div>
+</section>
+
+</body>
+</html>

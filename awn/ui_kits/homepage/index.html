@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>awin - Your growth, your way.</title>
+<link rel="stylesheet" href="../../fonts.css" />
+<link rel="stylesheet" href="../../src/tokens.css" />
+<link rel="stylesheet" href="../../src/components.css" />
+<link rel="stylesheet" href="../../colors_and_type.css" />
+<style>
+  /* Page-only adjustments */
+  body { margin: 0; }
+  .stack { display: flex; flex-direction: column; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--awn-sp-6); }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--awn-sp-6); }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--awn-sp-8); align-items: center; }
+  @media (max-width: 900px) {
+    .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: var(--awn-sp-8); }
+  @media (max-width: 900px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body class="awn">
+
+  <!-- Floating pill header -->
+  <header class="awn-header">
+    <div class="awn-header__inner">
+      <div class="awn-header__bar">
+        <a class="awn-header__brand" href="#">awin</a>
+        <nav class="awn-nav" aria-label="Primary">
+          <a href="#solutions">Solutions</a>
+          <a href="#partners">Partners</a>
+          <a href="#resources">Resources</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+        <div class="awn-header__cta">
+          <a class="awn-link--minimal" href="#">Sign in</a>
+          <a class="awn-btn awn-btn--gradient awn-btn--sm" href="#start">Start growing</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="awn-hero">
+    <div class="awn-container">
+      <h1>Your growth, <em>your way.</em></h1>
+      <p>Connect with 30K+ trusted brands and 1M+ approved partners who support your marketing goals and deliver real results.</p>
+      <a class="awn-btn" href="#start">Start growing</a>
+    </div>
+  </section>
+
+  <!-- Tell us who you are -->
+  <section class="awn-section awn-container">
+    <span class="awn-eyebrow">Get started</span>
+    <h2 class="awn-f-page" style="margin: var(--awn-sp-3) 0 var(--awn-sp-8); max-width: 18ch;">Tell us who you are.</h2>
+    <div class="grid-4">
+      <a class="awn-card awn-card--lilac" href="#">
+        <span class="awn-eyebrow">Advertisers</span>
+        <h3>Reach the right partners, faster.</h3>
+        <p>Find creators, content publishers and strategic affiliates that match your brand and goals.</p>
+        <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Start growing</span>
+      </a>
+      <a class="awn-card awn-card--cream" href="#">
+        <span class="awn-eyebrow">Creators</span>
+        <h3>Turn your audience into a partnership.</h3>
+        <p>Promote brands you actually use, and earn commission on every sale you drive.</p>
+        <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Start earning</span>
+      </a>
+      <a class="awn-card" href="#">
+        <span class="awn-eyebrow">Affiliate partners</span>
+        <h3>Scale a partnership business.</h3>
+        <p>Award-winning tracking, reporting and payouts on the world's most active affiliate platform.</p>
+        <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Get started</span>
+      </a>
+      <a class="awn-card" href="#">
+        <span class="awn-eyebrow">Agencies</span>
+        <h3>Deliver more for your clients.</h3>
+        <p>Tools, reporting and a network designed for client-facing teams.</p>
+        <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Partner with us</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Trusted brands -->
+  <section class="awn-section awn-section--lilac">
+    <div class="awn-container" style="text-align: center;">
+      <h2 class="awn-f-section" style="margin: 0 0 var(--awn-sp-8);">Trusted by 30K+ brands and 1M+ partners worldwide.</h2>
+      <div class="awn-logos">
+        <span>etsy</span>
+        <span>Vodafone</span>
+        <span>Samsung</span>
+        <span>SharkNinja</span>
+        <span>HP</span>
+        <span>Bloomingdale's</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose Awin - stat strip -->
+  <section class="awn-section awn-container">
+    <span class="awn-eyebrow">Why choose Awin</span>
+    <h2 class="awn-f-page" style="margin: var(--awn-sp-3) 0 var(--awn-sp-8); max-width: 22ch;">We build opportunities around your goals.</h2>
+    <div class="grid-4">
+      <div class="awn-stat"><div class="awn-stat__value">£15B+</div><div class="awn-stat__label">Annual partner revenue driven</div></div>
+      <div class="awn-stat"><div class="awn-stat__value">30K+</div><div class="awn-stat__label">Trusted brands</div></div>
+      <div class="awn-stat"><div class="awn-stat__value">1M+</div><div class="awn-stat__label">Approved partners</div></div>
+      <div class="awn-stat"><div class="awn-stat__value">25+</div><div class="awn-stat__label">Years in market</div></div>
+    </div>
+  </section>
+
+  <!-- Tools / features -->
+  <section class="awn-section">
+    <div class="awn-container">
+      <span class="awn-eyebrow">Tools that scale with you</span>
+      <h2 class="awn-f-page" style="margin: var(--awn-sp-3) 0 var(--awn-sp-8); max-width: 22ch;">Transform your affiliate strategy with industry-leading tools.</h2>
+      <div class="grid-3">
+        <div class="awn-card">
+          <span class="awn-eyebrow">Tracking</span>
+          <h3>First-party tracking, reliable at scale.</h3>
+          <p>Server-to-server, mobile, and offline conversions all attributed accurately - regardless of browser changes.</p>
+        </div>
+        <div class="awn-card">
+          <span class="awn-eyebrow">Discovery</span>
+          <h3>Find partners that fit your brand.</h3>
+          <p>Filter 1M+ partners by audience, category, performance history and geography.</p>
+        </div>
+        <div class="awn-card">
+          <span class="awn-eyebrow">Performance</span>
+          <h3>Optimise on what matters.</h3>
+          <p>Real-time reporting, commission flexibility and tooling to incentivise the right behaviours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global expansion - dark plate -->
+  <section class="awn-section" style="background: var(--awn-gradient-purple); color: #fff;">
+    <div class="awn-container grid-2">
+      <div>
+        <span class="awn-eyebrow" style="color: var(--awn-vodka);">Global reach</span>
+        <h2 class="awn-f-page" style="color:#fff; margin: var(--awn-sp-3) 0 var(--awn-sp-4); max-width: 18ch;">Think global, boost local, succeed everywhere.</h2>
+        <p class="awn-f-lead" style="color: rgba(255,255,255,0.85); max-width: 50ch; margin-bottom: var(--awn-sp-6);">Scale globally with confidence across 14 countries. Local market insights make sure your campaigns perform at their peak, no matter where you expand.</p>
+        <a class="awn-btn awn-btn--reverse" href="#">Talk to our local teams</a>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: var(--awn-sp-4);">
+        <div class="awn-stat" style="color:#fff;"><div class="awn-stat__value">14</div><div class="awn-stat__label" style="color: var(--awn-vodka);">Countries</div></div>
+        <div class="awn-stat" style="color:#fff;"><div class="awn-stat__value">17</div><div class="awn-stat__label" style="color: var(--awn-vodka);">Local offices</div></div>
+        <div class="awn-stat" style="color:#fff;"><div class="awn-stat__value">100+</div><div class="awn-stat__label" style="color: var(--awn-vodka);">Currencies tracked</div></div>
+        <div class="awn-stat" style="color:#fff;"><div class="awn-stat__value">24/7</div><div class="awn-stat__label" style="color: var(--awn-vodka);">Local support</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry tabs -->
+  <section class="awn-section awn-container">
+    <div style="text-align: center; margin-bottom: var(--awn-sp-8);">
+      <span class="awn-eyebrow">By industry</span>
+      <h2 class="awn-f-page" style="margin: var(--awn-sp-3) 0 var(--awn-sp-4); max-width: 30ch; margin-inline: auto;">Smart businesses across every industry rely on us for sustainable partnership growth.</h2>
+      <div class="awn-tabs" role="tablist" style="margin-top: var(--awn-sp-6);">
+        <button class="awn-tab" role="tab" aria-selected="true">Retail</button>
+        <button class="awn-tab" role="tab">Fashion</button>
+        <button class="awn-tab" role="tab">Travel</button>
+        <button class="awn-tab" role="tab">Finance</button>
+        <button class="awn-tab" role="tab">Telecom</button>
+      </div>
+    </div>
+    <div class="awn-card awn-card--lilac" style="text-align: center; padding: var(--awn-sp-12);">
+      <h3 style="font-size: var(--awn-fs-2-5xl);">Retailers across FMCG, fashion, beauty and tech rely on our platform to reach new customers and accelerate sales.</h3>
+      <a class="awn-link--cta" href="#" style="margin-top: var(--awn-sp-6);">See retail partnerships</a>
+    </div>
+  </section>
+
+  <!-- Customer stories -->
+  <section class="awn-section awn-section--cream">
+    <div class="awn-container">
+      <span class="awn-eyebrow">Customer stories</span>
+      <h2 class="awn-f-page" style="margin: var(--awn-sp-3) 0 var(--awn-sp-8); max-width: 24ch;">Discover how our customers transform their businesses through strategic partnerships.</h2>
+      <div class="grid-3">
+        <a class="awn-card" href="#">
+          <span class="awn-eyebrow">Retail · Samsung</span>
+          <h3>Samsung increases affiliate marketing ROI by +67% with Awin tools.</h3>
+          <p>Tooling, partner mix optimisation and strategic-account support delivered measurable returns across every category.</p>
+          <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Read full story</span>
+        </a>
+        <a class="awn-card" href="#">
+          <span class="awn-eyebrow">Tech · SharkNinja</span>
+          <h3>Tactical on-site tech partner delivers +404% revenue for SharkNinja.</h3>
+          <p>How a focused on-site partnership took SharkNinja's site conversion to a new tier in two quarters.</p>
+          <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Read full story</span>
+        </a>
+        <a class="awn-card" href="#">
+          <span class="awn-eyebrow">Telecom · Vodafone</span>
+          <h3>Vodafone gets 2,000 extra sales per month after partnering with SaleCycle.</h3>
+          <p>An on-site partner running cart-recovery and on-page incentives lifted Vodafone's retail performance by a measurable margin.</p>
+          <span class="awn-link--cta" style="margin-top: var(--awn-sp-4); display: inline-flex;">Read full story</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="awn-section awn-container">
+    <div class="awn-newsletter">
+      <span class="awn-eyebrow">Stay in the loop</span>
+      <h2 style="margin-top: var(--awn-sp-3);">The Awin update.</h2>
+      <p style="color: var(--awn-medium); max-width: 56ch; margin: var(--awn-sp-3) 0 0;">Monthly. Performance, partnerships, and the people behind them. No spam, no sales.</p>
+      <form onsubmit="event.preventDefault();">
+        <input class="awn-input" type="email" placeholder="you@company.com" />
+        <button class="awn-btn awn-btn--gradient" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="awn-footer">
+    <div class="awn-container">
+      <div class="footer-grid">
+        <div>
+          <a class="awn-header__brand" href="#" style="color:#fff;">awin</a>
+          <p style="margin-top: var(--awn-sp-3); max-width: 36ch; color: rgba(255,255,255,0.85);">Your growth, your way. The global affiliate platform that connects 30K+ brands with 1M+ partners.</p>
+          <div style="display: flex; gap: var(--awn-sp-3); margin-top: var(--awn-sp-6);">
+            <span class="awn-tag" style="background: transparent; border-color: var(--awn-vodka); color: #fff;">English</span>
+            <span class="awn-tag" style="background: transparent; border-color: var(--awn-vodka); color: var(--awn-vodka);">Deutsch</span>
+            <span class="awn-tag" style="background: transparent; border-color: var(--awn-vodka); color: var(--awn-vodka);">Français</span>
+          </div>
+        </div>
+        <div>
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#">Advertisers</a></li>
+            <li><a href="#">Creators</a></li>
+            <li><a href="#">Affiliate partners</a></li>
+            <li><a href="#">Agencies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#">Tracking</a></li>
+            <li><a href="#">Reporting</a></li>
+            <li><a href="#">Commissions</a></li>
+            <li><a href="#">Integrations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Customer stories</a></li>
+            <li><a href="#">Industry research</a></li>
+            <li><a href="#">Help centre</a></li>
+            <li><a href="#">Developer docs</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.12); margin-top: var(--awn-sp-12); padding-top: var(--awn-sp-6); display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--awn-sp-3); font-size: var(--awn-fs-sm); color: rgba(255,255,255,0.7);">
+        <span>© Awin AG · All rights reserved.</span>
+        <span>Privacy · Cookies · Imprint · DEI</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

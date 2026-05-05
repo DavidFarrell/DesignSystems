@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Awin - Type</title>
+<link rel="stylesheet" href="../fonts.css" />
+<link rel="stylesheet" href="../src/tokens.css" />
+<link rel="stylesheet" href="../src/components.css" />
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  .row { display:grid; grid-template-columns: 12rem 1fr; align-items: baseline; gap: var(--awn-sp-6); padding: var(--awn-sp-4) 0; border-bottom: 1px solid var(--awn-grey-100); }
+  .row code { font-family: var(--awn-font-mono); font-size: 0.78rem; color: var(--awn-medium); white-space: nowrap; }
+  .weights { display:grid; grid-template-columns: repeat(6, 1fr); gap: var(--awn-sp-3); margin-top: var(--awn-sp-4); }
+  .weights > div { padding: var(--awn-sp-4); border:1px solid var(--awn-grey-100); border-radius: var(--awn-radius-2xl); background:#fff; }
+  .weights .specimen { font-size: 2.25rem; line-height: 1; letter-spacing: -0.02em; color: var(--awn-text); margin-bottom: var(--awn-sp-2); }
+  .weights .meta { font-size: 0.75rem; color: var(--awn-medium); font-family: var(--awn-font-mono); }
+</style>
+</head>
+<body class="awn">
+
+<section class="awn-section awn-container">
+  <p style="margin:0 0 var(--awn-sp-3);"><a class="awn-link--minimal" href="../">← awn / design system</a></p>
+  <span class="awn-eyebrow">Preview · Typography</span>
+  <h1 class="awn-f-page" style="margin:.75rem 0 2rem; max-width:24ch;">One typeface. Six weights. Hierarchy through scale, not contrast.</h1>
+
+  <h2 class="awn-f-large" style="margin:1.5rem 0 0;">The family</h2>
+  <p class="awn-f-body" style="color:var(--awn-medium); max-width: 60ch; margin: var(--awn-sp-3) 0 var(--awn-sp-4);">Awin's site uses <strong>Inter</strong> (Rasmus Andersson) for everything - display, body, UI chrome, button labels. Six cuts are loaded; semibold (600) carries the bulk of the body emphasis, with bold (700) reserved for headlines.</p>
+
+  <div class="weights">
+    <div><div class="specimen" style="font-weight:200;">Aa</div><div class="meta">200 · ExtraLight</div></div>
+    <div><div class="specimen" style="font-weight:300;">Aa</div><div class="meta">300 · Light</div></div>
+    <div><div class="specimen" style="font-weight:400;">Aa</div><div class="meta">400 · Regular</div></div>
+    <div><div class="specimen" style="font-weight:500;">Aa</div><div class="meta">500 · Medium</div></div>
+    <div><div class="specimen" style="font-weight:600;">Aa</div><div class="meta">600 · SemiBold</div></div>
+    <div><div class="specimen" style="font-weight:700;">Aa</div><div class="meta">700 · Bold</div></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 var(--awn-sp-3);">Type scale</h2>
+  <div>
+    <div class="row"><code>.awn-f-hero</code><div><span class="awn-f-hero">Your growth, your way.</span></div></div>
+    <div class="row"><code>.awn-f-page</code><div><span class="awn-f-page">Section header at page-top size.</span></div></div>
+    <div class="row"><code>.awn-f-large</code><div><span class="awn-f-large">A larger sub-section header.</span></div></div>
+    <div class="row"><code>.awn-f-section</code><div><span class="awn-f-section">A standard section header.</span></div></div>
+    <div class="row"><code>.awn-f-card</code><div><span class="awn-f-card">Card or sub-section title.</span></div></div>
+    <div class="row"><code>.awn-f-lead</code><div><span class="awn-f-lead">Lead-in paragraph for a hero or article opener.</span></div></div>
+    <div class="row"><code>.awn-f-figure</code><div><span class="awn-f-figure">30K+</span></div></div>
+    <div class="row"><code>.awn-f-emph</code><div><span class="awn-f-emph">Body emphasis - semibold body weight.</span></div></div>
+    <div class="row"><code>.awn-f-body</code><div><span class="awn-f-body">Default body copy. Inter at 16px / 1.5.</span></div></div>
+    <div class="row"><code>.awn-f-label</code><div><span class="awn-f-label">FORM LABEL OR FOOTER LINK</span></div></div>
+    <div class="row"><code>.awn-f-small</code><div><span class="awn-f-small">Small print - footnotes, captions.</span></div></div>
+    <div class="row"><code>.awn-eyebrow</code><div><span class="awn-eyebrow">Eyebrow · all-caps tracked</span></div></div>
+  </div>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 var(--awn-sp-3);">Specimen paragraph</h2>
+  <p class="awn-prose">Awin connects 30K+ trusted brands and 1M+ approved partners. The voice is friendly and confident - <em>not</em> startup-shouty. Sentences are short, headlines lean on subject + verb, and emphasis lives in semibold rather than colour. <a href="#" class="awn-link">Inline links</a> use the signature orange and underline at 3px offset.</p>
+
+  <h2 class="awn-f-large" style="margin:3rem 0 var(--awn-sp-3);">Gradient display number</h2>
+  <p class="awn-stat__value" style="display:inline-block;">£15B+</p>
+  <p class="awn-f-small" style="color:var(--awn-medium);">Use <code style="background:var(--awn-lilac-50);padding:0.1em 0.3em;border-radius:4px;">.awn-stat__value</code> for hero figures - the gradient-orange wash through the digits is part of the brand.</p>
+</section>
+
+</body>
+</html>
