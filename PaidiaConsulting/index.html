@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Paidia Consulting — Design Systems Index</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root { --bg:#f5f3ee; --ink:#1a1814; --mute:rgba(26,24,20,0.6); --rule:rgba(26,24,20,0.18); }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:'Geist', system-ui, sans-serif; }
+
+  header { padding: 80px 32px 32px; max-width: 1320px; margin: 0 auto; }
+  header .eyebrow { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
+  header h1 { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; font-size: clamp(48px, 8vw, 120px); line-height: 0.92; letter-spacing: -0.025em; margin: 24px 0 24px; }
+  header h1 .dot { color: #d96f3b; }
+  header p { font-size: 18px; line-height: 1.55; max-width: 680px; color: rgba(26,24,20,0.78); }
+  header .meta { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: var(--mute); margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
+  header .meta a { color: var(--ink); text-decoration: none; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; }
+  header .meta a:hover { background: var(--ink); color: var(--bg); }
+
+  .section-h { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); margin: 64px auto 16px; padding: 0 32px; max-width: 1320px; }
+
+  .grid { max-width: 1320px; margin: 0 auto; padding: 0 32px 96px; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
+  .card { background: white; border: 1px solid var(--rule); border-radius: 20px; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .card .swatch { height: 180px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+  .card .swatch .key { font-family: 'Archivo Black', sans-serif; font-size: 64px; line-height: 0.9; letter-spacing: -0.04em; }
+  .card .swatch .label { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+  .card .body { padding: 24px; border-top: 1px solid var(--rule); }
+  .card .name { font-family: 'Fraunces', serif; font-style: italic; font-size: 28px; line-height: 1.05; margin: 0 0 8px; }
+  .card .desc { font-size: 14px; line-height: 1.5; color: var(--mute); margin: 0; }
+  .card .palette { display: flex; gap: 4px; margin-top: 16px; }
+  .card .palette span { width: 18px; height: 18px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.06); }
+
+  /* per-system swatch styles */
+  .sw-a1 { background:#0d0d0d; color:#f6f5f0; }
+  .sw-a1 .key { color:#e7ff52; }
+  .sw-a2 { background:#f0eae0; color:#161311; }
+  .sw-a2 .key { color:#ff3d6e; }
+  .sw-a3 { background:#2b1f4f; color:#fbf3d8; }
+  .sw-a3 .key { color:#fff200; }
+  .sw-a4 { background:#fafafa; color:#0a0a0a; }
+  .sw-a4 .key { color:#ff3b1f; transform: skew(-8deg); }
+  .sw-c1 { background:#f4efe6; color:#1a1814; font-family: 'Fraunces', serif; }
+  .sw-c1 .key { color:#d96f3b; font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+  .sw-c3 { background:#f4efe6; color:#1a1814; font-family: 'Fraunces', serif; }
+  .sw-c3 .key { color:#e30b5c; font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+  .sw-c4 { background:#f6f1e7; color:#0d0a08; font-family: 'Fraunces', serif; }
+  .sw-c4 .key { color:#ff5c1f; font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+
+  footer { max-width: 1320px; margin: 0 auto; padding: 32px; border-top: 1px solid var(--rule); font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--mute); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Paidia Consulting · Field guide / vol. 04 · 2026</div>
+  <h1>Seven design <br/>systems<span class="dot">.</span></h1>
+  <p>Each system below is a self-contained design language — palette, type scale, components, motifs, and rules of use — ready to grab for later. Open the example to see the system rendered as a full page; open <em>Tokens & components</em> for the spec sheet.</p>
+  <div class="meta">
+    <a href="Paidia-Design-Systems.html">📚 Master spec — all 8 systems on one page</a>
+    <a href="Paidia-Redesign.html">🎨 Canvas — 10 directions side-by-side</a>
+    <a href="chats/chat1.md">💬 Original design conversation</a>
+  </div>
+</header>
+
+<div class="section-h">Brutalist Editorial · 4 takes</div>
+
+<div class="grid">
+
+  <a class="card" href="systems/A1-Tabloid/example.html">
+    <div class="swatch sw-a1">
+      <div class="label">System 01 / Brutalist</div>
+      <div class="key">A1</div>
+      <div class="label">Dark + electric yellow</div>
+    </div>
+    <div class="body">
+      <h3 class="name">Tabloid</h3>
+      <p class="desc">Newspaper-masthead energy. Maximum contrast, electric accent, ticker strips, dense rules-and-rows. The Yellowball-adjacent take, pushed harder into print/editorial.</p>
+      <div class="palette"><span style="background:#0d0d0d"></span><span style="background:#e7ff52"></span><span style="background:#f6f5f0"></span><span style="background:#181818"></span></div>
+    </div>
+  </a>
+
+  <a class="card" href="systems/A2-Quarterly/example.html">
+    <div class="swatch sw-a2">
+      <div class="label">System 02 / Brutalist</div>
+      <div class="key">A2</div>
+      <div class="label">Cream + hot magenta</div>
+    </div>
+    <div class="body">
+      <h3 class="name">The Quarterly</h3>
+      <p class="desc">Cream paper stock + hot magenta accent on warm ink. Asymmetric magazine grid. The "highlighted phrase" technique — magenta or black slabs behind key words.</p>
+      <div class="palette"><span style="background:#f0eae0"></span><span style="background:#ff3d6e"></span><span style="background:#161311"></span><span style="background:#1a4ed8"></span></div>
+    </div>
+  </a>
+
+  <a class="card" href="systems/A3-RisoZine/example.html">
+    <div class="swatch sw-a3">
+      <div class="label">System 03 / Brutalist</div>
+      <div class="key">A3</div>
+      <div class="label">Purple + fluoro yellow + pink</div>
+    </div>
+    <div class="body">
+      <h3 class="name">Riso Zine</h3>
+      <p class="desc">Two-spot-colour overprint feel: deep purple bg + acid yellow + fluorescent pink halftone. Big oversized numbers, registration-mark accents, halftone dot textures.</p>
+      <div class="palette"><span style="background:#2b1f4f"></span><span style="background:#fff200"></span><span style="background:#ff2e88"></span><span style="background:#fbf3d8"></span></div>
+    </div>
+  </a>
+
+  <a class="card" href="systems/A4-SportsTabloid/example.html">
+    <div class="swatch sw-a4">
+      <div class="label">System 04 / Brutalist</div>
+      <div class="key">A4</div>
+      <div class="label">White + tabloid red diagonal</div>
+    </div>
+    <div class="body">
+      <h3 class="name">Sports Tabloid</h3>
+      <p class="desc">White paper, jet-black ink, single hot orange-red. Massive condensed type. Diagonal slash band that cuts across the page. Track-and-field energy.</p>
+      <div class="palette"><span style="background:#fafafa; border:1px solid #ddd"></span><span style="background:#0a0a0a"></span><span style="background:#ff3b1f"></span></div>
+    </div>
+  </a>
+
+</div>
+
+<div class="section-h">Manifesto Poster · 3 takes</div>
+
+<div class="grid">
+
+  <a class="card" href="systems/C1-ColourBlocks/example.html">
+    <div class="swatch sw-c1">
+      <div class="label">System 05 / Manifesto · ORIGINAL</div>
+      <div class="key">C1</div>
+      <div class="label">Terracotta + lemon + sky</div>
+    </div>
+    <div class="body">
+      <h3 class="name">Colour Blocks</h3>
+      <p class="desc">Italic Fraunces display on warm bone. Coloured tiles for stats, manifesto block on ink, editorial spread for case studies. <strong>Original terracotta palette restored</strong> for take 1.</p>
+      <div class="palette"><span style="background:#f4efe6"></span><span style="background:#d96f3b"></span><span style="background:#e8d5a8"></span><span style="background:#7a9eb8"></span><span style="background:#1a1814"></span></div>
+    </div>
+  </a>
+
+  <a class="card" href="systems/C3-Saturated/example.html">
+    <div class="swatch sw-c3">
+      <div class="label">System 06 / Manifesto</div>
+      <div class="key">C3</div>
+      <div class="label">Magenta + cobalt + acid lime</div>
+    </div>
+    <div class="body">
+      <h3 class="name">Saturated Blocks</h3>
+      <p class="desc">Same colour-block layout as C1 but with PUNCHIER colours — hot magenta + cobalt + acid lime + ink black on warm cream. Big italic Fraunces. Maximum flair.</p>
+      <div class="palette"><span style="background:#f4efe6"></span><span style="background:#e30b5c"></span><span style="background:#1a4ed8"></span><span style="background:#c5ff3d"></span><span style="background:#1a1814"></span></div>
+    </div>
+  </a>
+
+  <a class="card" href="systems/C4-Postered/example.html">
+    <div class="swatch sw-c4">
+      <div class="label">System 07 / Manifesto</div>
+      <div class="key">C4</div>
+      <div class="label">Tangerine + violet on bone</div>
+    </div>
+    <div class="body">
+      <h3 class="name">Postered & Playful</h3>
+      <p class="desc">Off-white + electric tangerine + violet + black. Asymmetric ransom-note collage feel. Mixes italic Fraunces with bold sans display. Diagonal headlines, sticker badges.</p>
+      <div class="palette"><span style="background:#f6f1e7"></span><span style="background:#ff5c1f"></span><span style="background:#5a2eb8"></span><span style="background:#0d0a08"></span></div>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  <span>© 2026 Paidia Consulting Ltd · design-systems handoff bundle</span>
+  <span>v.026 · Claude Design → coding handoff · 5 May 2026</span>
+</footer>
+
+</body>
+</html>

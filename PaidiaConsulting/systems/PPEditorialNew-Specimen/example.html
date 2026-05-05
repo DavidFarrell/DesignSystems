@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PP Editorial New — Specimen</title>
+<link rel="stylesheet" href="../../fonts.css">
+<style>
+  :root { --bg:#f4efe6; --ink:#1a1814; --mute:rgba(26,24,20,0.55); --rule:rgba(26,24,20,0.15); --accent:#d96f3b; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--ink); font-family:'PP Editorial New', 'Fraunces', Georgia, serif; }
+
+  .strip { position: fixed; top:0; left:0; right:0; z-index: 9999; padding: 10px 18px; background: rgba(26,24,20,0.88); color: var(--bg); font: 11px/1 'Geist Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; backdrop-filter: blur(8px); display: flex; gap: 18px; align-items: center; }
+  .strip a { color: var(--bg); text-decoration: none; opacity: 0.7; }
+  .strip a:hover { opacity: 1; }
+  .strip-spacer { height: 36px; }
+
+  /* Cover */
+  .cover { padding: 96px 48px 64px; max-width: 1320px; margin: 0 auto; border-bottom: 1px solid var(--rule); }
+  .eyebrow { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); }
+  .cover h1 { margin: 24px 0 16px; font-size: clamp(72px, 14vw, 220px); line-height: 0.9; letter-spacing: -0.025em; font-style: italic; font-weight: 400; }
+  .cover h1 .ul { font-weight: 200; font-style: normal; }
+  .cover h1 .ub { font-weight: 800; font-style: normal; }
+  .cover .lede { font-size: 22px; line-height: 1.4; max-width: 720px; color: rgba(26,24,20,0.8); margin: 24px 0 0; }
+  .cover .meta { margin-top: 32px; font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--mute); display: flex; gap: 16px; flex-wrap: wrap; }
+  .cover .meta a { color: var(--ink); text-decoration: none; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 999px; }
+
+  /* Cuts */
+  .cuts { max-width: 1320px; margin: 0 auto; padding: 64px 48px 32px; }
+  .cuts-h { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mute); margin-bottom: 32px; }
+  .cut { padding: 28px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: baseline; }
+  .cut .label { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--mute); text-transform: uppercase; letter-spacing: 0.08em; }
+  .cut .label strong { display: block; font-size: 14px; color: var(--ink); margin-bottom: 4px; letter-spacing: 0; text-transform: none; font-family: 'Geist', sans-serif; font-weight: 600; }
+  .cut .sample { font-size: 56px; line-height: 1.05; letter-spacing: -0.01em; }
+
+  /* Pull-quote section */
+  .pull { background: var(--ink); color: var(--bg); padding: 96px 48px; }
+  .pull-inner { max-width: 1320px; margin: 0 auto; }
+  .pull .eyebrow-inv { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 32px; }
+  .pull blockquote { margin: 0; font-size: clamp(44px, 6vw, 92px); line-height: 1.05; font-style: italic; font-weight: 400; }
+  .pull blockquote .ul { font-style: normal; font-weight: 200; }
+  .pull blockquote .ub { font-style: normal; font-weight: 800; }
+  .pull .attr { margin-top: 32px; font-family: 'Geist Mono', monospace; font-size: 12px; color: rgba(244,239,230,0.55); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* Body sample */
+  .body-sample { max-width: 1320px; margin: 0 auto; padding: 96px 48px; display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
+  .body-sample h2 { margin: 0; font-style: italic; font-weight: 400; font-size: 64px; line-height: 1; }
+  .body-sample .col { font-size: 18px; line-height: 1.55; max-width: 64ch; }
+  .body-sample .col p { margin: 0 0 16px; }
+
+  /* Glyph grid */
+  .glyphs { max-width: 1320px; margin: 0 auto; padding: 32px 48px 96px; }
+  .glyphs .row { padding: 28px 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: baseline; }
+  .glyphs .row .label { font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--mute); text-transform: uppercase; letter-spacing: 0.08em; }
+  .glyphs .row .glyphs-line { font-size: 36px; line-height: 1.2; word-spacing: 8px; letter-spacing: 0.02em; }
+
+  footer { max-width: 1320px; margin: 0 auto; padding: 32px 48px; border-top: 1px solid var(--rule); font-family: 'Geist Mono', monospace; font-size: 11px; color: var(--mute); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <strong>PP Editorial New · Specimen</strong>
+  <span style="opacity:0.4">/</span>
+  <a href="../../index.html">↤ Index</a>
+  <span style="opacity:0.5; margin-left:auto">Free for personal use only · see EULA</span>
+</div>
+<div class="strip-spacer"></div>
+
+<section class="cover">
+  <div class="eyebrow">Pangram Pangram · Free-for-personal-use trial · 6 cuts</div>
+  <h1><span class="ul">PP</span> Editorial <span class="ub">New</span><span style="color:var(--accent)">.</span></h1>
+  <p class="lede">A high-contrast contemporary serif from Pangram Pangram (Montreal). Sharp tapers, high stress axis, narrow apertures. Ships here as Ultralight / Regular / Ultrabold, each in roman + italic — six cuts total.</p>
+  <div class="meta">
+    <a href="https://pangrampangram.com/products/editorial-new" target="_blank">↗ Pangram product page</a>
+    <a href="../../fonts/ppeditorialnew/EULA.pdf" target="_blank">📄 Trial EULA (May 2021)</a>
+  </div>
+</section>
+
+<section class="cuts">
+  <div class="cuts-h">The six cuts</div>
+
+  <div class="cut">
+    <div class="label"><strong>Ultralight</strong>200 · roman</div>
+    <div class="sample" style="font-weight:200; font-style:normal;">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+  <div class="cut">
+    <div class="label"><strong>Ultralight Italic</strong>200 · italic</div>
+    <div class="sample" style="font-weight:200; font-style:italic;">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+  <div class="cut">
+    <div class="label"><strong>Regular</strong>400 · roman</div>
+    <div class="sample" style="font-weight:400; font-style:normal;">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+  <div class="cut">
+    <div class="label"><strong>Italic</strong>400 · italic</div>
+    <div class="sample" style="font-weight:400; font-style:italic;">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+  <div class="cut">
+    <div class="label"><strong>Ultrabold</strong>800 · roman</div>
+    <div class="sample" style="font-weight:800; font-style:normal;">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+  <div class="cut">
+    <div class="label"><strong>Ultrabold Italic</strong>800 · italic</div>
+    <div class="sample" style="font-weight:800; font-style:italic;">The quick brown fox jumps over the lazy dog.</div>
+  </div>
+</section>
+
+<section class="pull">
+  <div class="pull-inner">
+    <div class="eyebrow-inv">Pull-quote · italic 800 mixed with ultralight</div>
+    <blockquote>
+      <span class="ul">From slides</span> to <em>production</em> — <span class="ub">AI</span> that actually works.
+    </blockquote>
+    <div class="attr">— Paidia Consulting · headline study</div>
+  </div>
+</section>
+
+<section class="body-sample">
+  <h2>Body copy.</h2>
+  <div class="col">
+    <p>Most AI projects stall in the gap between a pilot and a system that runs every day. We close that gap. Six disciplines — strategy, coaching, transformation, architecture, prototyping, governance — used in any combination, depending on where you are.</p>
+    <p>Discovery across eleven Integrated Care Boards identified a pathway to ninety thousand extra appointments annually. The first prototype was in live testing within six weeks. The funding was secured shortly after.</p>
+    <p>The work is rarely glamorous. It is reading the room, naming the elephant, building the thing, then handing it over so it keeps working after you leave.</p>
+  </div>
+</section>
+
+<section class="glyphs">
+  <div class="row">
+    <div class="label">Uppercase · Regular</div>
+    <div class="glyphs-line">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+  </div>
+  <div class="row">
+    <div class="label">Lowercase · Italic</div>
+    <div class="glyphs-line" style="font-style:italic;">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+  </div>
+  <div class="row">
+    <div class="label">Numerals & punctuation</div>
+    <div class="glyphs-line">0 1 2 3 4 5 6 7 8 9 &amp; * / @ # $ % ! ? — , . : ; ' " ( )</div>
+  </div>
+  <div class="row">
+    <div class="label">Mixed weights · ligature feel</div>
+    <div class="glyphs-line">
+      <span style="font-weight:200;">fi fl ffi st ct</span>
+      <span style="font-weight:400; margin-left:24px;">fi fl ffi st ct</span>
+      <span style="font-weight:800; margin-left:24px;">fi fl ffi st ct</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>PP Editorial New · © Pangram Pangram Foundry · Free for personal use only</span>
+  <span>Specimen page · Paidia Design Systems · 5 May 2026</span>
+</footer>
+
+</body>
+</html>

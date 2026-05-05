@@ -1,0 +1,304 @@
+// Direction A — Brutalist Editorial
+// Massive type, max contrast, electric yellow, news-print grid energy.
+
+function DirectionA({ accent = '#e7ff52', headline = 'AI that actually works.', motif = true }) {
+  return (
+    <div className="ab a-root" style={{ width: '100%', minHeight: '100%', '--accent': accent }}>
+      <ANav />
+      <AHero accent={accent} headline={headline} motif={motif} />
+      <ATicker />
+      <AStats />
+      <AServices accent={accent} />
+      <AImpact accent={accent} />
+      <AClients />
+      <AAwards accent={accent} />
+      <AContact accent={accent} />
+      <AFooter />
+    </div>
+  );
+}
+
+function ANav() {
+  return (
+    <div style={{ position:'sticky', top:0, zIndex:50, background:'#0d0d0d', borderBottom:'1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'18px 32px' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:10 }}>
+          <div style={{ width:28, height:28, borderRadius:6, background:'var(--accent)', display:'grid', placeItems:'center', color:'#0d0d0d', fontFamily:'Archivo Black', fontSize:18, lineHeight:1 }}>P</div>
+          <div style={{ fontFamily:'Archivo Black', fontSize:18, letterSpacing:'-0.02em' }}>paidia<span style={{ color:'var(--accent)' }}>.</span></div>
+        </div>
+        <nav style={{ display:'flex', gap:4, fontSize:14, fontWeight:500 }}>
+          {['Services','Impact','Clients','Writing'].map((x,i)=>(
+            <a key={i} href="#" style={{ color:'#f6f5f0', textDecoration:'none', padding:'8px 14px', borderRadius:999 }}>{x}</a>
+          ))}
+        </nav>
+        <div style={{ display:'flex', alignItems:'center', gap:8 }}>
+          <span className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.5)' }}>LDN · 51.5°N</span>
+          <a href="#" style={{ background:'var(--accent)', color:'#0d0d0d', padding:'10px 18px', borderRadius:999, fontWeight:600, textDecoration:'none', fontSize:14 }}>Get in touch ↗</a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AHero({ accent, headline, motif }) {
+  // headline split: first sentence bold, rest fades
+  const [first, ...rest] = headline.split(/—|-/);
+  return (
+    <section style={{ padding:'40px 32px 80px', position:'relative' }}>
+      {/* meta row */}
+      <div className="mono" style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'rgba(246,245,240,0.5)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:48 }}>
+        <span>ISSUE 026 · MAY 2026</span>
+        <span>VOL.04 — APPLIED AI</span>
+        <span>LONDON · UK</span>
+      </div>
+
+      {/* huge headline — newspaper masthead style */}
+      <h1 className="display" style={{ fontSize:'clamp(72px, 13vw, 220px)', margin:0, marginBottom:24 }}>
+        AI that<br/>
+        <span style={{ color:accent }}>actually</span><br/>
+        works.
+      </h1>
+
+      {/* sub-row */}
+      <div style={{ display:'grid', gridTemplateColumns:'2fr 1fr 1fr', gap:48, marginTop:48, alignItems:'start' }}>
+        <p style={{ fontSize:22, lineHeight:1.4, maxWidth:620, margin:0, color:'rgba(246,245,240,0.85)' }}>
+          From boardroom to codebase to culture. Deep AI expertise, from architecture to deployment — we turn ambition into systems that ship and keep working.
+        </p>
+        <div>
+          <div className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.4)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:8 }}>What we do</div>
+          <div style={{ fontSize:15, lineHeight:1.5 }}>Strategy, architecture, training, governance — for organisations moving from pilots to production.</div>
+        </div>
+        <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
+          <a href="#" style={{ background:accent, color:'#0d0d0d', padding:'18px 24px', borderRadius:999, fontWeight:700, textDecoration:'none', fontSize:16, display:'inline-flex', justifyContent:'space-between', alignItems:'center' }}>
+            Start a conversation <span>↗</span>
+          </a>
+          <a href="#" style={{ background:'transparent', color:'#f6f5f0', padding:'18px 24px', borderRadius:999, border:'1px solid rgba(255,255,255,0.2)', fontWeight:500, textDecoration:'none', fontSize:16, display:'inline-flex', justifyContent:'space-between', alignItems:'center' }}>
+            See our work <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      {motif && <ASignatureMotif accent={accent} />}
+    </section>
+  );
+}
+
+// Recurring signature motif: a "live response" cursor + meta tags floating
+function ASignatureMotif({ accent }) {
+  return (
+    <>
+      <div style={{ position:'absolute', top:140, right:48, padding:'8px 14px', background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', borderRadius:999, fontSize:12, fontFamily:'Geist Mono', display:'flex', alignItems:'center', gap:8, transform:'rotate(2deg)' }}>
+        <span style={{ width:6, height:6, borderRadius:'50%', background:accent, boxShadow:`0 0 8px ${accent}` }}/>
+        <span>95% accuracy · production</span>
+      </div>
+      <div style={{ position:'absolute', bottom:120, left:64, padding:'8px 14px', background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', borderRadius:999, fontSize:12, fontFamily:'Geist Mono', transform:'rotate(-3deg)' }}>
+        ▸ FCDO · 500K+ citizens served
+      </div>
+    </>
+  );
+}
+
+function ATicker() {
+  const items = ['AI STRATEGY', '✺', 'PRODUCTION SYSTEMS', '✺', 'GOVERNMENT-GRADE', '✺', '70M+ USERS', '✺', '12-WEEK TRANSFORMATIONS', '✺', 'RAG · AGENTS · MCP', '✺'];
+  const row = [...items, ...items, ...items];
+  return (
+    <div style={{ borderTop:'1px solid rgba(255,255,255,0.12)', borderBottom:'1px solid rgba(255,255,255,0.12)', overflow:'hidden', padding:'24px 0' }}>
+      <div className="ticker-strip" style={{ display:'flex', gap:48, whiteSpace:'nowrap', fontSize:38 }}>
+        {row.map((t,i)=>(<span key={i} style={{ color: t==='✺' ? 'var(--accent)' : '#f6f5f0' }}>{t}</span>))}
+      </div>
+    </div>
+  );
+}
+
+function AStats() {
+  const stats = [
+    { n: '70M+', l: 'Users served annually', s: 'Across active production systems we\'ve architected.' },
+    { n: '95%', l: 'Accuracy in production', s: 'FCDO LLM, exceeding human agent baseline.' },
+    { n: '20+', l: 'Years shipping products', s: 'Before AI was the headline, we were already building.' },
+  ];
+  return (
+    <section style={{ padding:'80px 32px', borderBottom:'1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:0 }}>
+        {stats.map((s,i)=>(
+          <div key={i} style={{ padding:'0 32px', borderLeft: i? '1px solid rgba(255,255,255,0.12)' : 'none' }}>
+            <div className="display" style={{ fontSize:'clamp(64px, 9vw, 140px)', lineHeight:0.9 }}>{s.n}</div>
+            <div style={{ fontSize:18, fontWeight:600, marginTop:16 }}>{s.l}</div>
+            <div style={{ fontSize:14, color:'rgba(246,245,240,0.6)', marginTop:8, maxWidth:280 }}>{s.s}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AServices({ accent }) {
+  const services = [
+    ['01', 'AI Strategy & Advisory', 'Board-level guidance on where AI creates real value. We identify the 20% of use cases that drive 80% of impact.'],
+    ['02', 'Coaching & Mentoring', 'Individual and team coaching that reshapes mental models. We help your people understand AI\'s "jagged frontier".'],
+    ['03', 'Transformation & Training', 'Sustainable AI capability from boardroom to frontline. 70% workforce adoption in 12 weeks.'],
+    ['04', 'Architecture & Engineering', 'Production-grade systems built for accuracy, security, and scale. RAG pipelines, agentic workflows.'],
+    ['05', 'Rapid Prototyping', 'Working demos in days, not quarters. Build fast to prove value, then hand off to your teams.'],
+    ['06', 'AI Governance', 'Frameworks that enable rather than block. Risk tiers, approval, transparency — UK Gov-aligned.'],
+  ];
+  return (
+    <section style={{ padding:'120px 32px' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:64, marginBottom:64 }}>
+        <div>
+          <div className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.5)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:16 }}>§ Services</div>
+          <h2 className="display" style={{ fontSize:'clamp(48px, 6vw, 96px)', margin:0 }}>From slides<br/>to production.</h2>
+        </div>
+        <div style={{ alignSelf:'end' }}>
+          <p style={{ fontSize:20, lineHeight:1.5, color:'rgba(246,245,240,0.75)', margin:0, maxWidth:540 }}>
+            Most AI projects stall. Six disciplines, used in any combination, to get yours into production and keep it there.
+          </p>
+        </div>
+      </div>
+
+      <div className="rule" />
+      {services.map(([n, t, d], i) => (
+        <div key={i} style={{ display:'grid', gridTemplateColumns:'80px 1fr 1.5fr 80px', gap:32, padding:'32px 0', borderBottom:'1px solid rgba(255,255,255,0.12)', alignItems:'baseline' }}>
+          <div className="mono" style={{ fontSize:13, color:accent }}>{n}</div>
+          <div className="display" style={{ fontSize:36, lineHeight:1 }}>{t}</div>
+          <div style={{ fontSize:16, color:'rgba(246,245,240,0.7)', lineHeight:1.5 }}>{d}</div>
+          <div style={{ textAlign:'right', fontSize:20 }}>↗</div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+function AImpact({ accent }) {
+  const cases = [
+    { client: 'FCDO', metric: 'UK Gov\'s first public LLM', body: 'Live on every British Embassy website. Transformed 10-day email queues into 5-second responses. 95% accuracy in production. Saving £3.6M over 5 years while serving 500,000+ citizens annually.', tags: ['LLM Architecture','Hallucination-Safe','Production'], badge: 'Winner · Digital Leaders AI Excellence Award 2025' },
+    { client: 'GOSH Charity', metric: '70% adoption in 12 weeks', body: 'Possibly the fastest charity AI transformation in the UK. From strategy to coaching — creating sustainable capability across the entire organisation.', tags: ['Transformation','Training'] },
+    { client: 'NHS England', metric: '90,000 extra appointments', body: 'Discovery across 11 ICBs identifying pathway to 90,000 extra appointments annually. Secured £500k funding with first prototype in live testing in 6 weeks.', tags: ['Discovery','Business Case'] },
+    { client: 'Awin', metric: '10 days → 2 hours', body: 'Built publisher matching system processing 1,500 vendors in 2 hours — down from 10 days. Cut RFP response time by 50%.', tags: ['Rapid Prototyping','Automation'] },
+    { client: 'Pearson', metric: '4× growth platform', body: 'Architecting unified AI platform for FTSE 100 education provider connecting all legacy systems. Single front door, cross-platform analytics, personalised learning pathways.', tags: ['Platform','MCP Framework'] },
+    { client: 'Rimes', metric: '500+ hours/month saved', body: 'AI transformation roadmap for firm processing millions of daily transactions. Upskilled 40+ developers who shipped AI features during the engagement.', tags: ['Roadmap','Enablement'] },
+  ];
+  return (
+    <section style={{ padding:'120px 32px', borderTop:'1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:64, marginBottom:64 }}>
+        <div>
+          <div className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.5)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:16 }}>§ Impact</div>
+          <h2 className="display" style={{ fontSize:'clamp(48px, 6vw, 96px)', margin:0 }}>Numbers<br/>that matter.</h2>
+        </div>
+        <div style={{ alignSelf:'end' }}>
+          <p style={{ fontSize:20, lineHeight:1.5, color:'rgba(246,245,240,0.75)', margin:0, maxWidth:540 }}>
+            Real results from real deployments. Not just pilots — production systems serving millions.
+          </p>
+        </div>
+      </div>
+
+      {/* Hero case */}
+      <div style={{ background:'#181818', border:`1px solid rgba(255,255,255,0.1)`, borderRadius:24, padding:48, marginBottom:32, position:'relative', overflow:'hidden' }}>
+        <div style={{ position:'absolute', inset:0, background:`radial-gradient(circle at 90% 0%, ${accent}22, transparent 50%)`, pointerEvents:'none' }}/>
+        <div style={{ position:'relative', display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'end' }}>
+          <div>
+            <div className="mono" style={{ fontSize:12, color:accent, marginBottom:24 }}>● CASE 01 / FCDO</div>
+            <div className="display" style={{ fontSize:'clamp(40px, 5vw, 84px)', lineHeight:0.95, marginBottom:24 }}>UK Gov's first<br/>public LLM.</div>
+            <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+              {cases[0].tags.map((t,i)=>(<span key={i} className="mono" style={{ fontSize:11, padding:'6px 12px', border:'1px solid rgba(255,255,255,0.2)', borderRadius:999 }}>{t}</span>))}
+            </div>
+          </div>
+          <div>
+            <p style={{ fontSize:18, lineHeight:1.55, color:'rgba(246,245,240,0.85)', margin:0 }}>{cases[0].body}</p>
+            <div style={{ marginTop:24, padding:'14px 18px', background:accent, color:'#0d0d0d', borderRadius:12, fontWeight:600, fontSize:14, display:'inline-block' }}>★ {cases[0].badge}</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Other cases — 2-column dense */}
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:24 }}>
+        {cases.slice(1).map((c,i)=>(
+          <div key={i} style={{ background:'#181818', border:'1px solid rgba(255,255,255,0.1)', borderRadius:20, padding:32 }}>
+            <div className="mono" style={{ fontSize:12, color:'rgba(246,245,240,0.5)', marginBottom:16 }}>● {c.client}</div>
+            <div className="display" style={{ fontSize:42, lineHeight:0.95, marginBottom:16 }}>{c.metric}</div>
+            <p style={{ fontSize:15, lineHeight:1.55, color:'rgba(246,245,240,0.7)', margin:'0 0 20px' }}>{c.body}</p>
+            <div style={{ display:'flex', gap:6, flexWrap:'wrap' }}>
+              {c.tags.map((t,j)=>(<span key={j} className="mono" style={{ fontSize:10, padding:'5px 10px', border:'1px solid rgba(255,255,255,0.15)', borderRadius:999, color:'rgba(246,245,240,0.7)' }}>{t}</span>))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AClients() {
+  const clients = ['FCDO','NHS England','GOSH Charity','Homes England','Awin','Rimes','Pearson','London Borough of Merton','Keele University'];
+  // Marquee, two rows opposite directions
+  const row1 = [...clients, ...clients];
+  return (
+    <section style={{ padding:'120px 0 0', borderTop:'1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ padding:'0 32px', marginBottom:48 }}>
+        <div className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.5)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:16 }}>§ Clients</div>
+        <h2 className="display" style={{ fontSize:'clamp(48px, 6vw, 96px)', margin:0, maxWidth:900 }}>Trusted across<br/>sectors.</h2>
+      </div>
+      <div style={{ overflow:'hidden', padding:'32px 0', borderTop:'1px solid rgba(255,255,255,0.12)', borderBottom:'1px solid rgba(255,255,255,0.12)' }}>
+        <div className="display" style={{ display:'flex', gap:64, whiteSpace:'nowrap', fontSize:64 }}>
+          {row1.map((c,i)=>(<span key={i} style={{ color: i%3===0 ? 'var(--accent)' : 'rgba(246,245,240,0.85)' }}>{c} <span style={{ color:'rgba(246,245,240,0.2)' }}>/</span></span>))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AAwards({ accent }) {
+  const awards = [
+    ['Digital Leaders AI Excellence Award','Winner 2025 — Privacy & Security'],
+    ['Computing Digital Tech Leaders','Nominated 2025 — Best AI Project'],
+    ['Government Innovator Award','Nominated 2025 — Civil Service Awards'],
+    ['"AI Demystified"','Pearson FT — Amazon Bestseller'],
+    ['AI.gov.uk Featured Case Study','UK Gov AI Use Case Library'],
+  ];
+  return (
+    <section style={{ padding:'120px 32px', borderTop:'1px solid rgba(255,255,255,0.08)' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:64 }}>
+        <div>
+          <div className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.5)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:16 }}>§ Recognition</div>
+          <h2 className="display" style={{ fontSize:'clamp(48px, 5vw, 80px)', margin:0 }}>Award-<br/>winning<br/>work.</h2>
+        </div>
+        <div>
+          {awards.map(([t,s],i)=>(
+            <div key={i} style={{ display:'grid', gridTemplateColumns:'40px 1fr 1fr', gap:24, padding:'24px 0', borderTop: i? '1px solid rgba(255,255,255,0.12)' : 'none', alignItems:'baseline' }}>
+              <span className="mono" style={{ color: accent, fontSize:13 }}>★</span>
+              <div style={{ fontSize:22, fontWeight:600 }}>{t}</div>
+              <div style={{ fontSize:15, color:'rgba(246,245,240,0.6)' }}>{s}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AContact({ accent }) {
+  return (
+    <section style={{ padding:'160px 32px', borderTop:'1px solid rgba(255,255,255,0.08)', textAlign:'center', position:'relative' }}>
+      <div className="mono" style={{ fontSize:11, color:'rgba(246,245,240,0.5)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:32 }}>§ Get started</div>
+      <h2 className="display" style={{ fontSize:'clamp(64px, 11vw, 200px)', margin:0, lineHeight:0.85 }}>
+        Let's build<br/>something<br/><span style={{ color: accent }}>that works.</span>
+      </h2>
+      <div style={{ marginTop:48, display:'flex', gap:16, justifyContent:'center', alignItems:'center', flexWrap:'wrap' }}>
+        <a href="#" className="mono" style={{ fontSize:18, color:'#f6f5f0', textDecoration:'none', borderBottom:'1px solid rgba(255,255,255,0.3)', paddingBottom:4 }}>info@paidiaconsulting.com</a>
+        <a href="#" style={{ background:accent, color:'#0d0d0d', padding:'18px 32px', borderRadius:999, fontWeight:700, textDecoration:'none', fontSize:16 }}>Start a conversation ↗</a>
+      </div>
+    </section>
+  );
+}
+
+function AFooter() {
+  return (
+    <footer style={{ padding:'40px 32px', borderTop:'1px solid rgba(255,255,255,0.08)', display:'flex', justifyContent:'space-between', alignItems:'center', fontSize:13, color:'rgba(246,245,240,0.5)' }}>
+      <span>© 2026 Paidia Consulting Ltd. London, UK.</span>
+      <span className="mono">v.026 · last shipped today</span>
+      <div style={{ display:'flex', gap:24 }}>
+        <a href="#" style={{ color:'inherit', textDecoration:'none' }}>Privacy</a>
+        <a href="#" style={{ color:'inherit', textDecoration:'none' }}>Email</a>
+      </div>
+    </footer>
+  );
+}
+
+window.DirectionA = DirectionA;

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>A2 · The Quarterly — Paidia Design Systems</title>
+<link rel="stylesheet" href="../../fonts.css">
+<style>
+  html, body { margin:0; padding:0; background:#f3f0ea; }
+  body { font-family: 'Archivo', system-ui, sans-serif; }
+  .ab { position: relative; overflow: hidden; }
+  .ab * { box-sizing: border-box; }
+
+  /* A2 brings its own .a2-root styles inline via JSX <style> tag — nothing else needed */
+
+  .strip { position: fixed; top:0; left:0; right:0; z-index: 9999; padding: 10px 18px; background: rgba(13,13,13,0.85); color: #fff; font: 11px/1 'Geist Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; backdrop-filter: blur(8px); display: flex; gap: 18px; align-items: center; }
+  .strip a { color: #fff; text-decoration: none; opacity: 0.7; }
+  .strip a:hover { opacity: 1; }
+  .strip-spacer { height: 36px; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+</head>
+<body>
+<div class="strip">
+  <strong>A2 · The Quarterly</strong>
+  <span style="opacity:0.4">/</span>
+  <a href="../../index.html">↤ Index</a>
+  <a href="../../Paidia-Design-Systems.html#a2">Tokens & components</a>
+  <a href="../../Paidia-Redesign.html">Canvas (all directions)</a>
+</div>
+<div class="strip-spacer"></div>
+
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+/* inlined from ../../shared/direction-a2.jsx */
+// Direction A2 — Brutalist Editorial · Alternate
+// Same brutalist DNA as A, but inverted: light cream background with deep ink type,
+// hot magenta/cobalt accents instead of yellow. Asymmetric magazine grid layout
+// instead of newspaper masthead. More "FT Weekend supplement" than "tabloid front page."
+
+function DirectionA2({ accent = '#ff3d6e', headline = 'AI that actually works.', motif = true }) {
+  return (
+    <div className="ab a2-root" style={{ width:'100%', minHeight:'100%', '--accent': accent,
+      background:'#f3f0ea', color:'#0d0d0d', fontFamily:'Archivo, sans-serif' }}>
+      <style>{`
+        .a2-root .display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.04em;line-height:0.85}
+        .a2-root .mono{font-family:'Geist Mono',monospace}
+        .a2-root .rule{border-top:1px solid rgba(13,13,13,0.18)}
+      `}</style>
+
+      <A2Nav accent={accent} />
+      <A2Hero accent={accent} headline={headline} motif={motif} />
+      <A2Stats accent={accent} />
+      <A2Services accent={accent} />
+      <A2Impact accent={accent} />
+      <A2Clients accent={accent} />
+      <A2Awards accent={accent} />
+      <A2Contact accent={accent} />
+      <A2Footer />
+    </div>
+  );
+}
+
+function A2Nav({ accent }) {
+  return (
+    <div style={{ position:'sticky', top:0, zIndex:50, background:'#f3f0ea', borderBottom:'1px solid rgba(13,13,13,0.15)' }}>
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'18px 32px' }}>
+        <div style={{ display:'flex', alignItems:'center', gap:32 }}>
+          <div className="display" style={{ fontSize:20 }}>PAIDIA<span style={{ color:accent }}>*</span></div>
+          <span className="mono" style={{ fontSize:11, color:'rgba(13,13,13,0.5)' }}>EST. 2024 · LDN</span>
+        </div>
+        <nav className="mono" style={{ display:'flex', gap:28, fontSize:12, textTransform:'uppercase', letterSpacing:'0.06em' }}>
+          {['Services','Impact','Clients','Writing'].map((x,i)=>(
+            <a key={i} href="#" style={{ color:'#0d0d0d', textDecoration:'none' }}>{String(i+1).padStart(2,'0')} · {x}</a>
+          ))}
+        </nav>
+        <a href="#" className="mono" style={{ background:'#0d0d0d', color:'#f3f0ea', padding:'10px 18px', textDecoration:'none', fontSize:12, textTransform:'uppercase', letterSpacing:'0.06em' }}>Contact ↗</a>
+      </div>
+    </div>
+  );
+}
+
+function A2Hero({ accent, headline, motif }) {
+  return (
+    <section style={{ padding:'40px 32px 80px', position:'relative' }}>
+      {/* Top metadata strip */}
+      <div className="mono" style={{ display:'flex', justifyContent:'space-between', fontSize:11, color:'rgba(13,13,13,0.55)', marginBottom:48, textTransform:'uppercase', letterSpacing:'0.06em' }}>
+        <span>The Paidia Quarterly · Issue 04</span>
+        <span>Applied AI · Field Reports</span>
+        <span>May 2026</span>
+      </div>
+      <div className="rule" style={{ marginBottom:48 }}/>
+
+      {/* Asymmetric grid: huge headline + sidebar tabloid card */}
+      <div style={{ display:'grid', gridTemplateColumns:'1.7fr 1fr', gap:48, alignItems:'start' }}>
+        <div>
+          <div className="mono" style={{ fontSize:11, color:accent, marginBottom:16, textTransform:'uppercase', letterSpacing:'0.08em' }}>▸ Lead feature</div>
+          <h1 className="display" style={{ fontSize:'clamp(64px, 10vw, 168px)', margin:0 }}>
+            AI that <br/>
+            <span style={{ position:'relative', display:'inline-block' }}>
+              <span style={{ position:'absolute', inset:'10% -8px', background:accent, zIndex:0, transform:'rotate(-1deg)' }}/>
+              <span style={{ position:'relative', color:'#0d0d0d' }}>actually</span>
+            </span>
+            <br/>works.
+          </h1>
+          <p style={{ fontSize:20, lineHeight:1.45, maxWidth:620, marginTop:32, color:'rgba(13,13,13,0.8)' }}>
+            From boardroom to codebase to culture. Deep AI expertise, from architecture to deployment — we turn ambition into systems that ship and keep working.
+          </p>
+
+          <div style={{ display:'flex', gap:12, marginTop:32 }}>
+            <a href="#" style={{ background:'#0d0d0d', color:'#f3f0ea', padding:'16px 24px', textDecoration:'none', fontWeight:600, fontSize:15 }}>Start a conversation ↗</a>
+            <a href="#" style={{ background:'transparent', color:'#0d0d0d', padding:'16px 24px', border:'1px solid #0d0d0d', textDecoration:'none', fontWeight:500, fontSize:15 }}>See our work →</a>
+          </div>
+        </div>
+
+        {motif && (
+          <div style={{ display:'flex', flexDirection:'column', gap:16 }}>
+            {/* "Pull quote" tabloid sidebar */}
+            <div style={{ background:'#0d0d0d', color:'#f3f0ea', padding:24, position:'relative' }}>
+              <div className="mono" style={{ fontSize:10, color:accent, marginBottom:14, textTransform:'uppercase', letterSpacing:'0.1em' }}>▸ Story of the issue</div>
+              <div className="display" style={{ fontSize:36, lineHeight:0.95, marginBottom:14 }}>500K citizens served by UK Gov's first public LLM.</div>
+              <div className="mono" style={{ fontSize:11, color:'rgba(243,240,234,0.6)' }}>FCDO · 95% accuracy in production · £3.6M saved</div>
+            </div>
+
+            <div style={{ background:accent, color:'#0d0d0d', padding:20 }}>
+              <div className="mono" style={{ fontSize:10, marginBottom:8, textTransform:'uppercase', letterSpacing:'0.1em' }}>★ This week</div>
+              <div className="display" style={{ fontSize:22, lineHeight:1.05 }}>"AI Demystified" hits Amazon bestseller — Pearson FT.</div>
+            </div>
+
+            <div style={{ border:'1px solid #0d0d0d', padding:20 }}>
+              <div className="mono" style={{ fontSize:10, marginBottom:8, textTransform:'uppercase', letterSpacing:'0.1em', color:'rgba(13,13,13,0.6)' }}>▸ Now booking</div>
+              <div className="display" style={{ fontSize:22, lineHeight:1.05 }}>Q3 2026 engagements.<br/>Two slots remaining.</div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function A2Stats({ accent }) {
+  return (
+    <section style={{ padding:'80px 32px', background:'#0d0d0d', color:'#f3f0ea' }}>
+      <div className="mono" style={{ fontSize:11, color:accent, marginBottom:32, textTransform:'uppercase', letterSpacing:'0.08em' }}>§ The Receipts</div>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:0 }}>
+        {[
+          ['70M+','Users served annually','From production systems we\'ve architected.'],
+          ['95%','Accuracy in production','FCDO LLM, exceeding human agent baseline.'],
+          ['20+','Years shipping products','Before AI was the headline, we were already building.']
+        ].map(([n,l,s],i)=>(
+          <div key={i} style={{ padding:'0 32px', borderLeft: i? '1px solid rgba(243,240,234,0.18)' : 'none' }}>
+            <div className="display" style={{ fontSize:'clamp(72px, 9vw, 144px)', color:accent }}>{n}</div>
+            <div style={{ fontSize:18, fontWeight:600, marginTop:12 }}>{l}</div>
+            <div style={{ fontSize:14, color:'rgba(243,240,234,0.6)', marginTop:8, maxWidth:280 }}>{s}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function A2Services({ accent }) {
+  const services = [
+    ['I','Strategy & Advisory','Board-level guidance on where AI creates real value. The 20% of use cases that drive 80% of impact.'],
+    ['II','Coaching & Mentoring','Coaching that reshapes mental models. Where AI excels, where it fails — the jagged frontier.'],
+    ['III','Transformation & Training','Sustainable AI capability from boardroom to frontline. 70% workforce adoption in 12 weeks.'],
+    ['IV','Architecture & Engineering','Production-grade systems built for accuracy, security, and scale. RAG, agents, hallucination-safe.'],
+    ['V','Rapid Prototyping','Working demos in days, not quarters. Build fast to prove value, hand off cleanly.'],
+    ['VI','AI Governance','Frameworks that enable rather than block. Risk tiers, approval, transparency.'],
+  ];
+  return (
+    <section style={{ padding:'120px 32px' }}>
+      <div className="mono" style={{ fontSize:11, color:'rgba(13,13,13,0.6)', marginBottom:24, textTransform:'uppercase', letterSpacing:'0.08em' }}>§ Section 02 — Services</div>
+      <h2 className="display" style={{ fontSize:'clamp(48px, 7vw, 112px)', margin:'0 0 64px', maxWidth:1100 }}>
+        From slides to <span style={{ background:accent, padding:'0 16px', display:'inline-block' }}>production</span>.
+      </h2>
+
+      <div className="rule" />
+      {services.map(([n,t,d],i)=>(
+        <div key={i} style={{ display:'grid', gridTemplateColumns:'80px 1.2fr 2fr 60px', gap:32, padding:'28px 0', borderBottom:'1px solid rgba(13,13,13,0.18)', alignItems:'baseline' }}>
+          <div className="mono" style={{ fontSize:14, color:accent, fontWeight:600 }}>{n}</div>
+          <div className="display" style={{ fontSize:36, lineHeight:0.95 }}>{t}</div>
+          <div style={{ fontSize:16, color:'rgba(13,13,13,0.7)', lineHeight:1.5 }}>{d}</div>
+          <div style={{ textAlign:'right', fontSize:22 }}>↗</div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+function A2Impact({ accent }) {
+  const cases = [
+    { client:'GOSH', metric:'70% adoption · 12 weeks', body:'Possibly the fastest charity AI transformation in the UK. Strategy → coaching → sustainable capability.', tags:['Transformation','Training'] },
+    { client:'NHS England', metric:'+90,000 appointments', body:'Discovery across 11 ICBs. £500k secured. First prototype live-testing in 6 weeks.', tags:['Discovery','Business case'] },
+    { client:'Awin', metric:'10 days → 2 hours', body:'Publisher matching for 1,500 vendors in 2 hours. RFP response time halved.', tags:['Automation'] },
+    { client:'Pearson', metric:'4× growth platform', body:'Unified AI platform for FTSE 100 education provider connecting all legacy systems.', tags:['Platform','MCP'] },
+    { client:'Rimes', metric:'500+ hrs/mo saved', body:'Roadmap for firm processing millions of daily transactions. 40+ devs upskilled.', tags:['Roadmap'] },
+  ];
+  return (
+    <section style={{ padding:'120px 32px', background:'#0d0d0d', color:'#f3f0ea' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:64, marginBottom:48 }}>
+        <div>
+          <div className="mono" style={{ fontSize:11, color:accent, marginBottom:16, textTransform:'uppercase', letterSpacing:'0.08em' }}>§ Section 03 — Impact</div>
+          <h2 className="display" style={{ fontSize:'clamp(48px, 6vw, 96px)', margin:0 }}>Numbers<br/>that <span style={{ color:accent }}>matter</span>.</h2>
+        </div>
+        <p style={{ fontSize:20, lineHeight:1.5, color:'rgba(243,240,234,0.7)', alignSelf:'end', maxWidth:540 }}>Real results from real deployments. Not pilots — production systems serving millions.</p>
+      </div>
+
+      {/* Hero feature, magazine cover style */}
+      <div style={{ background:accent, color:'#0d0d0d', padding:48, marginBottom:24, position:'relative' }}>
+        <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:48, alignItems:'end' }}>
+          <div>
+            <div className="mono" style={{ fontSize:12, marginBottom:24, textTransform:'uppercase', letterSpacing:'0.08em' }}>● Cover story · FCDO</div>
+            <div className="display" style={{ fontSize:'clamp(40px, 5.5vw, 96px)', lineHeight:0.92, marginBottom:24 }}>UK Gov's first<br/>public LLM.</div>
+            <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
+              {['LLM Architecture','Hallucination-safe','Production'].map((t,i)=>(
+                <span key={i} className="mono" style={{ fontSize:11, padding:'6px 12px', border:'1px solid #0d0d0d', textTransform:'uppercase', letterSpacing:'0.06em' }}>{t}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p style={{ fontSize:18, lineHeight:1.5, margin:0 }}>Live on every British Embassy website. 10-day email queues turned into 5-second responses. <strong>95% accuracy in production</strong> — exceeding the human agent baseline. £3.6M saved over 5 years; 500,000+ citizens served annually.</p>
+            <div className="mono" style={{ marginTop:20, padding:'12px 16px', background:'#0d0d0d', color:accent, fontSize:12, fontWeight:600, display:'inline-block', textTransform:'uppercase', letterSpacing:'0.08em' }}>★ Digital Leaders AI Excellence — Winner 2025</div>
+          </div>
+        </div>
+      </div>
+
+      {/* 5 cases as a card grid */}
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(5, 1fr)', gap:8 }}>
+        {cases.map((c,i)=>(
+          <div key={i} style={{ background:'rgba(243,240,234,0.04)', border:'1px solid rgba(243,240,234,0.12)', padding:20, display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight:280 }}>
+            <div>
+              <div className="mono" style={{ fontSize:10, color:accent, marginBottom:12, textTransform:'uppercase', letterSpacing:'0.08em' }}>● {c.client}</div>
+              <div className="display" style={{ fontSize:22, lineHeight:1, marginBottom:12 }}>{c.metric}</div>
+              <p style={{ fontSize:13, color:'rgba(243,240,234,0.7)', lineHeight:1.5, margin:0 }}>{c.body}</p>
+            </div>
+            <div className="mono" style={{ display:'flex', gap:6, flexWrap:'wrap', marginTop:16 }}>
+              {c.tags.map((t,j)=>(<span key={j} style={{ fontSize:9, padding:'3px 8px', border:'1px solid rgba(243,240,234,0.2)', color:'rgba(243,240,234,0.7)' }}>{t}</span>))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function A2Clients({ accent }) {
+  const clients = ['FCDO','NHS England','GOSH Charity','Homes England','Awin','Rimes','Pearson','LB Merton','Keele University'];
+  return (
+    <section style={{ padding:'80px 0' }}>
+      <div style={{ padding:'0 32px', marginBottom:32 }}>
+        <div className="mono" style={{ fontSize:11, color:'rgba(13,13,13,0.6)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:16 }}>§ Section 04 — Clients</div>
+        <h2 className="display" style={{ fontSize:'clamp(40px, 5vw, 72px)', margin:0 }}>Trusted across <span style={{ color:accent }}>sectors</span>.</h2>
+      </div>
+      <div style={{ overflow:'hidden', borderTop:'1px solid #0d0d0d', borderBottom:'1px solid #0d0d0d', padding:'24px 0' }}>
+        <div className="display" style={{ display:'flex', gap:48, whiteSpace:'nowrap', fontSize:54 }}>
+          {[...clients,...clients,...clients].map((c,i)=>(
+            <span key={i} style={{ display:'flex', alignItems:'center', gap:48, color: i%4===0 ? accent : '#0d0d0d' }}>{c} <span style={{ color:'rgba(13,13,13,0.3)' }}>×</span></span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function A2Awards({ accent }) {
+  const awards = [
+    ['2025','Digital Leaders AI Excellence','Winner — Privacy & Security'],
+    ['2025','Computing Digital Tech Leaders','Nominated — Best AI Project'],
+    ['2025','Government Innovator Award','Nominated — Civil Service Awards'],
+    ['2025','"AI Demystified"','Pearson FT — Amazon bestseller'],
+    ['2025','AI.gov.uk','Featured case study'],
+  ];
+  return (
+    <section style={{ padding:'120px 32px' }}>
+      <div className="mono" style={{ fontSize:11, color:'rgba(13,13,13,0.6)', textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:24 }}>§ Section 05 — Recognition</div>
+      <h2 className="display" style={{ fontSize:'clamp(40px, 5vw, 72px)', margin:'0 0 48px' }}>Award-winning work.</h2>
+      <div className="rule" />
+      {awards.map(([y,t,s],i)=>(
+        <div key={i} style={{ display:'grid', gridTemplateColumns:'80px 1fr 1fr', gap:24, padding:'24px 0', borderBottom:'1px solid rgba(13,13,13,0.18)', alignItems:'baseline' }}>
+          <span className="mono" style={{ fontSize:13, color:accent }}>★ {y}</span>
+          <div className="display" style={{ fontSize:24 }}>{t}</div>
+          <div style={{ fontSize:15, color:'rgba(13,13,13,0.7)' }}>{s}</div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
+function A2Contact({ accent }) {
+  return (
+    <section style={{ padding:'160px 32px', background:'#0d0d0d', color:'#f3f0ea', textAlign:'center' }}>
+      <div className="mono" style={{ fontSize:11, color:accent, textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:32 }}>§ Get started</div>
+      <h2 className="display" style={{ fontSize:'clamp(64px, 11vw, 200px)', margin:0, lineHeight:0.85 }}>
+        Let's build<br/>something<br/><span style={{ background:accent, color:'#0d0d0d', padding:'0 24px', display:'inline-block' }}>that works.</span>
+      </h2>
+      <div style={{ marginTop:48, display:'flex', justifyContent:'center', gap:16, flexWrap:'wrap', alignItems:'center' }}>
+        <a href="#" className="mono" style={{ fontSize:18, color:'#f3f0ea', textDecoration:'none', borderBottom:'1px solid rgba(243,240,234,0.4)' }}>info@paidiaconsulting.com</a>
+        <a href="#" style={{ background:accent, color:'#0d0d0d', padding:'18px 32px', fontWeight:700, textDecoration:'none', fontSize:16 }}>Start a conversation ↗</a>
+      </div>
+    </section>
+  );
+}
+
+function A2Footer() {
+  return (
+    <footer className="mono" style={{ padding:'40px 32px', display:'flex', justifyContent:'space-between', alignItems:'center', fontSize:12, color:'rgba(13,13,13,0.6)', borderTop:'1px solid rgba(13,13,13,0.18)', textTransform:'uppercase', letterSpacing:'0.06em' }}>
+      <span>© 2026 Paidia Consulting Ltd · London UK</span>
+      <span>The Quarterly · Issue 04</span>
+      <span>Privacy · Email</span>
+    </footer>
+  );
+}
+
+</script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <DirectionA2 accent="#ff3d6e" headline="AI that actually works." motif={true} />
+  );
+</script>
+</body>
+</html>

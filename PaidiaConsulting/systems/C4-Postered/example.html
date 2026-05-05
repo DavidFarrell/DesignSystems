@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>C4 · Postered & Playful — Paidia Design Systems</title>
+<link rel="stylesheet" href="../../fonts.css">
+<style>
+  html, body { margin:0; padding:0; background:#f6f1e7; }
+  body { font-family: 'Fraunces', serif; }
+  .ab { position: relative; overflow: hidden; }
+  .ab * { box-sizing: border-box; }
+
+  .strip { position: fixed; top:0; left:0; right:0; z-index: 9999; padding: 10px 18px; background: rgba(13,10,8,0.88); color: #f6f1e7; font: 11px/1 'Geist Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; backdrop-filter: blur(8px); display: flex; gap: 18px; align-items: center; }
+  .strip a { color: #f6f1e7; text-decoration: none; opacity: 0.7; }
+  .strip a:hover { opacity: 1; }
+  .strip-spacer { height: 36px; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin></script>
+</head>
+<body>
+<div class="strip">
+  <strong>C4 · Postered & Playful</strong>
+  <span style="opacity:0.4">/</span>
+  <a href="../../index.html">↤ Index</a>
+  <a href="../../Paidia-Design-Systems.html#c4">Tokens & components</a>
+  <a href="../../Paidia-Redesign.html">Canvas (all directions)</a>
+</div>
+<div class="strip-spacer"></div>
+
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+/* inlined from ../../shared/direction-c4.jsx */
+// C4 — Manifesto · Postered & playful
+// Off-white + ELECTRIC TANGERINE + violet + black. Asymmetric ransom-note collage feel.
+// Mixes italic Fraunces with bold sans display. Diagonal headlines, sticker badges.
+
+function DirectionC4({ accent = '#ff5c1f', headline = 'AI that actually works.', motif = true }) {
+  const cream = '#f6f1e7', ink = '#0d0a08', tangerine = '#ff5c1f', violet = '#5a2eb8';
+  return (
+    <div className="ab" style={{ width:'100%', minHeight:'100%', background:cream, color:ink, fontFamily:'Fraunces, serif' }}>
+      <style>{`
+        .c4 .display{font-family:'Fraunces',serif;font-style:italic;font-weight:500;letter-spacing:-0.02em;line-height:0.92}
+        .c4 .sans{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:0.85}
+        .c4 .mono{font-family:'JetBrains Mono',monospace}
+        .c4 .sticker{display:inline-block;padding:8px 14px;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.04em}
+      `}</style>
+      <div className="c4">
+        <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'20px 40px' }}>
+          <div className="display" style={{ fontSize:30 }}>Paidia<span style={{ color:tangerine }}>.</span></div>
+          <nav className="mono" style={{ display:'flex', gap:24, fontSize:13 }}>
+            {['Services','Impact','Clients','Contact'].map((x,i)=>(<a key={i} href="#" style={{ color:ink, textDecoration:'none' }}>{x}</a>))}
+          </nav>
+        </div>
+
+        <section style={{ padding:'48px 40px 80px', position:'relative' }}>
+          {motif && <div style={{ position:'absolute', top:60, right:60, width:200, height:200, borderRadius:'50%', background:tangerine, mixBlendMode:'multiply' }}/>}
+          {motif && <div style={{ position:'absolute', top:200, right:240, width:120, height:120, borderRadius:'50%', background:violet, mixBlendMode:'multiply' }}/>}
+
+          <div style={{ position:'relative', zIndex:2 }}>
+            <h1 style={{ margin:0 }}>
+              <span className="sans" style={{ display:'block', fontSize:'clamp(80px,14vw,220px)' }}>AI THAT</span>
+              <span className="display" style={{ display:'block', fontSize:'clamp(80px,14vw,220px)', color:tangerine, marginLeft:'8%' }}>actually,</span>
+              <span className="sans" style={{ display:'block', fontSize:'clamp(80px,14vw,220px)' }}>WORKS<span style={{ color:violet }}>.</span></span>
+            </h1>
+          </div>
+
+          <div style={{ marginTop:48, display:'grid', gridTemplateColumns:'1.6fr 1fr', gap:48, alignItems:'end', position:'relative' }}>
+            <p className="sans" style={{ fontFamily:'Geist', fontWeight:400, fontSize:22, lineHeight:1.45, margin:0, maxWidth:680, color:'rgba(13,10,8,0.85)', textTransform:'none', letterSpacing:0 }}>
+              From boardroom to codebase to culture. Deep AI expertise, from architecture to deployment — we turn ambition into systems that ship and keep working.
+            </p>
+            <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
+              <a href="#" style={{ background:ink, color:cream, padding:'18px 24px', borderRadius:999, textDecoration:'none', fontFamily:'Geist', fontWeight:500, fontSize:15, display:'flex', justifyContent:'space-between', alignItems:'center' }}>Start a conversation <span style={{ color:tangerine }}>↗</span></a>
+              <a href="#" style={{ background:'transparent', color:ink, padding:'18px 24px', borderRadius:999, textDecoration:'none', fontFamily:'Geist', fontWeight:500, fontSize:15, border:`1px solid ${ink}`, display:'flex', justifyContent:'space-between' }}>See our work <span>→</span></a>
+            </div>
+          </div>
+
+          {motif && (
+            <div style={{ marginTop:48, display:'flex', gap:14, flexWrap:'wrap' }}>
+              <span className="sticker" style={{ background:tangerine, color:cream, transform:'rotate(-2deg)' }}>★ AI EXCELLENCE WINNER 2025</span>
+              <span className="sticker" style={{ background:ink, color:tangerine, transform:'rotate(2deg)' }}>● 70M+ users / year</span>
+              <span className="sticker" style={{ background:violet, color:cream, transform:'rotate(-1deg)' }}>▲ 95% accuracy in production</span>
+              <span className="sticker" style={{ background:cream, color:ink, border:`1.5px solid ${ink}`, transform:'rotate(3deg)' }}>✦ AMAZON BESTSELLER</span>
+            </div>
+          )}
+        </section>
+
+        <section style={{ padding:'80px 40px', background:violet, color:cream }}>
+          <div className="mono" style={{ fontSize:11, color:tangerine, textTransform:'uppercase', letterSpacing:'0.1em', marginBottom:24 }}>§ A short manifesto</div>
+          <p className="display" style={{ fontSize:'clamp(36px,4.5vw,72px)', margin:0, maxWidth:1100, lineHeight:1.05 }}>
+            Most AI projects stall in <span style={{ color:tangerine }}>pilot purgatory</span>. We've spent twenty years shipping software, and the last few shipping AI for governments, charities, and the FTSE 100. We build systems that <span style={{ background:tangerine, color:ink, padding:'0 16px', borderRadius:6 }}>ship</span> — and keep working when the demo is over.
+          </p>
+        </section>
+
+        <section style={{ padding:'120px 40px' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:32, alignItems:'end', marginBottom:64 }}>
+            <h2 className="display" style={{ fontSize:'clamp(48px,6vw,96px)', margin:0 }}>What we<br/>actually do<span style={{ color:tangerine }}>.</span></h2>
+            <p className="sans" style={{ fontFamily:'Geist', fontWeight:400, textTransform:'none', letterSpacing:0, fontSize:18, lineHeight:1.5, color:'rgba(13,10,8,0.7)', margin:0, maxWidth:480 }}>
+              Six disciplines. Used in any combination. From "we don't know where to start" to "this serves half a million people."
+            </p>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:16 }}>
+            {[
+              {n:'I',t:'Strategy & Advisory',d:'Board-level guidance. The 20% that drives 80%.', bg:tangerine, fg:ink, rotate:-1},
+              {n:'II',t:'Coaching & Mentoring',d:'Reshape mental models. The jagged frontier.', bg:cream, fg:ink, border:true, rotate:1},
+              {n:'III',t:'Transformation',d:'70% adoption in 12 weeks.', bg:violet, fg:cream, rotate:-2},
+              {n:'IV',t:'Architecture & Engineering',d:'Production-grade. RAG, agents, hallucination-safe.', bg:ink, fg:cream, rotate:1},
+              {n:'V',t:'Rapid Prototyping',d:'Working demos in days, not quarters.', bg:tangerine, fg:ink, rotate:-1},
+              {n:'VI',t:'AI Governance',d:'Frameworks that enable rather than block.', bg:cream, fg:ink, border:true, rotate:2},
+            ].map((s,i)=>(
+              <div key={i} style={{ background:s.bg, color:s.fg, border:s.border?`1.5px solid ${ink}`:'none', borderRadius:18, padding:32, minHeight:320, display:'flex', flexDirection:'column', justifyContent:'space-between', transform:`rotate(${s.rotate*0.4}deg)` }}>
+                <div className="display" style={{ fontSize:64, lineHeight:1 }}>{s.n}.</div>
+                <div>
+                  <div className="display" style={{ fontSize:28, marginBottom:14, lineHeight:1.05 }}>{s.t}</div>
+                  <p className="sans" style={{ fontFamily:'Geist', fontWeight:400, textTransform:'none', letterSpacing:0, fontSize:14, lineHeight:1.55, margin:0, opacity:0.9 }}>{s.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section style={{ padding:'40px 40px 120px' }}>
+          <h2 className="display" style={{ fontSize:'clamp(48px,6vw,96px)', margin:'0 0 48px' }}>Numbers that <span style={{ color:tangerine }}>matter</span>.</h2>
+          <div style={{ background:tangerine, color:ink, borderRadius:24, padding:48, marginBottom:24 }}>
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'end' }}>
+              <div>
+                <div className="mono" style={{ fontSize:11, marginBottom:24, fontWeight:700 }}>FEATURE · 01 / FCDO</div>
+                <h3 className="display" style={{ fontSize:'clamp(40px,5vw,84px)', margin:0, lineHeight:0.95 }}>The UK's first<br/>public LLM.</h3>
+              </div>
+              <div>
+                <p className="sans" style={{ fontFamily:'Geist', fontWeight:400, textTransform:'none', letterSpacing:0, fontSize:18, lineHeight:1.55, margin:0 }}>
+                  Live on every British Embassy website. <strong>95% accuracy in production</strong>, exceeding the human agent baseline. £3.6M saved over 5 years; 500,000+ citizens served annually.
+                </p>
+                <div className="sticker" style={{ background:ink, color:tangerine, marginTop:20, transform:'rotate(-1deg)' }}>★ Digital Leaders Excellence — Winner 2025</div>
+              </div>
+            </div>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:16 }}>
+            {[
+              ['GOSH Charity','70% / 12 weeks','Fastest charity AI transformation in the UK.', cream, true],
+              ['NHS England','+90,000 appts','Pathway to 90,000 extra appointments. £500k secured.', violet, false],
+              ['Awin','10 days → 2 hrs','Publisher matching: 1,500 vendors. RFP halved.', cream, true],
+              ['Pearson','4× growth','FTSE 100 unified AI platform.', tangerine, false],
+              ['Rimes','500h/month','40+ devs upskilled mid-engagement.', cream, true],
+              ['Merton','Open-source','Council AI playbook for local government.', ink, false],
+            ].map(([c,m,d,bg,border],i)=>{
+              const fg = bg===cream||bg===tangerine ? ink : cream;
+              return (
+                <div key={i} style={{ background:bg, color:fg, border:border?`1.5px solid ${ink}`:'none', borderRadius:18, padding:28 }}>
+                  <div className="mono" style={{ fontSize:11, marginBottom:14, opacity:0.7, textTransform:'uppercase', letterSpacing:'0.08em' }}>{c}</div>
+                  <div className="display" style={{ fontSize:36, marginBottom:12, lineHeight:1 }}>{m}</div>
+                  <p className="sans" style={{ fontFamily:'Geist', fontWeight:400, textTransform:'none', letterSpacing:0, fontSize:14, lineHeight:1.55, margin:0, opacity:0.85 }}>{d}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section style={{ padding:'140px 40px', background:tangerine, color:ink, textAlign:'center', position:'relative' }}>
+          {motif && <span className="sticker" style={{ background:ink, color:tangerine, position:'absolute', top:40, left:80, transform:'rotate(-6deg)' }}>★ NOW BOOKING Q3</span>}
+          {motif && <span className="sticker" style={{ background:violet, color:cream, position:'absolute', top:60, right:80, transform:'rotate(4deg)' }}>● 2 SLOTS LEFT</span>}
+          <h2 className="display" style={{ fontSize:'clamp(64px,11vw,200px)', margin:0, lineHeight:0.9 }}>
+            Let's build<br/>something<br/>that <em style={{ background:ink, color:tangerine, padding:'0 24px', borderRadius:8 }}>works</em>.
+          </h2>
+          <a href="#" className="sans" style={{ fontFamily:'Geist', fontWeight:500, textTransform:'none', letterSpacing:0, marginTop:48, display:'inline-block', background:ink, color:cream, padding:'18px 36px', borderRadius:999, textDecoration:'none', fontSize:16 }}>Start a conversation ↗</a>
+        </section>
+        <footer style={{ padding:40, display:'flex', justifyContent:'space-between', fontSize:13, color:'rgba(13,10,8,0.6)' }} className="mono">
+          <span>© 2026 PAIDIA · LDN</span><span>POSTERED · MMXXVI</span><span>Privacy · Email</span>
+        </footer>
+      </div>
+    </div>
+  );
+}
+</script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <DirectionC4 accent="#ff5c1f" headline="AI that actually works." motif={true} />
+  );
+</script>
+</body>
+</html>

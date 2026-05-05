@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Paidia — Design Systems</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  :root {
+    --doc-bg: #f5f3ee;
+    --doc-ink: #1a1814;
+    --doc-mute: rgba(26,24,20,0.55);
+    --doc-rule: rgba(26,24,20,0.18);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--doc-bg); color:var(--doc-ink); font-family:'Geist', system-ui, sans-serif; }
+
+  /* Document chrome */
+  .doc-toc { position: sticky; top: 0; z-index: 50; background: var(--doc-bg); border-bottom: 1px solid var(--doc-rule); }
+  .doc-toc-inner { max-width: 1320px; margin: 0 auto; padding: 14px 32px; display:flex; gap: 24px; align-items:center; flex-wrap:wrap; font-family:'Geist Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .doc-toc-inner a { color: var(--doc-ink); text-decoration: none; padding: 4px 8px; border-radius: 4px; }
+  .doc-toc-inner a:hover { background: rgba(0,0,0,0.05); }
+  .doc-toc-brand { font-weight: 700; }
+
+  .doc-cover { max-width: 1320px; margin: 0 auto; padding: 80px 32px 64px; }
+  .doc-cover .eyebrow { font-family:'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--doc-mute); }
+  .doc-cover h1 { font-family:'Fraunces', serif; font-weight: 400; font-style: italic; font-size: clamp(56px, 9vw, 144px); line-height: 0.92; margin: 24px 0 24px; letter-spacing: -0.025em; }
+  .doc-cover p { font-size: 18px; line-height: 1.55; max-width: 680px; color: rgba(26,24,20,0.78); }
+
+  /* DS section: each system gets a giant divider + a frame */
+  .ds-divider { padding: 96px 32px 24px; max-width: 1320px; margin: 0 auto; }
+  .ds-divider .num { font-family:'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: var(--doc-mute); text-transform: uppercase; }
+  .ds-divider h2 { font-family:'Fraunces', serif; font-style: italic; font-weight: 400; font-size: clamp(40px, 6vw, 84px); margin: 12px 0 8px; line-height: 0.95; letter-spacing: -0.02em; }
+  .ds-divider .sub { font-size: 16px; color: rgba(26,24,20,0.7); max-width: 720px; line-height: 1.5; }
+  .ds-frame { max-width: 1320px; margin: 24px auto 0; border: 1px solid var(--doc-rule); border-radius: 24px; overflow: hidden; background: white; }
+
+  /* Generic system row helpers */
+  .sys-row { padding: 40px 48px; border-bottom: 1px solid; }
+  .sys-row:last-child { border-bottom: none; }
+  .sys-h3 { font-family:'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 24px; opacity: 0.6; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+  .swatch { border-radius: 12px; padding: 14px 14px 16px; min-height: 140px; display: flex; flex-direction: column; justify-content: space-between; font-size: 12px; font-family:'Geist Mono', monospace; }
+  .swatch .role { font-weight: 600; font-size: 13px; font-family: 'Geist', sans-serif; letter-spacing: 0; }
+  .swatch .meta { opacity: 0.85; font-size: 11px; }
+  .typescale-row { display: grid; grid-template-columns: 130px 1fr; gap: 24px; align-items: baseline; padding: 16px 0; border-top: 1px solid; }
+  .typescale-row:first-child { border-top: none; padding-top: 0; }
+  .typescale-row .label { font-family: 'Geist Mono', monospace; font-size: 11px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.08em; }
+  .components-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .comp-card { border-radius: 14px; padding: 24px; min-height: 140px; }
+  .usage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .usage-grid h4 { font-family: 'Geist Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 12px; opacity: 0.7; }
+  .usage-grid ul { margin: 0; padding-left: 16px; line-height: 1.6; font-size: 14px; }
+  .usage-grid ul.dont li { color: rgba(0,0,0,0.6); }
+
+  /* ─── A1 · TABLOID — dark + electric yellow ─────────────────────── */
+  .ds-a1 { background: #0d0d0d; color: #f6f5f0; font-family: 'Archivo', sans-serif; }
+  .ds-a1 .sys-row { border-color: rgba(255,255,255,0.1); }
+  .ds-a1 .typescale-row { border-color: rgba(255,255,255,0.1); }
+  .ds-a1 .display-name { font-family: 'Archivo Black', sans-serif; }
+  .ds-a1 .accent { color: #e7ff52; }
+  .ds-a1 .pill { background: #e7ff52; color: #0d0d0d; padding: 18px 24px; border-radius: 999px; font-weight: 700; display: inline-block; }
+  .ds-a1 .pill-ghost { color: #f6f5f0; padding: 18px 24px; border-radius: 999px; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); display: inline-block; }
+  .ds-a1 .ticker-strip { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; font-size: 38px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); white-space: nowrap; overflow: hidden; }
+
+  /* ─── A2 · QUARTERLY — cream + magenta ──────────────────────────── */
+  .ds-a2 { background: #f0eae0; color: #161311; font-family: 'Archivo', sans-serif; }
+  .ds-a2 .sys-row { border-color: rgba(22,19,17,0.12); }
+  .ds-a2 .typescale-row { border-color: rgba(22,19,17,0.12); }
+  .ds-a2 .accent { color: #ff3d6e; }
+  .ds-a2 .pill { background: #161311; color: #f0eae0; padding: 16px 24px; border-radius: 4px; font-weight: 700; display: inline-block; }
+  .ds-a2 .pill-ghost { color: #161311; padding: 16px 24px; border-radius: 4px; font-weight: 600; border: 1.5px solid #161311; display: inline-block; }
+
+  /* ─── A3 · RISO ZINE — purple + yellow + magenta ────────────────── */
+  .ds-a3 { background: #2b1f4f; color: #fbf3d8; font-family: 'Archivo', sans-serif; }
+  .ds-a3 .sys-row { border-color: rgba(251,243,216,0.14); }
+  .ds-a3 .typescale-row { border-color: rgba(251,243,216,0.14); }
+  .ds-a3 .accent { color: #fff200; }
+  .ds-a3 .pink { color: #ff5fa2; }
+
+  /* ─── A4 · SPORTS TABLOID — white + red diagonal ────────────────── */
+  .ds-a4 { background: #fafafa; color: #0a0a0a; font-family: 'Archivo', sans-serif; }
+  .ds-a4 .sys-row { border-color: rgba(0,0,0,0.1); }
+  .ds-a4 .typescale-row { border-color: rgba(0,0,0,0.1); }
+  .ds-a4 .accent { color: #ff3b1f; }
+  .ds-a4 .diagonal { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.04em; font-size: 64px; line-height: 0.85; transform: skew(-8deg); display: inline-block; color: #ff3b1f; }
+
+  /* ─── C1 · COLOUR BLOCKS — original terracotta + lemon + sky ────── */
+  .ds-c1 { background: #f4efe6; color: #1a1814; font-family: 'Fraunces', serif; }
+  .ds-c1 .sys-row { border-color: rgba(26,24,20,0.15); }
+  .ds-c1 .typescale-row { border-color: rgba(26,24,20,0.12); }
+  .ds-c1 .display-name { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+  .ds-c1 .sans { font-family: 'Geist', sans-serif; }
+  .ds-c1 .accent { color: #d96f3b; }
+  .ds-c1 .pill { background: #1a1814; color: #f4efe6; padding: 16px 24px; border-radius: 999px; font-weight: 500; font-family: 'Geist', sans-serif; display: inline-block; }
+  .ds-c1 .pill-ghost { color: #1a1814; padding: 16px 24px; border-radius: 999px; font-weight: 500; border: 1px solid #1a1814; font-family: 'Geist', sans-serif; display: inline-block; }
+
+  /* ─── C3 · SATURATED BLOCKS — magenta + cobalt + lime ───────────── */
+  .ds-c3 { background: #f4efe6; color: #1a1814; font-family: 'Fraunces', serif; }
+  .ds-c3 .sys-row { border-color: rgba(26,24,20,0.15); }
+  .ds-c3 .typescale-row { border-color: rgba(26,24,20,0.12); }
+  .ds-c3 .display-name { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+  .ds-c3 .sans { font-family: 'Geist', sans-serif; }
+  .ds-c3 .accent { color: #e30b5c; }
+
+  /* ─── C4 · POSTERED — tangerine + violet on bone ────────────────── */
+  .ds-c4 { background: #f6f1e7; color: #0d0a08; font-family: 'Fraunces', serif; }
+  .ds-c4 .sys-row { border-color: rgba(13,10,8,0.15); }
+  .ds-c4 .typescale-row { border-color: rgba(13,10,8,0.12); }
+  .ds-c4 .display-name { font-family: 'Fraunces', serif; font-style: italic; font-weight: 500; }
+  .ds-c4 .sans { font-family: 'Geist', sans-serif; }
+  .ds-c4 .archivo { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; }
+  .ds-c4 .accent { color: #ff5c1f; }
+  .ds-c4 .sticker { display: inline-block; padding: 8px 14px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; }
+
+  /* ─── C5 · EDITORIAL SPREAD — teal + coral on bone ──────────────── */
+  .ds-c5 { background: #f5f0e6; color: #171210; font-family: 'Fraunces', serif; }
+  .ds-c5 .sys-row { border-color: rgba(23,18,16,0.15); }
+  .ds-c5 .typescale-row { border-color: rgba(23,18,16,0.12); }
+  .ds-c5 .display-name { font-family: 'Fraunces', serif; font-style: italic; font-weight: 400; }
+  .ds-c5 .sans { font-family: 'Geist', sans-serif; }
+  .ds-c5 .accent { color: #0d8478; }
+
+  /* mono helper */
+  .mono { font-family: 'Geist Mono', monospace; }
+</style>
+</head>
+<body>
+
+<!-- TOC -->
+<nav class="doc-toc">
+  <div class="doc-toc-inner">
+    <span class="doc-toc-brand">Paidia · Design Systems</span>
+    <span style="opacity:0.4">/</span>
+    <a href="#a1">A1 Tabloid</a>
+    <a href="#a2">A2 Quarterly</a>
+    <a href="#a3">A3 Riso Zine</a>
+    <a href="#a4">A4 Sports Tabloid</a>
+    <a href="#c1">C1 Colour Blocks</a>
+    <a href="#c3">C3 Saturated</a>
+    <a href="#c4">C4 Postered</a>
+    <a href="#c5">C5 Editorial Spread</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<header class="doc-cover">
+  <div class="eyebrow">Field guide / vol. 04 · 2026</div>
+  <h1>Eight design <br/>systems<span style="color:#d96f3b">.</span></h1>
+  <p>One brand, eight bets. Each system below is a self-contained design language — palette, type scale, components, motifs, and rules of use — rendered in its own native skin. Pick one to ship; mix elements between systems freely.</p>
+</header>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- A1 · TABLOID -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="a1">
+  <div class="ds-divider">
+    <div class="num">System 01 / Brutalist Editorial</div>
+    <h2 style="font-family:'Archivo Black', sans-serif; font-style:normal; letter-spacing:-0.04em;">A1 · Tabloid</h2>
+    <p class="sub">Newspaper-masthead energy. Maximum contrast, electric accent, ticker strips, dense rules-and-rows. The most direct Yellowball-adjacent take, pushed harder into print/editorial.</p>
+  </div>
+  <div class="ds-frame ds-a1">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#0d0d0d; color:#f6f5f0; border:1px solid rgba(255,255,255,0.15);">
+          <div><div class="role">Ink (background)</div><div class="meta">Dominant 70%</div></div>
+          <div class="meta">#0D0D0D</div>
+        </div>
+        <div class="swatch" style="background:#e7ff52; color:#0d0d0d;">
+          <div><div class="role">Electric Yellow</div><div class="meta">Accent only · 5%</div></div>
+          <div class="meta">#E7FF52</div>
+        </div>
+        <div class="swatch" style="background:#f6f5f0; color:#0d0d0d;">
+          <div><div class="role">Bone</div><div class="meta">Body text on ink</div></div>
+          <div class="meta">#F6F5F0</div>
+        </div>
+        <div class="swatch" style="background:#181818; color:#f6f5f0; border:1px solid rgba(255,255,255,0.15);">
+          <div><div class="role">Ink Raised</div><div class="meta">Cards, surfaces</div></div>
+          <div class="meta">#181818</div>
+        </div>
+        <div class="swatch" style="background:rgba(246,245,240,0.06); color:#f6f5f0; border:1px solid rgba(255,255,255,0.15);">
+          <div><div class="role">Ink Hairline</div><div class="meta">Rules, borders</div></div>
+          <div class="meta">rgba(246,245,240,.12)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Display / 200</div>
+        <div class="display-name accent" style="font-size:120px; line-height:0.82; letter-spacing:-0.04em;">AI works.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Display / 96</div>
+        <div class="display-name" style="font-size:72px; line-height:0.85; letter-spacing:-0.04em;">From slides to production.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Title / 36</div>
+        <div class="display-name" style="font-size:36px; line-height:1;">AI Strategy & Advisory</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 18</div>
+        <div style="font-size:18px; line-height:1.55; max-width:640px;">Most AI projects stall. Six disciplines, used in any combination, to get yours into production and keep it there.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 14</div>
+        <div style="font-size:14px; line-height:1.55; max-width:640px; color:rgba(246,245,240,0.7);">Discovery across 11 ICBs identifying pathway to 90,000 extra appointments annually.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(246,245,240,0.5);">§ ISSUE 026 · MAY 2026 · LONDON</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; color:rgba(246,245,240,0.6);">
+        <strong style="color:#f6f5f0;">Stack:</strong> Display — Archivo Black. Title/Body — Archivo. Mono — Geist Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#181818;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span class="pill">Start a conversation ↗</span>
+        </div>
+        <div class="comp-card" style="background:#181818;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span class="pill-ghost">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#181818;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">METRIC TILE</div>
+          <div class="display-name accent" style="font-size:80px; line-height:0.9;">95%</div>
+          <div style="font-weight:600; margin-top:6px;">Accuracy in production</div>
+        </div>
+        <div class="comp-card" style="background:#181818;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">CHIP</div>
+          <span class="mono" style="font-size:11px; padding:6px 12px; border:1px solid rgba(255,255,255,0.2); border-radius:999px;">LLM Architecture</span>
+          <span class="mono" style="font-size:11px; padding:6px 12px; border:1px solid rgba(255,255,255,0.2); border-radius:999px; margin-left:6px;">Production</span>
+        </div>
+        <div class="comp-card" style="background:#181818; grid-column: span 2;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">TICKER</div>
+          <div class="ticker-strip">AI STRATEGY <span class="accent">✺</span> 70M+ USERS <span class="accent">✺</span> 12-WEEK TRANSFORMATIONS <span class="accent">✺</span> RAG · AGENTS · MCP</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center;">
+        <div>
+          <p style="font-size:15px; line-height:1.6; color:rgba(246,245,240,0.8); margin:0;">Floating "live response" pill labels with glowing yellow dot. Numbered section markers (§ 01, § 02). Ticker strips between sections. Hairline rules separating dense rows.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; align-items:flex-start;">
+          <span style="padding:8px 14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:999px; font-size:12px; font-family:'Geist Mono', monospace; display:inline-flex; align-items:center; gap:8px;">
+            <span style="width:6px; height:6px; border-radius:50%; background:#e7ff52; box-shadow:0 0 8px #e7ff52;"></span> 95% accuracy · production
+          </span>
+          <span style="padding:8px 14px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:999px; font-size:12px; font-family:'Geist Mono', monospace;">▸ FCDO · 500K+ citizens served</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Reserve yellow for ONE element per viewport</li>
+            <li>Push display type to viewport-edge sizes</li>
+            <li>Keep cards on a single ink-raised tone (#181818)</li>
+            <li>Use mono only for metadata, never body</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Yellow text under 36px (it shimmers)</li>
+            <li>Mix Archivo Black with another display face</li>
+            <li>Round corners above 24px on cards</li>
+            <li>Use yellow on long-form body copy</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- A2 · QUARTERLY -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="a2">
+  <div class="ds-divider">
+    <div class="num">System 02 / Brutalist Editorial</div>
+    <h2 style="font-family:'Archivo Black', sans-serif; font-style:normal; letter-spacing:-0.04em;">A2 · The Quarterly</h2>
+    <p class="sub">Cream paper stock + hot magenta accent on warm ink. Asymmetric magazine grid. The "highlighted phrase" technique you liked — magenta or black slabs behind key words.</p>
+  </div>
+  <div class="ds-frame ds-a2">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#f0eae0; color:#161311; border:1px solid rgba(0,0,0,0.1);">
+          <div><div class="role">Cream Paper</div><div class="meta">Dominant 75%</div></div>
+          <div class="meta">#F0EAE0</div>
+        </div>
+        <div class="swatch" style="background:#161311; color:#f0eae0;">
+          <div><div class="role">Warm Ink</div><div class="meta">Body, surfaces</div></div>
+          <div class="meta">#161311</div>
+        </div>
+        <div class="swatch" style="background:#ff3d6e; color:#f0eae0;">
+          <div><div class="role">Hot Magenta</div><div class="meta">Accent · 8%</div></div>
+          <div class="meta">#FF3D6E</div>
+        </div>
+        <div class="swatch" style="background:#e8d5a8; color:#161311;">
+          <div><div class="role">Lemon Cream</div><div class="meta">Tertiary surface</div></div>
+          <div class="meta">#E8D5A8</div>
+        </div>
+        <div class="swatch" style="background:rgba(22,19,17,0.06); color:#161311; border:1px solid rgba(0,0,0,0.1);">
+          <div><div class="role">Hairline</div><div class="meta">Rules</div></div>
+          <div class="meta">rgba(22,19,17,.12)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Display / 144</div>
+        <div style="font-family:'Archivo Black'; font-size:120px; line-height:0.82; letter-spacing:-0.04em;">From slides to <span class="accent">production</span>.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Title / 32</div>
+        <div style="font-family:'Archivo'; font-weight:700; font-size:32px; line-height:1.05; letter-spacing:-0.02em;">Numbers that matter.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 18</div>
+        <div style="font-size:18px; line-height:1.55; max-width:640px;">Real results from real deployments. Not just pilots — production systems serving millions.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(22,19,17,0.6);">§ A FIELD GUIDE TO APPLIED AI · LONDON</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; color:rgba(22,19,17,0.7);">
+        <strong>Stack:</strong> Display — Archivo Black. Body — Archivo. Mono — JetBrains Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#161311; color:#f0eae0;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span style="background:#ff3d6e; color:#161311; padding:14px 20px; border-radius:4px; font-weight:700; display:inline-block;">Start a conversation ↗</span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(22,19,17,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span class="pill-ghost">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(22,19,17,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">HIGHLIGHTED PHRASE</div>
+          <div style="font-family:'Archivo Black'; font-size:36px; line-height:1; letter-spacing:-0.03em;">From slides to <span style="background:#ff3d6e; color:#f0eae0; padding:0 12px;">production</span></div>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(22,19,17,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">METRIC SLAB</div>
+          <div style="font-family:'Archivo Black'; font-size:64px; line-height:0.9;">10d → <span class="accent">2hr</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">Hot magenta as a <strong>highlight slab</strong> behind a single word in display type — never as standalone text under 24px. Numeric section markers in italic ("01., 02."). Asymmetric two-column grid: short content column + long content column, alternating.</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Use magenta as a slab/highlight behind one word</li>
+            <li>Keep grid asymmetric — never 50/50</li>
+            <li>Pair Archivo Black headlines with Archivo body</li>
+            <li>Wrap callouts in lemon-cream when softer pop is needed</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Use magenta on body copy</li>
+            <li>Centre body text — always left-aligned</li>
+            <li>Put magenta on cream without ink</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- A3 · RISO ZINE -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="a3">
+  <div class="ds-divider">
+    <div class="num">System 03 / Brutalist Editorial</div>
+    <h2 style="font-family:'Archivo Black', sans-serif; font-style:normal; letter-spacing:-0.04em;">A3 · Riso Zine</h2>
+    <p class="sub">Risograph print aesthetic. Deep purple base with hot fluorescent yellow + pink accents. Slight rotations, halftone textures implied. Most playful of the brutalist set.</p>
+  </div>
+  <div class="ds-frame ds-a3">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#2b1f4f; color:#fbf3d8; border:1px solid rgba(251,243,216,0.15);">
+          <div><div class="role">Deep Purple</div><div class="meta">Dominant 70%</div></div>
+          <div class="meta">#2B1F4F</div>
+        </div>
+        <div class="swatch" style="background:#fff200; color:#2b1f4f;">
+          <div><div class="role">Fluoro Yellow</div><div class="meta">Riso layer 1</div></div>
+          <div class="meta">#FFF200</div>
+        </div>
+        <div class="swatch" style="background:#ff5fa2; color:#2b1f4f;">
+          <div><div class="role">Riso Pink</div><div class="meta">Riso layer 2</div></div>
+          <div class="meta">#FF5FA2</div>
+        </div>
+        <div class="swatch" style="background:#fbf3d8; color:#2b1f4f;">
+          <div><div class="role">Off-white</div><div class="meta">Body text</div></div>
+          <div class="meta">#FBF3D8</div>
+        </div>
+        <div class="swatch" style="background:#1a1438; color:#fbf3d8; border:1px solid rgba(251,243,216,0.15);">
+          <div><div class="role">Purple Deep</div><div class="meta">Cards</div></div>
+          <div class="meta">#1A1438</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Display / 144</div>
+        <div style="font-family:'Archivo Black'; font-size:120px; line-height:0.82; letter-spacing:-0.04em;"><span class="accent">AI</span> that <span class="pink">actually</span> works.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Title / 36</div>
+        <div style="font-family:'Archivo Black'; font-size:36px; line-height:1; transform:rotate(-1deg); display:inline-block;">Six disciplines.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 16</div>
+        <div style="font-size:16px; line-height:1.55; max-width:600px;">Possibly the fastest charity AI transformation in the UK. From strategy to coaching — sustainable capability across the entire organisation.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase;" class="accent">§ ZINE 026 · MAY 2026 · LDN</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; color:rgba(251,243,216,0.7);">
+        <strong style="color:#fbf3d8;">Stack:</strong> Display — Archivo Black. Body — Archivo. Mono — JetBrains Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#1a1438;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span style="background:#fff200; color:#2b1f4f; padding:16px 22px; border-radius:6px; font-weight:800; display:inline-block; transform:rotate(-1deg);">Start a conversation ↗</span>
+        </div>
+        <div class="comp-card" style="background:#1a1438;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / SECONDARY</div>
+          <span style="background:#ff5fa2; color:#2b1f4f; padding:16px 22px; border-radius:6px; font-weight:800; display:inline-block; transform:rotate(1deg);">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#fff200; color:#2b1f4f;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">METRIC TILE / YELLOW</div>
+          <div style="font-family:'Archivo Black'; font-size:80px; line-height:0.9;">70%</div>
+          <div style="font-weight:700; margin-top:6px; font-size:14px;">12-WEEK ADOPTION</div>
+        </div>
+        <div class="comp-card" style="background:#ff5fa2; color:#2b1f4f;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">METRIC TILE / PINK</div>
+          <div style="font-family:'Archivo Black'; font-size:80px; line-height:0.9;">95%</div>
+          <div style="font-weight:700; margin-top:6px; font-size:14px;">ACCURACY · LIVE</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">Slight rotations (±2°) on cards and buttons to imply hand-printing. Two riso "spot colours" — yellow and pink — used as full tile fills, never blended. Halftone dot patterns acceptable as background texture.</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Use yellow OR pink, rarely both in the same card</li>
+            <li>Keep rotations subtle (±2° max)</li>
+            <li>Use full-bleed riso tiles for stats</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Add a third or fourth riso colour</li>
+            <li>Rotate body copy (only display + chrome)</li>
+            <li>Use gradients — riso is flat-fill only</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- A4 · SPORTS TABLOID -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="a4">
+  <div class="ds-divider">
+    <div class="num">System 04 / Brutalist Editorial</div>
+    <h2 style="font-family:'Archivo Black', sans-serif; font-style:normal; letter-spacing:-0.04em;">A4 · Sports Tabloid</h2>
+    <p class="sub">White ground, ink type, massive diagonal red headline. Tournament-bracket grid energy. The most "shouty front page" of the set.</p>
+  </div>
+  <div class="ds-frame ds-a4">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#fafafa; color:#0a0a0a; border:1px solid rgba(0,0,0,0.1);">
+          <div><div class="role">Newsprint White</div><div class="meta">Dominant 75%</div></div>
+          <div class="meta">#FAFAFA</div>
+        </div>
+        <div class="swatch" style="background:#0a0a0a; color:#fafafa;">
+          <div><div class="role">Ink</div><div class="meta">Body & rules</div></div>
+          <div class="meta">#0A0A0A</div>
+        </div>
+        <div class="swatch" style="background:#ff3b1f; color:#fafafa;">
+          <div><div class="role">Tabloid Red</div><div class="meta">Diagonal headline · 12%</div></div>
+          <div class="meta">#FF3B1F</div>
+        </div>
+        <div class="swatch" style="background:#f1f1f1; color:#0a0a0a; border:1px solid rgba(0,0,0,0.1);">
+          <div><div class="role">Newsprint Tint</div><div class="meta">Cards</div></div>
+          <div class="meta">#F1F1F1</div>
+        </div>
+        <div class="swatch" style="background:rgba(0,0,0,0.08); color:#0a0a0a; border:1px solid rgba(0,0,0,0.1);">
+          <div><div class="role">Hairline</div><div class="meta">Rules</div></div>
+          <div class="meta">rgba(0,0,0,.10)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Diagonal / 144</div>
+        <div class="diagonal" style="font-size:120px;">PRODUCTION!</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Display / 96</div>
+        <div style="font-family:'Archivo Black'; font-size:80px; line-height:0.85; letter-spacing:-0.04em;">FROM SLIDES TO <span class="accent">PRODUCTION.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Title / 32</div>
+        <div style="font-family:'Archivo Black'; font-size:32px; line-height:1; text-transform:uppercase;">UK GOV'S FIRST PUBLIC LLM</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 16</div>
+        <div style="font-size:16px; line-height:1.55; max-width:640px;">Live on every British Embassy website. Saving £3.6M over 5 years while serving 500,000+ citizens annually.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;">▮ DOSSIER 01 / FCDO ▮ MAY 2026 ▮</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; color:rgba(0,0,0,0.7);">
+        <strong>Stack:</strong> Display — Archivo Black (skewed -8° for diagonals). Body — Archivo. Mono — Geist Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#f1f1f1;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span style="background:#ff3b1f; color:#fafafa; padding:14px 22px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; display:inline-block;">Start →</span>
+        </div>
+        <div class="comp-card" style="background:#f1f1f1;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span style="background:#fafafa; color:#0a0a0a; padding:14px 22px; font-weight:800; text-transform:uppercase; letter-spacing:0.04em; border:2px solid #0a0a0a; display:inline-block;">See work →</span>
+        </div>
+        <div class="comp-card" style="background:#fafafa; border:2px solid #0a0a0a;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">HEADLINE BRACKET</div>
+          <div style="font-family:'Archivo Black'; font-size:48px; line-height:0.9;">10D → <span class="accent">2H.</span></div>
+          <div style="font-weight:700; margin-top:8px; font-size:13px; text-transform:uppercase;">Awin · Publisher Matching</div>
+        </div>
+        <div class="comp-card" style="background:#0a0a0a; color:#fafafa;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">SCORE TILE</div>
+          <div style="font-family:'Archivo Black'; font-size:80px; line-height:0.9;"><span class="accent">95</span>%</div>
+          <div style="font-weight:700; margin-top:6px; font-size:13px; text-transform:uppercase;">Final · Production</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">Diagonal skewed display words (-8°). Ruled "dossier" headers in mono caps with ▮ glyphs. Score-style tiles. Tournament-bracket section dividers (thick black rules + numbered cells).</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>One diagonal word per page max</li>
+            <li>Use red as a single explosive accent</li>
+            <li>Keep cards rectangular — no rounded corners over 4px</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Pair red and a second accent colour</li>
+            <li>Centre headlines</li>
+            <li>Use gradients or shadows — flat only</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- C1 · COLOUR BLOCKS (ORIGINAL TERRACOTTA) -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="c1">
+  <div class="ds-divider">
+    <div class="num">System 05 / Manifesto Poster</div>
+    <h2>C1 · Colour Blocks <span style="font-family:'Geist Mono',monospace; font-size:13px; font-style:normal; letter-spacing:0.1em; opacity:0.5; vertical-align:middle;">— TERRACOTTA EDITION</span></h2>
+    <p class="sub">The original C1 palette restored: warm cream paper, ink, and three magazine-block tones — terracotta clay, lemon, sky-blue. Italic Fraunces display. Multi-block hero with metric tiles.</p>
+  </div>
+  <div class="ds-frame ds-c1">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#f4efe6; color:#1a1814; border:1px solid rgba(26,24,20,0.12);">
+          <div><div class="role">Cream Paper</div><div class="meta">Dominant 70%</div></div>
+          <div class="meta">#F4EFE6</div>
+        </div>
+        <div class="swatch" style="background:#1a1814; color:#f4efe6;">
+          <div><div class="role">Ink</div><div class="meta">Body, surfaces</div></div>
+          <div class="meta">#1A1814</div>
+        </div>
+        <div class="swatch" style="background:#d96f3b; color:#1a1814;">
+          <div><div class="role">Clay (Terracotta)</div><div class="meta">Primary block</div></div>
+          <div class="meta">#D96F3B</div>
+        </div>
+        <div class="swatch" style="background:#f1d34a; color:#1a1814;">
+          <div><div class="role">Lemon</div><div class="meta">Secondary block</div></div>
+          <div class="meta">#F1D34A</div>
+        </div>
+        <div class="swatch" style="background:#9bc4d9; color:#1a1814;">
+          <div><div class="role">Sky</div><div class="meta">Tertiary block</div></div>
+          <div class="meta">#9BC4D9</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Display / 200</div>
+        <div class="display-name" style="font-size:140px; line-height:0.92; letter-spacing:-0.025em;">AI that <span style="background:#1a1814; color:#f4efe6; padding:0 18px; border-radius:8px;">actually</span> works<span class="accent">.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Display / 64</div>
+        <div class="display-name" style="font-size:48px; line-height:1; letter-spacing:-0.02em;">What we actually do<span class="accent">.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Title / 28</div>
+        <div class="display-name" style="font-size:28px; line-height:1.05;">The UK's first public LLM.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 18</div>
+        <div class="sans" style="font-size:18px; line-height:1.55; max-width:640px;">From boardroom to codebase to culture. Deep AI expertise, from architecture to deployment.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; opacity:0.6;">VOL. 04 · 2026 · A FIELD GUIDE TO APPLIED AI</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; opacity:0.7;">
+        <strong>Stack:</strong> Display — Fraunces Italic 500. Body — Geist 400/500. Mono — JetBrains Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(26,24,20,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span class="pill">Start a conversation ↗</span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(26,24,20,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span class="pill-ghost">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#d96f3b; color:#1a1814;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">METRIC TILE · CLAY</div>
+          <div class="display-name" style="font-size:60px; line-height:0.9;">500K</div>
+          <div class="sans" style="font-size:13px; margin-top:6px;">citizens / yr · FCDO</div>
+        </div>
+        <div class="comp-card" style="background:#f1d34a; color:#1a1814;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">METRIC TILE · LEMON</div>
+          <div class="display-name" style="font-size:60px; line-height:0.9;">70%</div>
+          <div class="sans" style="font-size:13px; margin-top:6px;">adoption · 12wk · GOSH</div>
+        </div>
+        <div class="comp-card" style="background:#9bc4d9; color:#1a1814;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">METRIC TILE · SKY</div>
+          <div class="display-name" style="font-size:60px; line-height:0.9;">10d → 2hr</div>
+          <div class="sans" style="font-size:13px; margin-top:6px;">Awin · publisher matching</div>
+        </div>
+        <div class="comp-card" style="background:#1a1814; color:#f4efe6;">
+          <div class="mono" style="font-size:10px; opacity:0.6; margin-bottom:14px;">METRIC TILE · INK</div>
+          <div class="display-name accent" style="font-size:60px; line-height:0.9;">+90k</div>
+          <div class="sans" style="font-size:13px; margin-top:6px; opacity:0.85;">appointments · NHS</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p class="sans" style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">2×2 metric-tile grid in the hero (clay + lemon + sky + ink). Ink slabs behind one word in the headline ("actually"). Italic numerals as section markers (01., 02.). Soft rounded corners (10–18px) — never sharp.</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Use all three blocks (clay/lemon/sky) per spread</li>
+            <li>Keep ink as the anchor — at least one ink element per section</li>
+            <li>Italic Fraunces for display, Geist for body</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Use Fraunces for body copy (italic gets tiring)</li>
+            <li>Add a fourth accent — three blocks max</li>
+            <li>Use sky on text smaller than 24px (low contrast)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- C3 · SATURATED BLOCKS -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="c3">
+  <div class="ds-divider">
+    <div class="num">System 06 / Manifesto Poster</div>
+    <h2>C3 · Saturated Blocks</h2>
+    <p class="sub">Same magazine-block scaffolding as C1 with the volume turned all the way up. Hot magenta + cobalt + acid lime + ink on warm cream. Maximum flair.</p>
+  </div>
+  <div class="ds-frame ds-c3">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#f4efe6; color:#1a1814; border:1px solid rgba(26,24,20,0.12);">
+          <div><div class="role">Cream Paper</div><div class="meta">Dominant 65%</div></div>
+          <div class="meta">#F4EFE6</div>
+        </div>
+        <div class="swatch" style="background:#1a1814; color:#f4efe6;">
+          <div><div class="role">Ink</div><div class="meta">Body, anchor</div></div>
+          <div class="meta">#1A1814</div>
+        </div>
+        <div class="swatch" style="background:#e30b5c; color:#f4efe6;">
+          <div><div class="role">Hot Magenta</div><div class="meta">Primary block</div></div>
+          <div class="meta">#E30B5C</div>
+        </div>
+        <div class="swatch" style="background:#1a4ed8; color:#f4efe6;">
+          <div><div class="role">Cobalt</div><div class="meta">Secondary block</div></div>
+          <div class="meta">#1A4ED8</div>
+        </div>
+        <div class="swatch" style="background:#c5ff3d; color:#1a1814;">
+          <div><div class="role">Acid Lime</div><div class="meta">Highlight block</div></div>
+          <div class="meta">#C5FF3D</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Display / 200</div>
+        <div class="display-name" style="font-size:140px; line-height:0.92;">AI that <span style="background:#1a1814; color:#f4efe6; padding:0 18px; border-radius:8px;">actually</span> works<span class="accent">.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Display / 64</div>
+        <div class="display-name" style="font-size:48px;">Numbers that <span class="accent">matter</span>.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 18</div>
+        <div class="sans" style="font-size:18px; line-height:1.55; max-width:640px;">Six disciplines. Used in any combination.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; opacity:0.6;">FEATURE · 01 / FCDO</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; opacity:0.7;">
+        <strong>Stack:</strong> Display — Fraunces Italic 500. Body — Geist 400/500. Mono — JetBrains Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(26,24,20,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span class="sans" style="background:#e30b5c; color:#f4efe6; padding:16px 24px; border-radius:999px; font-weight:500; display:inline-block;">Start a conversation ↗</span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(26,24,20,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span class="sans" style="color:#1a1814; padding:16px 24px; border-radius:999px; font-weight:500; border:1px solid #1a1814; display:inline-block;">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#e30b5c; color:#f4efe6;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE · MAGENTA</div>
+          <div class="display-name" style="font-size:48px; line-height:1;">I.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Strategy & Advisory</div>
+        </div>
+        <div class="comp-card" style="background:#1a4ed8; color:#f4efe6;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE · COBALT</div>
+          <div class="display-name" style="font-size:48px; line-height:1;">III.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Transformation</div>
+        </div>
+        <div class="comp-card" style="background:#c5ff3d; color:#1a1814;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE · LIME</div>
+          <div class="display-name" style="font-size:48px; line-height:1;">II.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Coaching & Mentoring</div>
+        </div>
+        <div class="comp-card" style="background:#1a1814; color:#f4efe6;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE · INK</div>
+          <div class="display-name" style="font-size:48px; line-height:1; color:#c5ff3d;">IV.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Architecture & Engineering</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p class="sans" style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">Roman numerals (I., II., III.) in oversized italic Fraunces as service identifiers. Ink section ("the manifesto") at midpoint with all three accents inside it. Lime as highlight slab behind one word per section.</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Use all three blocks together for vibration</li>
+            <li>Keep cream as the page ground — never replace</li>
+            <li>Anchor each section with one ink element</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Use lime on white — needs ink contrast</li>
+            <li>Mix magenta + cobalt as adjacent text colours</li>
+            <li>Apply the system to dark mode (it depends on cream)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- C4 · POSTERED & PLAYFUL -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="c4">
+  <div class="ds-divider">
+    <div class="num">System 07 / Manifesto Poster</div>
+    <h2>C4 · Postered & Playful</h2>
+    <p class="sub">Mixed-typeface ransom-note collage. Italic Fraunces meets blocky Archivo Black. Tangerine + violet on bone, slightly rotated sticker badges, mixed shapes. Most personality of the set.</p>
+  </div>
+  <div class="ds-frame ds-c4">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#f6f1e7; color:#0d0a08; border:1px solid rgba(13,10,8,0.12);">
+          <div><div class="role">Bone</div><div class="meta">Dominant 65%</div></div>
+          <div class="meta">#F6F1E7</div>
+        </div>
+        <div class="swatch" style="background:#0d0a08; color:#f6f1e7;">
+          <div><div class="role">Ink</div><div class="meta">Body, anchor</div></div>
+          <div class="meta">#0D0A08</div>
+        </div>
+        <div class="swatch" style="background:#ff5c1f; color:#0d0a08;">
+          <div><div class="role">Tangerine</div><div class="meta">Primary accent</div></div>
+          <div class="meta">#FF5C1F</div>
+        </div>
+        <div class="swatch" style="background:#5a2eb8; color:#f6f1e7;">
+          <div><div class="role">Violet</div><div class="meta">Secondary accent</div></div>
+          <div class="meta">#5A2EB8</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Mixed / 144</div>
+        <div>
+          <div class="archivo" style="font-size:80px;">AI THAT</div>
+          <div class="display-name accent" style="font-size:80px; margin-left:8%;">actually,</div>
+          <div class="archivo" style="font-size:80px;">WORKS<span style="color:#5a2eb8;">.</span></div>
+        </div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Display / 64</div>
+        <div class="display-name" style="font-size:48px;">What we actually do<span class="accent">.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Body / 18</div>
+        <div class="sans" style="font-size:18px; line-height:1.55; max-width:640px;">Six disciplines. Used in any combination. From "we don't know where to start" to "this serves half a million people."</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; text-transform:uppercase; letter-spacing:0.1em; opacity:0.7;">§ A short manifesto</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; opacity:0.7;">
+        <strong>Stack:</strong> Sans display — Archivo Black (caps). Italic display — Fraunces Italic 500. Body — Geist. Mono — JetBrains Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(13,10,8,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span class="sans" style="background:#0d0a08; color:#f6f1e7; padding:16px 24px; border-radius:999px; font-weight:500; display:inline-flex; gap:6px; align-items:center;">Start a conversation <span style="color:#ff5c1f;">↗</span></span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(13,10,8,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span class="sans" style="color:#0d0a08; padding:16px 24px; border-radius:999px; font-weight:500; border:1px solid #0d0a08; display:inline-block;">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(13,10,8,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">STICKER BADGES</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="sticker" style="background:#ff5c1f; color:#f6f1e7; transform:rotate(-2deg);">★ AI EXCELLENCE WINNER</span>
+            <span class="sticker" style="background:#0d0a08; color:#ff5c1f; transform:rotate(2deg);">● 70M+ users</span>
+            <span class="sticker" style="background:#5a2eb8; color:#f6f1e7; transform:rotate(-1deg);">▲ 95% accuracy</span>
+            <span class="sticker" style="background:#fff; color:#0d0a08; border:1.5px solid #0d0a08; transform:rotate(3deg);">✦ AMAZON BESTSELLER</span>
+          </div>
+        </div>
+        <div class="comp-card" style="background:#ff5c1f; color:#0d0a08; transform:rotate(-0.5deg);">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE</div>
+          <div class="display-name" style="font-size:48px; line-height:1;">I.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Strategy & Advisory</div>
+        </div>
+        <div class="comp-card" style="background:#5a2eb8; color:#f6f1e7; transform:rotate(0.8deg);">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE</div>
+          <div class="display-name" style="font-size:48px; line-height:1;">III.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Transformation</div>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1.5px solid #0d0a08; transform:rotate(-0.6deg);">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">SERVICE TILE</div>
+          <div class="display-name" style="font-size:48px; line-height:1;">V.</div>
+          <div class="display-name" style="font-size:24px; margin-top:14px;">Rapid Prototyping</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p class="sans" style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">Stacked headline mixing italic Fraunces with all-caps Archivo Black. Sticker badges with subtle rotation (±3°). Big tangerine and violet circles as decorative blobs (mix-blend-mode: multiply).</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Mix Archivo Black + Fraunces Italic in stacked headlines</li>
+            <li>Use stickers in clusters (3–4 minimum)</li>
+            <li>Subtle rotation only (±3° max)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Rotate body copy or service titles</li>
+            <li>Add a third major colour — tangerine + violet only</li>
+            <li>Mix shapes randomly — keep poster grid disciplined</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────── -->
+<!-- C5 · EDITORIAL SPREAD -->
+<!-- ─────────────────────────────────────────────────────────────── -->
+<section id="c5">
+  <div class="ds-divider">
+    <div class="num">System 08 / Manifesto Poster</div>
+    <h2>C5 · Editorial Spread</h2>
+    <p class="sub">Magazine-feature spread. Two-column with drop-cap, left-aligned, teal + coral on bone. The most "long-form publication" of the set — feels like a printed essay.</p>
+  </div>
+  <div class="ds-frame ds-c5">
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Palette</h3>
+      <div class="swatches">
+        <div class="swatch" style="background:#f5f0e6; color:#171210; border:1px solid rgba(23,18,16,0.12);">
+          <div><div class="role">Bone</div><div class="meta">Dominant 70%</div></div>
+          <div class="meta">#F5F0E6</div>
+        </div>
+        <div class="swatch" style="background:#171210; color:#f5f0e6;">
+          <div><div class="role">Ink</div><div class="meta">Body, surfaces</div></div>
+          <div class="meta">#171210</div>
+        </div>
+        <div class="swatch" style="background:#0d8478; color:#f5f0e6;">
+          <div><div class="role">Teal</div><div class="meta">Primary accent</div></div>
+          <div class="meta">#0D8478</div>
+        </div>
+        <div class="swatch" style="background:#ee5d3f; color:#171210;">
+          <div><div class="role">Coral</div><div class="meta">Secondary accent</div></div>
+          <div class="meta">#EE5D3F</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Typography</h3>
+      <div class="typescale-row">
+        <div class="label">Display / 200</div>
+        <div class="display-name" style="font-size:140px; line-height:0.95; letter-spacing:-0.025em;">AI that <span class="accent">actually</span> works<span style="color:#ee5d3f;">.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Display / 64</div>
+        <div class="display-name" style="font-size:48px;">What we actually do<span style="color:#ee5d3f;">.</span></div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Drop cap / 17</div>
+        <div class="sans" style="font-size:17px; line-height:1.65;"><span style="font-family:'Fraunces',serif; font-style:italic; font-size:6em; float:left; line-height:0.85; padding:8px 14px 0 0; color:#ee5d3f;">F</span>rom boardroom to codebase to culture. Deep AI expertise, from architecture to deployment — we turn ambition into systems that ship and keep working. Twenty years of shipping software, the last few of shipping AI for governments, charities, and the FTSE 100.</div>
+      </div>
+      <div class="typescale-row">
+        <div class="label">Mono / 11</div>
+        <div class="mono" style="font-size:11px; text-transform:uppercase; letter-spacing:0.16em; color:#ee5d3f;">FEATURE — APPLIED AI · MAY 2026</div>
+      </div>
+      <div style="margin-top:24px; font-size:13px; opacity:0.7;">
+        <strong>Stack:</strong> Display — Fraunces Italic 400. Drop cap — Fraunces Italic 6em. Body — Geist 400. Mono — JetBrains Mono.
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Components</h3>
+      <div class="components-grid">
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(23,18,16,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / PRIMARY</div>
+          <span class="sans" style="background:#171210; color:#f5f0e6; padding:14px 24px; border-radius:999px; font-weight:500; display:inline-block;">Start a conversation ↗</span>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(23,18,16,0.12);">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">BUTTON / GHOST</div>
+          <span class="sans" style="color:#171210; padding:14px 24px; border-radius:999px; font-weight:500; border:1px solid #171210; display:inline-block;">See our work →</span>
+        </div>
+        <div class="comp-card" style="background:#0d8478; color:#f5f0e6;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">FEATURE STAT · TEAL</div>
+          <div class="display-name" style="font-size:80px; line-height:1;">70M+</div>
+          <div class="sans" style="font-size:14px; opacity:0.9; margin-top:6px;">users / year</div>
+        </div>
+        <div class="comp-card" style="background:#ee5d3f; color:#171210;">
+          <div class="mono" style="font-size:10px; opacity:0.7; margin-bottom:14px;">FEATURE STAT · CORAL</div>
+          <div class="display-name" style="font-size:80px; line-height:1;">95%</div>
+          <div class="sans" style="font-size:14px; margin-top:6px;">accuracy in production</div>
+        </div>
+        <div class="comp-card" style="background:#fff; border:1px solid rgba(23,18,16,0.12); grid-column: span 2;">
+          <div class="mono" style="font-size:10px; opacity:0.5; margin-bottom:14px;">CASE-STUDY ROW</div>
+          <div style="display:grid; grid-template-columns:30px 1fr 2fr; gap:24px; align-items:baseline; padding:8px 0; border-bottom:1px solid rgba(23,18,16,0.18);">
+            <span style="width:14px; height:14px; background:#0d8478; border-radius:50%; display:inline-block;"></span>
+            <div>
+              <div class="mono" style="font-size:11px; margin-bottom:8px; color:rgba(23,18,16,0.6); text-transform:uppercase; letter-spacing:0.08em;">No. 02 — GOSH Charity</div>
+              <div class="display-name" style="font-size:36px; line-height:0.95;">70% adoption · 12 weeks</div>
+            </div>
+            <p class="sans" style="font-size:15px; line-height:1.6; color:rgba(23,18,16,0.78); margin:0;">Possibly the fastest charity AI transformation in the UK.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Signature motifs</h3>
+      <p class="sans" style="font-size:15px; line-height:1.6; max-width:760px; margin:0;">Coral italic drop-caps opening every body section. Hairline rules separating numbered case rows. Big stat strip (3-up) bordered top + bottom. Pull-quote section in solid teal with coral highlight slab on key word.</p>
+    </div>
+
+    <div class="sys-row">
+      <h3 class="sys-h3">Rules of use</h3>
+      <div class="usage-grid">
+        <div>
+          <h4>Do</h4>
+          <ul>
+            <li>Open every long article with a drop cap</li>
+            <li>Keep two-column reading width (max 60ch)</li>
+            <li>Use teal as background for one section per page</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don't</h4>
+          <ul class="dont">
+            <li>Centre body — always left-aligned</li>
+            <li>Use coral and teal in the same word</li>
+            <li>Add a third accent — only teal + coral</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="max-width:1320px; margin:0 auto; padding:96px 32px 64px; border-top:1px solid var(--doc-rule); margin-top:64px; display:flex; justify-content:space-between; font-family:'Geist Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--doc-mute);">
+  <span>© 2026 Paidia Consulting · Field Guide vol. IV</span>
+  <span>Eight systems · One brand</span>
+  <a href="Paidia Redesign.html" style="color:var(--doc-ink); text-decoration:none;">← back to canvas</a>
+</footer>
+
+</body>
+</html>

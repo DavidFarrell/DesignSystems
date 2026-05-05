@@ -1,0 +1,144 @@
+// A3 — Brutalist · Risograph print zine
+// Two-spot-colour overprint feel: deep purple bg + acid yellow + fluorescent pink halftone.
+// Big oversized numbers, registration-mark accents, halftone dot textures.
+
+function DirectionA3({ accent = '#fff200', headline = 'AI that actually works.', motif = true }) {
+  const ink = '#1c0d3a';
+  const pink = '#ff2e88';
+  return (
+    <div className="ab" style={{ width:'100%', minHeight:'100%', background: ink, color:'#fff', fontFamily:'Archivo, sans-serif' }}>
+      <style>{`
+        .a3 .display{font-family:'Archivo Black',sans-serif;letter-spacing:-0.045em;line-height:0.82}
+        .a3 .mono{font-family:'Geist Mono',monospace}
+        .a3 .halftone{background-image:radial-gradient(${pink} 1px, transparent 1.5px);background-size:6px 6px}
+      `}</style>
+      <div className="a3">
+        {/* Nav */}
+        <div style={{ padding:'18px 32px', display:'flex', justifyContent:'space-between', alignItems:'center', borderBottom:`1px solid ${accent}` }}>
+          <div className="display" style={{ fontSize:22, color:accent }}>PAIDIA<span style={{ color:pink }}>◉</span></div>
+          <nav className="mono" style={{ display:'flex', gap:24, fontSize:11, textTransform:'uppercase', letterSpacing:'0.1em' }}>
+            {['Services','Impact','Clients','Writing'].map((x,i)=>(<a key={i} href="#" style={{ color:'#fff', textDecoration:'none' }}>{x}</a>))}
+          </nav>
+          <a href="#" style={{ background:accent, color:ink, padding:'10px 16px', textDecoration:'none', fontWeight:700, fontSize:13 }}>CONTACT →</a>
+        </div>
+
+        {/* Hero */}
+        <section style={{ padding:'48px 32px 80px', position:'relative', overflow:'hidden' }}>
+          {motif && <div className="halftone" style={{ position:'absolute', top:60, right:-100, width:520, height:520, borderRadius:'50%', mixBlendMode:'screen', opacity:0.7 }}/>}
+          {motif && <div style={{ position:'absolute', top:120, right:140, width:280, height:280, borderRadius:'50%', background:accent, mixBlendMode:'screen', filter:'blur(2px)' }}/>}
+
+          <div className="mono" style={{ fontSize:11, color:accent, marginBottom:32, letterSpacing:'0.12em' }}>＋ ZINE №026 / RISO PRESS / LDN ＋</div>
+          <h1 className="display" style={{ fontSize:'clamp(80px, 14vw, 240px)', margin:0, position:'relative', zIndex:2 }}>
+            <span style={{ display:'block' }}>AI THAT</span>
+            <span style={{ display:'block', color:accent, position:'relative' }}>
+              ACTUALLY
+              <span style={{ position:'absolute', left:-6, top:6, color:pink, mixBlendMode:'screen', zIndex:-1 }}>ACTUALLY</span>
+            </span>
+            <span style={{ display:'block' }}>WORKS<span style={{ color:pink }}>.</span></span>
+          </h1>
+          <div style={{ display:'grid', gridTemplateColumns:'1.4fr 1fr', gap:48, marginTop:48, alignItems:'end' }}>
+            <p style={{ fontSize:20, lineHeight:1.45, color:'rgba(255,255,255,0.85)', maxWidth:620 }}>
+              From boardroom to codebase to culture. Deep AI expertise, from architecture to deployment — we turn ambition into systems that ship and keep working.
+            </p>
+            <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
+              <a href="#" style={{ background:accent, color:ink, padding:'18px 22px', textDecoration:'none', fontWeight:800, fontSize:15, display:'flex', justifyContent:'space-between', alignItems:'center' }}>START A CONVERSATION <span>↗</span></a>
+              <a href="#" style={{ background:'transparent', color:'#fff', padding:'18px 22px', border:`1px solid ${accent}`, textDecoration:'none', fontWeight:600, fontSize:15, display:'flex', justifyContent:'space-between' }}>SEE OUR WORK <span style={{ color: accent }}>→</span></a>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats */}
+        <section style={{ padding:'80px 32px', borderTop:`1px solid ${accent}`, borderBottom:`1px solid ${accent}` }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)' }}>
+            {[['70M+','users / yr', accent],['95%','accuracy', pink],['20+','years shipping', accent]].map(([n,l,c],i)=>(
+              <div key={i} style={{ borderLeft: i? `1px solid ${accent}` : 'none', padding:'0 32px' }}>
+                <div className="display" style={{ fontSize:'clamp(80px,10vw,160px)', color:c }}>{n}</div>
+                <div className="mono" style={{ fontSize:13, marginTop:12, textTransform:'uppercase', letterSpacing:'0.08em' }}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Services as poster strip */}
+        <section style={{ padding:'80px 32px' }}>
+          <div className="mono" style={{ fontSize:11, color:pink, textTransform:'uppercase', letterSpacing:'0.12em', marginBottom:20 }}>＋ SERVICES ＋</div>
+          <h2 className="display" style={{ fontSize:'clamp(56px,8vw,128px)', margin:'0 0 48px' }}>FROM SLIDES<br/>TO <span style={{ color:accent }}>PRODUCTION.</span></h2>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap:0 }}>
+            {[
+              ['01','STRATEGY & ADVISORY','Board-level guidance on where AI creates real value.'],
+              ['02','COACHING & MENTORING','Reshape mental models. Where AI excels, where it fails.'],
+              ['03','TRANSFORMATION','70% workforce adoption in 12 weeks.'],
+              ['04','ARCHITECTURE & ENG','Production-grade RAG, agents, hallucination-safe.'],
+              ['05','RAPID PROTOTYPING','Working demos in days, not quarters.'],
+              ['06','AI GOVERNANCE','Frameworks that enable rather than block.'],
+            ].map(([n,t,d],i)=>(
+              <div key={i} style={{ padding:32, borderTop:`1px solid ${accent}`, borderLeft: i%2 ? `1px solid ${accent}` : 'none', display:'flex', gap:24 }}>
+                <div className="display" style={{ fontSize:64, color: i%2 ? accent : pink, lineHeight:0.9 }}>{n}</div>
+                <div>
+                  <div className="display" style={{ fontSize:22, marginBottom:8 }}>{t}</div>
+                  <p style={{ fontSize:14, color:'rgba(255,255,255,0.7)', lineHeight:1.5, margin:0 }}>{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Hero case as overprint poster */}
+        <section style={{ padding:'80px 32px', background: accent, color: ink, position:'relative', overflow:'hidden' }}>
+          <div className="halftone" style={{ position:'absolute', inset:0, opacity:0.18, mixBlendMode:'multiply' }}/>
+          <div style={{ position:'relative' }}>
+            <div className="mono" style={{ fontSize:12, marginBottom:20, fontWeight:700, letterSpacing:'0.12em' }}>＋ COVER STORY · FCDO ＋</div>
+            <h3 className="display" style={{ fontSize:'clamp(64px,9vw,160px)', margin:0, lineHeight:0.9 }}>
+              UK GOV'S<br/>FIRST PUBLIC<br/><span style={{ background:ink, color:accent, padding:'0 16px', display:'inline-block' }}>LLM.</span>
+            </h3>
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, marginTop:32, maxWidth:1200 }}>
+              <p style={{ fontSize:18, lineHeight:1.55, margin:0, fontWeight:500 }}>
+                Live on every British Embassy website. 10-day email queues turned into 5-second responses. <strong>95% accuracy</strong> — exceeding the human agent baseline. £3.6M saved over 5 years; 500,000+ citizens served annually.
+              </p>
+              <div className="mono" style={{ display:'grid', gap:6, fontSize:13, fontWeight:600 }}>
+                <div>response_time : 10D → 5S</div>
+                <div>accuracy : 95.0%</div>
+                <div>baseline_human : 89.2%</div>
+                <div>citizens_served : 500,000+</div>
+                <div>saving : £3.6M / 5YR</div>
+                <div style={{ marginTop:8, padding:'10px 14px', background: ink, color: accent, fontWeight:800 }}>★ DIGITAL LEADERS AI EXCELLENCE — WINNER 2025</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Other cases */}
+        <section style={{ padding:'80px 32px' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:24 }}>
+            {[
+              ['GOSH','70% / 12wk','Possibly the fastest charity AI transformation in the UK.'],
+              ['NHS','+90,000','Pathway to 90,000 extra appointments annually. £500k secured.'],
+              ['AWIN','10D → 2H','Publisher matching for 1,500 vendors in 2 hours. RFP halved.'],
+              ['PEARSON','4× growth','Unified AI platform for FTSE 100 education provider.'],
+              ['RIMES','500h/mo','40+ developers upskilled. Roadmap → ship.'],
+              ['MERTON','Open source','Council AI playbook, replicated across local gov.'],
+            ].map(([c,m,d],i)=>(
+              <div key={i} style={{ border:`1px solid ${accent}`, padding:24, position:'relative' }}>
+                <div className="mono" style={{ fontSize:10, color: i%2?pink:accent, marginBottom:14, letterSpacing:'0.1em' }}>● {c}</div>
+                <div className="display" style={{ fontSize:36, marginBottom:14, color: i%2?pink:accent }}>{m}</div>
+                <p style={{ fontSize:13, color:'rgba(255,255,255,0.75)', lineHeight:1.55, margin:0 }}>{d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section style={{ padding:'140px 32px', textAlign:'center', background: pink, color: ink, position:'relative' }}>
+          <h2 className="display" style={{ fontSize:'clamp(72px,12vw,220px)', margin:0, lineHeight:0.85 }}>
+            LET'S BUILD<br/>SOMETHING<br/><span style={{ color: accent, background: ink, padding:'0 18px', display:'inline-block' }}>THAT WORKS.</span>
+          </h2>
+          <a href="#" style={{ marginTop:40, display:'inline-block', background:ink, color:accent, padding:'20px 36px', fontWeight:800, textDecoration:'none', fontSize:16 }}>START A CONVERSATION ↗</a>
+        </section>
+        <footer className="mono" style={{ padding:'32px', borderTop:`1px solid ${accent}`, fontSize:12, display:'flex', justifyContent:'space-between', textTransform:'uppercase', letterSpacing:'0.08em' }}>
+          <span>© 2026 PAIDIA</span><span style={{ color:accent }}>RISO PRESS · LONDON</span><span>PRIVACY · EMAIL</span>
+        </footer>
+      </div>
+    </div>
+  );
+}
+window.DirectionA3 = DirectionA3;
